@@ -1,10 +1,10 @@
 <?php
-  include("header.php");
 
 
-  $strTitle = "AmdWeb offres d'emplois, liste des offres d’emplois";
-  $strPage = "emploi";
+$strTitle = "AmdWeb offres d'emplois, liste des offres d’emplois";
+$strPage = "emploi";
 
+include("header.php");
 
   // $strRq 			= "	SELECT *
 	// 					FROM offre";
