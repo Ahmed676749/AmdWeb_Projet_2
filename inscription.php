@@ -2,7 +2,8 @@
   $strTitle = "AmdWeb offres d'emplois, inscription";
   $strPage = "inscription";
 
-  include("../header.php");
+  include("header.php");
+
 ?>
 
       <main>
@@ -69,5 +70,5 @@
           </div>
         </section>
       </main>
-      <?php include("../footer.php") ?>
+      <?php include("footer.php") ?>
     

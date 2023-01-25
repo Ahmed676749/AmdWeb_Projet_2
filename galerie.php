@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb offres d'emplois, galerie photos";
   $strPage = "galerie";
 
-  include("../header.php");
+  include("header.php");
 
   
 ?>
@@ -78,5 +78,5 @@
         </div>
       </main>
       <!--Footer-->
-      <?php include("../footer.php") ?>
+      <?php include("footer.php") ?>
       

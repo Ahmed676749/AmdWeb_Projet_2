@@ -1,5 +1,3 @@
-<?php if($strPage != "") {
-        echo "<footer>
         <div class='wrap-footer'>
           <div class='adress-footer'>
             <p>AmdWeb</p>
@@ -8,8 +6,8 @@
             <p>AmdWeb@ccicampus.fr</p>
           </div>
           <div class='nav-footer'>
-            <a href='pages/footer/plan-site.php'>Plan du site</a>
-            <a href='pages/footer/mentions.php'>Mentions légales</a>
+            <a href='plan-site.php'>Plan du site</a>
+            <a href='mentions.php'>Mentions légales</a>
           </div>
         </div>
         <div class='wrap-map'>
@@ -21,8 +19,7 @@
           style='border: 0'
           allowfullscreen=''
           loading='lazy'
-          referrerpolicy='no-referrer-when-downgrade'
-        ></iframe>
+          referrerpolicy='no-referrer-when-downgrade'></iframe>
           </div>
         </div>
       </footer>
@@ -33,4 +30,4 @@
       crossorigin='anonymous'
     ></script>
   </body>
-</html>";} ?>
+</html>";

@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb offres d'emplois, connexion";
   $strPage = "connexion";
 
-  include("../header.php");
+  include("header.php");
 ?>
 
 
@@ -32,5 +32,5 @@
         </section>
       </main>
       <!--Footer-->
-      <?php include("../footer.php") ?>
+      <?php include("footer.php") ?>
       

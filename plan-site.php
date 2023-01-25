@@ -2,7 +2,8 @@
   $strTitle = "AmdWeb, offres d'emplois, plan du site";
   $strPage = "plan-site";
 
-  include("../../pages/header.php");
+  include("header.php");
+
 ?>
 
 
@@ -42,5 +43,5 @@
       </main>
     </div>
     <!--Footer-->
-    <?php include("../../footer.php") ?>
+    <?php include("footer.php") ?>
    

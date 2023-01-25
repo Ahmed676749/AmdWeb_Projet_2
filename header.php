@@ -1,7 +1,3 @@
-<?php
-    $strPath = "../";
- ?>
-
 <!DOCTYPE html>
 <html lang="fr-FR">
   <head>
@@ -14,7 +10,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     
     <title><?php echo $strTitle; ?></title>
   </head>
@@ -25,10 +21,10 @@
         <header class="color-style">
           <div class="navbar navbar-expand-lg">
             <div class="container-fluid">
-              <a class="navbar-brand" href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>index.php">
+              <a class="navbar-brand" href="index.php">
                 <div class="logo-box">
                 <img
-                  src="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>assets/images/img_first_page/logo.png"
+                  src="assets/images/img_first_page/logo.png"
                   alt="logo"
                 />
                 </div>
@@ -47,27 +43,20 @@
               <nav class="collapse navbar-collapse color-style" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link <?php if($strPage == "index") {echo "active";} ?> " aria-current="page" href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>index.php">Accueil</a>
+                    <a class="nav-link <?php if($strPage == "index") {echo "active";} ?> " aria-current="page" href="index.php">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "emploi") {echo "active";} ?> href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/job/emploi.php">Emploi</a>
+                    <a class="nav-link" <?php if($strPage == "emploi") {echo "active";} ?> href="emploi.php">Emploi</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "galerie") {echo "active";} ?> href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/photos/galerie.php"
-                      >Galerie</a
+                    <a class="nav-link" <?php if($strPage == "galerie") {echo "active";} ?> href="galerie.php">Galerie</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a
-                      class="nav-link" <?php if($strPage == "inscription") {echo "active";} ?>
-                      href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/enregistrement/inscription.php"
-                      >Inscription</a
-                    >
+                    <a class="nav-link" <?php if($strPage == "inscription") {echo "active";} ?> href="inscription.php">Inscription</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "connexion") {echo "active";} ?> href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/depots/connexion.php"
-                      >Connexion</a
-                    >
+                    <a class="nav-link" <?php if($strPage == "connexion") {echo "active";} ?> href="connexion.php">Connexion</a>
                   </li>
                 </ul>
               </nav>
