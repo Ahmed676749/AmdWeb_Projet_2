@@ -1,17 +1,19 @@
 <?php
+  include("connect.php");
 
 
-$strTitle = "AmdWeb offres d'emplois, liste des offres d’emplois";
-$strPage = "emploi";
+  $strTitle = "AmdWeb offres d'emplois, liste des offres d’emplois";
+  $strPage = "emploi";
 
-include("header.php");
+  include("header.php");
 
-  // $strRq 			= "	SELECT *
-	// 					FROM offre";
+  $strRq 			= "	SELECT *
+                  FROM offre";
 
-	// $arrOffres 	= $db->query($strRq)->fetchAll();
+  $arrOffres 	= $db->query($strRq)->fetchAll();
 
-  // var_dump($arrOffres);
+  var_dump($strRq);
+  var_dump($arrOffres);
   
 ?>
 

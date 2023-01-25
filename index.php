@@ -1,4 +1,5 @@
 <?php
+
   $strTitle = "AmdWeb, offres d'emplois spécialisé web";
   $strPage = "index";
 
