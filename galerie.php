@@ -23,35 +23,35 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img
-                src="../../assets/images/img_first_page/img-2.jpg"
+                src="assets/images/img_first_page/img-2.jpg"
                 class="d-block w-100"
                 alt="..."
               />
             </div>
             <div class="carousel-item">
               <img
-                src="../../assets/images/img_first_page/img-1.jpg"
+                src="assets/images/img_first_page/img-1.jpg"
                 class="d-block w-100"
                 alt="..."
               />
             </div>
             <div class="carousel-item">
               <img
-                src="../../assets/images/img_first_page/demandeur-emploi-bureau.jpeg"
+                src="assets/images/img_first_page/demandeur-emploi-bureau.jpeg"
                 class="d-block w-100"
                 alt="..."
               />
             </div>
             <div class="carousel-item">
               <img
-                src="../../assets/images/img_first_page/demandeur-emploi.jpg"
+                src="assets/images/img_first_page/demandeur-emploi.jpg"
                 class="d-block w-100"
                 alt="..."
               />
             </div>
             <div class="carousel-item">
               <img
-                src="../../assets/images/img_first_page/recruteur.jpg"
+                src="assets/images/img_first_page/recruteur.jpg"
                 class="d-block w-100"
                 alt="..."
               />

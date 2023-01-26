@@ -1,3 +1,4 @@
+      <footer>
         <div class='wrap-footer'>
           <div class='adress-footer'>
             <p>AmdWeb</p>
