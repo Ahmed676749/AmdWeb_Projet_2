@@ -5,6 +5,7 @@
 		private $_title;
 		private $_adress;
 		private $_siret;
+		private $_salary;
 		private $_offerCreateDate;
 		private $_offerChangeDate;
 		private $_offerUserId;
@@ -47,6 +48,13 @@
 		}
 		public function setSiret($strSiret) {
 			return $this->_siret;
+		}
+
+		public function getSalary() {
+			return $this->_salary;
+		}
+		public function setSalary($intSalary) {
+			return $this->_salary;
 		}
 
 		public function getOfferCreateDate() {
