@@ -11,22 +11,22 @@
 		public function getToBelongId() {
 			return $this->_toBelongId;
 		}
-		public function setCategoryId($intCategoryId) {
-			return $this->_categoryId;
+		public function setToBelongId($intToBelongId) {
+			return $this->_toBelongId;
 		}
 
-		public function getCategoryName() {
-			return $this->_categoryName;
+		public function getToBelongOfferId() {
+			return $this->_toBelongOfferId;
 		}
-		public function setCategoryName($strCategoryName) {
-			return $this->_categoryName;
+		public function setToBelongOfferId($intToBelongOfferId) {
+			return $this->_toBelongOfferId;
 		}
 
-		public function getCatgorySubCategoryId() {
-			return $this->_categorySubCategoryId;
+		public function getToBelongCategoryId() {
+			return $this->_toBelongCategoryId;
 		}
-		public function setCategorySubCategoryId($strCategorySubCategoryId) {
-			return $this->_categorySubCategoryId;
+		public function setToBelongCategoryId($intToBelongCategoryId) {
+			return $this->_toBelongCategoryId;
 		}
 	} 
 ?>
