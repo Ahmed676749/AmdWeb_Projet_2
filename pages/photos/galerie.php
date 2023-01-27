@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb offres d'emplois, galerie photos";
   $strPage = "galerie";
 
-  include("../header.php");
+  include("../../views/header.php");
 
   
 ?>

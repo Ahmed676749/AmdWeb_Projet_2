@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb offres d'emplois, inscription";
   $strPage = "inscription";
 
-  include("../header.php");
+  include("../../views/header.php");
 ?>
 
       <main>

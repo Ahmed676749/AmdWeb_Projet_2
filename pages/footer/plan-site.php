@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb, offres d'emplois, plan du site";
   $strPage = "plan-site";
 
-  include("../../pages/header.php");
+  include("../../views/header.php");
 ?>
 
 

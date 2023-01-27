@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb, offres d'emplois spécialisé web, mentions légales";
   $strPage = "mentions";
 
-  include("../../pages/header.php");
+  include("../../views/header.php");
 ?>
 
 
