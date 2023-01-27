@@ -11,6 +11,7 @@
 		public function __construct(){
 			parent::__construct();
 		}
+	
 		
 		/**
 		* Methode de récupération des articles
@@ -20,16 +21,14 @@
 		public function findOffres(int $intLimit = 0){
 			// Début de la requête
 			$strRq 		= "	SELECT offre_id, offre_titre, offre_description,
-								offre_datecreation, user_firstname AS 'article_creator', user_name
+								offre_date_creation, utilisateur_prenom AS 'offre_creator', utilisateur_nom
 							FROM offre
-								INNER JOIN users ON article_creator = user_id ";
+								INNER JOIN utilisateur ON offre_utilisateur_id = utilisateur_id ";
 			$strWhere	= " WHERE ";
 			
 	
-		
+			return $this->_db->query($strRq)->fetchAll();
 			
 		
-
-		
-		
 	}
+}

@@ -64,6 +64,19 @@
 }
 
 
+public function getSalaire():int{
+	return $this->_id;
+   }
+  
+  /**
+		  * Setter de l'id
+		  * @param $intId Identifiant
+  */
+  
+   public function setSalaire(int $intId){
+	$this->_id = $intId;
+  }
+
 
 
 /**
@@ -101,7 +114,7 @@ public function getTitre():string{
 		* @param $strTitre Titre
 */
 
- public function setTitre(int $strTitre){
+ public function setTitre(string $strTitre){
   $this->_titre = $strTitre;
 }
 
@@ -112,6 +125,7 @@ public function getTitre():string{
 		* Getter de l'adresse
 		* @return string Adresse
 */
+
 
 public function getAdresse():string{
   return $this->_adresse;
