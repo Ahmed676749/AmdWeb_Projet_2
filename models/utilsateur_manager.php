@@ -1,5 +1,5 @@
 <?php
-    class CityManager {
+    class UtilisateurManager {
         public function __construct()
         {   
         }

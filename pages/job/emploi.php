@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb offres d'emplois, liste des offres d'emlois";
   $strPage = "emploi";
 
-  include("../header.php");
+  include("../../views/header.php");
 ?>
 <!--
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../../assets/css/style.css" />
-    <title><?php echo $strTitle; ?></title>
+    <title><?php //echo $strTitle; ?></title>
   </head>
   <body>
     <div class="wrapper">

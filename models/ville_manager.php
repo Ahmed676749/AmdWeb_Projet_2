@@ -1,5 +1,5 @@
 <?php
-    class RightManager {
+    class VilleManager {
         public function __construct()
         {   
         }

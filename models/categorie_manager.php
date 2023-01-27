@@ -1,5 +1,5 @@
 <?php
-    class UserManager {
+    class CategorieManager {
         public function __construct()
         {   
         }

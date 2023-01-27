@@ -1,5 +1,5 @@
 <?php
-    class OfferManager {
+    class CandidatureManager {
         public function __construct()
         {   
         }

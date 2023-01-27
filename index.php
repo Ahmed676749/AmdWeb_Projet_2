@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb, offres d'emplois spécialisé web";
   $strPage = "index";
 
-  include("pages/header.php");
+  include("views/header.php");
 ?>
         <!--Section barre de recherche-->
         <div class="search-box">
@@ -66,6 +66,6 @@
         </div>
       </div>
       <!--Footer-->
-<?php include("pages/footer.php") ?>
+<?php include("views/footer.php") ?>
 
 

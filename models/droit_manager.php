@@ -1,5 +1,5 @@
 <?php
-    class CategoryManager {
+    class DroitManager {
         public function __construct()
         {   
         }
