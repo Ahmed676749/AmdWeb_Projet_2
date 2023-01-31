@@ -1,5 +1,5 @@
 <?php
-  include("connect.php");
+  //include("connect.php");
 
   $strTitle = "AmdWeb offres d'emplois, inscription";
   $strPage = "inscription";
@@ -7,24 +7,61 @@
   include("header.php");
 
   // Inclure les fichiers des classes
+  require("entities/utilisateur_entity.php"); 
+  require("utilisateur_manager.php"); 
+	// var_dump($strRqUsers);
+
+  $objUtilisateurManager 	= new UtilisateurManager(); // instancier la classe
+  $arrUtilisateurs 		= $objUtilisateurManager->findUsers(); // utiliser la classe
+
 
   // Récupération des informations du formulaire
-  $strUserType  = $_POST['role']??'';
+  $strUserType  = $_POST['role']??'0';
   $strName      = $_POST['name']??'';
   $strFirstname = $_POST['firstname']??'';
   $strAddress   = $_POST['address']??'';
   $strMail      = $_POST['email']??'';
   $strPassword  = $_POST['password']??'';
 
-  $strRq 			= "	SELECT *
-                  FROM utilisateur";
-
-  $this->_db->query($strRq)->fetchAll();
-
-  var_dump($strRq);
-  //var_dump($arrUsers);
-
+  
   var_dump($_POST);
+  var_dump($arrUtilisateurs);
+
+  $arrErrors 	= array(); // Initialisation du tableau des erreurs
+	if (count($_POST) > 0){ // si formulaire envoyé
+		// Tests erreurs
+		if ($strName == ''){
+			$arrErrors['name'] = "Merci de renseigner un nom";
+		}
+		if ($strFirstname == ''){
+			$arrErrors['firstname'] = "Merci de renseigner un prénom";
+		}
+		if ($strAddress == ''){
+			$arrErrors['address'] = "Merci de renseigner une adresse";
+		}
+		if ($strMail == ''){
+			$arrErrors['email'] = "Merci de renseigner une adresse mail";
+		}
+		if ($strPassword == ''){
+			$arrErrors['password'] = "Merci de renseigner un mot de passe";
+		}
+		
+		if (count($arrErrors)>0){ // Affichage des erreurs, s'il y en a
+			echo "<div class='error'>";
+			foreach($arrErrors as $strError){
+				echo "<p>".$strError."</p>";
+			}
+			echo "</div>";
+		}else{	// Insertion en BDD, si pas d'erreurs
+			$strRqAdd 	= "	INSERT INTO utilisateur 
+								(utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_mail, utilisateur_mdp, utilisateur_type, utilisateur_date_creation)
+							VALUES 
+								('".$strName."', '".$strFirstname."', '".$strAddress."', '".$strMail."', '".$strPassword."', '".$strUserType."', NOW());";
+      var_dump($strRqAdd);
+			$this->_db->exec($strRqAdd);
+			//header("Location:index.php"); // Redirection page d'accueil
+		}
+	}
 
 ?>
 
@@ -44,11 +81,11 @@
                 <div class="radio-btn">
                   <p>Vous êtes :</p>
                   <div class="wrap-radio">
-                    <input type="radio" id="recruiter" name="role" value="recruiter" <?php if ($strUserType == "recruiter") {echo "checked";} ?> />
+                    <input type="radio" id="recruiter" name="role" value="recruteur" <?php if ($strUserType == "recruteur") {echo "checked";} ?> />
                     <label for="recruiter">Recruteur</label>
                   </div>
                   <div class="wrap-radio">
-                    <input type="radio" id="candidate" name="role" value="candidate" <?php if ($strUserType == "candidate") {echo "checked";} ?> />
+                    <input type="radio" id="candidate" name="role" value="candidat" <?php if ($strUserType == "candidat") {echo "checked";} ?> />
                     <label for="candidate">Candidat</label>
                   </div>
                 </div>
