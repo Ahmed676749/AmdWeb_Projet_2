@@ -6,6 +6,8 @@
 
   include("header.php");
 
+  // Inclure les fichiers des classes
+
   // Récupération des informations du formulaire
   $strUserType  = $_POST['role']??'';
   $strName      = $_POST['name']??'';
@@ -17,10 +19,10 @@
   $strRq 			= "	SELECT *
                   FROM utilisateur";
 
-  $arrUsers 	= $db->query($strRq)->fetchAll();
+  $this->_db->query($strRq)->fetchAll();
 
   var_dump($strRq);
-  var_dump($arrUsers);
+  //var_dump($arrUsers);
 
   var_dump($_POST);
 
@@ -51,25 +53,25 @@
                   </div>
                 </div>
                 <div class="style">
-                  <label for="name"><?php echo $strName ?></label>
-                  <input type="text" id="name" name="name" />
+                  <label for="name">Nom</label>
+                  <input type="text" id="name" name="name" value="<?php echo $strName ?>" />
                 </div>
                 <div class="style">
-                  <label for="firstName"><?php echo $strFirstname ?></label>
-                  <input type="text" id="firstName" name="firstname" />
+                  <label for="firstName">Prénom</label>
+                  <input type="text" id="firstName" name="firstname" value="<?php echo $strFirstname ?>" />
                 </div>
                 <div class="style">
-                  <label for="address"><?php echo $strAddress ?></label>
-                  <input type="text" id="address" name="address"/>
+                  <label for="address">Adresse</label>
+                  <input type="text" id="address" name="address" value="<?php echo $strAddress ?>"/>
                 </div>
 
                 <div class="style">
-                  <label for="email"><?php echo $strMail ?></label>
-                  <input type="email" id="email" name="email"/>
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" value="<?php echo $strMail ?>"/>
                 </div>
                 <div class="style">
-                  <label for="password"><?php echo $strPassword ?></label>
-                  <input type="password" id="password" name="password"/>
+                  <label for="password">Mot de passe</label>
+                  <input type="password" id="password" name="password" value="<?php echo $strPassword ?>"/>
                 </div>
                 <button class="btn-subscribe style-button" type="submit">
                   S'incrire
