@@ -2,6 +2,7 @@
   $strTitle = "AmdWeb, offres d'emplois spécialisé web";
   $strPage = "index";
 
+  include("controllers/connect.php");
   include("views/header.php");
 ?>
         <!--Section barre de recherche-->

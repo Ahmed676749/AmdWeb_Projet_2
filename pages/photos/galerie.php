@@ -78,5 +78,5 @@
         </div>
       </main>
       <!--Footer-->
-      <?php include("../footer.php") ?>
+      <?php include("../../views/footer.php") ?>
       

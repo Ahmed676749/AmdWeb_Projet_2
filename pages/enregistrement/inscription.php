@@ -1,8 +1,8 @@
 <?php
   $strTitle = "AmdWeb offres d'emplois, inscription";
   $strPage = "inscription";
-
   include("../../views/header.php");
+
 ?>
 
       <main>
@@ -17,7 +17,7 @@
               Oui, l'inscription est obligatoire comme sur tous les sites.
             </p>
             <div class="form-box">
-              <form>
+              <form method="post">
                 <div class="radio-btn">
                   <p>Vous êtes :</p>
                   <div class="wrap-radio">
@@ -40,7 +40,7 @@
                     <label for="candidate">Candidat</label>
                   </div>
                 </div>
-                <div class="style">
+                <div class="style" name="utilisateurNom">
                   <label for="name">Nom</label>
                   <input type="text" id="name" />
                 </div>
@@ -69,5 +69,5 @@
           </div>
         </section>
       </main>
-      <?php include("../footer.php") ?>
+      <?php include("../../views/footer.php") ?>
     

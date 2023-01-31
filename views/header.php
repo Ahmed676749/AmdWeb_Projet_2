@@ -74,3 +74,16 @@
             </div>
           </div>
         </header>
+        <?php if(($strPage == "index") && ($strPage == "emploi")) {echo 
+        "<div class='search-box'>
+          <form>
+            <label for='search-bar'></label>
+            <input
+              id='search-bar'
+              type='text'
+              placeholder='Recherche par mots-clés'
+            />
+          </form>
+          <button class='style-button' type='submit'>Trouver</button>
+        </div>";
+        } ?>

@@ -1,8 +1,24 @@
 <?php
   $strTitle = "AmdWeb détails de l'offre d'emploi";
   $strPage = "détails-emploi";
-
+  include("../../controllers/connect.php");
   include("../../views/header.php");
+
+
+
+
+  $strRq = "SELECT * FROM offre";
+   echo $strRq;
+  var_dump($strRq);
+
+  $arrDetailsOffres = $db->query($strRq)->fetchAll();
+  var_dump($arrDetailsOffre);
+
+  foreach($arrDetailsOffres as $arrdetailsOffre) {
+    
+  }
+ 
+
 ?>
 
 
@@ -10,7 +26,7 @@
       <main>
         <!--Section description-->
         <section class="description">
-          <h1 class="style-h">Développeur Web (H/F)</h1>
+          <h1 class="style-h"></h1>
           <div class="wrapper-details">
             <div class="left-box card-job">
               <p>marseille</p>
@@ -54,5 +70,5 @@
         </section>
       </main>
       <!--Footer-->
-      <?php include("../../footer.php") ?>
+      <?php include("../../views/footer.php") ?>
       
