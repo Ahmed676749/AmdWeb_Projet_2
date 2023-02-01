@@ -62,7 +62,7 @@
         <div class="announcement-section">
           <h2 class="style-h">Déposer vos offres d'emplois.</h2>
           <div class="btn-link-wrap style-button">
-            <a href="pages/depots/connexion.php">Déposez</a>
+            <a href="pages/job/ajouter-offre.php">Déposez</a>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@
 			return $this->_offre_titre;
 		}
 		public function setOffreTitre($strOffre_titre) {
-			return $this->_offre_titre;
+			$this->_offre_titre = $strOffre_titre;
 		}
 
 		public function getOffreAdresse() {

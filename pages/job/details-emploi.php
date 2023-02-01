@@ -7,17 +7,17 @@
 
 
 
-  $strRq = "SELECT * FROM offre";
-   echo $strRq;
-  var_dump($strRq);
+  // $strRq = "SELECT * FROM offre";
+  //  echo $strRq;
+  // var_dump($strRq);
 
-  $arrDetailsOffres = $db->query($strRq)->fetchAll();
-  var_dump($arrDetailsOffre);
-
-  foreach($arrDetailsOffres as $arrdetailsOffre) {
-    
-  }
+  // $arrDetailsOffres = $db->query($strRq)->fetchAll();
  
+
+  // foreach($arrDetailsOffres as $arrDetailsOffre) {
+  //   echo $arrDetailsOffre["offre_titre"];
+  // }
+  // var_dump($arrDetailsOffre);
 
 ?>
 
