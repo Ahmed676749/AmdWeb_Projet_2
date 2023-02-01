@@ -6,59 +6,59 @@
 
   include("header.php");
 
-  // Inclure les fichiers des classes
-  require("entities/utilisateur_entity.php"); 
-  require("utilisateur_manager.php"); 
-	// var_dump($strRqUsers);
-
-  $objUtilisateurManager 	= new UtilisateurManager(); // instancier la classe
-  $arrUtilisateurs 		= $objUtilisateurManager->findUsers(); // utiliser la classe
-
-
+  
   // Récupération des informations du formulaire
   $strUserType  = $_POST['role']??'0';
-  $strName      = $_POST['name']??'';
+  $strUtilisateur_nom  = $_POST['name']??'';
+  // $strName      = $_POST['name']??'';
   $strFirstname = $_POST['firstname']??'';
   $strAddress   = $_POST['address']??'';
   $strMail      = $_POST['email']??'';
   $strPassword  = $_POST['password']??'';
 
+  // var_dump($strName);
   
+  // Inclure les fichiers des classes
+  require("entities/utilisateur_entity.php"); 
+  require("utilisateur_manager.php"); 
+  
+  $objUtilisateurManager 	= new UtilisateurManager(); // instancier la classe
+  $arrUtilisateurs 		= $objUtilisateurManager->afficherUtilisateur(); // utiliser la classe
+  
+  
+  // var_dump($strName);
   var_dump($_POST);
-  var_dump($arrUtilisateurs);
-
+  // var_dump($arrUtilisateurs);
+  
   $arrErrors 	= array(); // Initialisation du tableau des erreurs
 	if (count($_POST) > 0){ // si formulaire envoyé
 		// Tests erreurs
-		if ($strName == ''){
-			$arrErrors['name'] = "Merci de renseigner un nom";
+		if ($strUtilisateur_nom == ''){
+      $arrErrors['name'] = "Merci de renseigner un nom";
 		}
 		if ($strFirstname == ''){
-			$arrErrors['firstname'] = "Merci de renseigner un prénom";
+      $arrErrors['firstname'] = "Merci de renseigner un prénom";
 		}
 		if ($strAddress == ''){
-			$arrErrors['address'] = "Merci de renseigner une adresse";
+      $arrErrors['address'] = "Merci de renseigner une adresse";
 		}
 		if ($strMail == ''){
-			$arrErrors['email'] = "Merci de renseigner une adresse mail";
+      $arrErrors['email'] = "Merci de renseigner une adresse mail";
 		}
 		if ($strPassword == ''){
-			$arrErrors['password'] = "Merci de renseigner un mot de passe";
+      $arrErrors['password'] = "Merci de renseigner un mot de passe";
 		}
 		
 		if (count($arrErrors)>0){ // Affichage des erreurs, s'il y en a
 			echo "<div class='error'>";
 			foreach($arrErrors as $strError){
-				echo "<p>".$strError."</p>";
+        echo "<p>".$strError."</p>";
 			}
 			echo "</div>";
 		}else{	// Insertion en BDD, si pas d'erreurs
-			$strRqAdd 	= "	INSERT INTO utilisateur 
-								(utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_mail, utilisateur_mdp, utilisateur_type, utilisateur_date_creation)
-							VALUES 
-								('".$strName."', '".$strFirstname."', '".$strAddress."', '".$strMail."', '".$strPassword."', '".$strUserType."', NOW());";
-      var_dump($strRqAdd);
-			$this->_db->exec($strRqAdd);
+      $objUtilisateurManager2 	= new UtilisateurManager(); // instancier la classe
+      $arrCreerUtilisateur 		= $objUtilisateurManager2->creerUtilisateur(); // utiliser la classe
+      
 			//header("Location:index.php"); // Redirection page d'accueil
 		}
 	}
@@ -91,7 +91,7 @@
                 </div>
                 <div class="style">
                   <label for="name">Nom</label>
-                  <input type="text" id="name" name="name" value="<?php echo $strName ?>" />
+                  <input type="text" id="name" name="name" value="<?php echo $strUtilisateur_nom ?>" />
                 </div>
                 <div class="style">
                   <label for="firstName">Prénom</label>
