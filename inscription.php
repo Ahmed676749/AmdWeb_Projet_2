@@ -9,9 +9,9 @@
   
   // Récupération des informations du formulaire
   $strUserType  = $_POST['role']??'0';
-  $strUtilisateur_nom  = $_POST['name']??'';
-  // $strName      = $_POST['name']??'';
-  $strFirstname = $_POST['firstname']??'';
+  // $strName  = $_POST['name']??'';
+  $strName      = $_POST['nom']??'';
+  $strFirstname = $_POST['prenom']??'';
   $strAddress   = $_POST['address']??'';
   $strMail      = $_POST['email']??'';
   $strPassword  = $_POST['password']??'';
@@ -33,7 +33,7 @@
   $arrErrors 	= array(); // Initialisation du tableau des erreurs
 	if (count($_POST) > 0){ // si formulaire envoyé
 		// Tests erreurs
-		if ($strUtilisateur_nom == ''){
+		if ($strName == ''){
       $arrErrors['name'] = "Merci de renseigner un nom";
 		}
 		if ($strFirstname == ''){
@@ -56,9 +56,13 @@
 			}
 			echo "</div>";
 		}else{	// Insertion en BDD, si pas d'erreurs
-      $objUtilisateurManager2 	= new UtilisateurManager(); // instancier la classe
-      $arrCreerUtilisateur 		= $objUtilisateurManager2->creerUtilisateur(); // utiliser la classe
-      
+			// Créer l'objet user
+			$objUser = new Utilisateur;
+			$objUser->hydrate($_POST);
+			
+			  //$objUtilisateurManager2 	= new UtilisateurManager(); // instancier la classe
+			  $arrCreerUtilisateur 		= $objUtilisateurManager->creerUtilisateur($objUser); // utiliser la classe
+			  
 			//header("Location:index.php"); // Redirection page d'accueil
 		}
 	}
@@ -91,11 +95,11 @@
                 </div>
                 <div class="style">
                   <label for="name">Nom</label>
-                  <input type="text" id="name" name="name" value="<?php echo $strUtilisateur_nom ?>" />
+                  <input type="text" id="name" name="nom" value="<?php echo $strName ?>" />
                 </div>
                 <div class="style">
                   <label for="firstName">Prénom</label>
-                  <input type="text" id="firstName" name="firstname" value="<?php echo $strFirstname ?>" />
+                  <input type="text" id="firstName" name="prenom" value="<?php echo $strFirstname ?>" />
                 </div>
                 <div class="style">
                   <label for="address">Adresse</label>

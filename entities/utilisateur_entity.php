@@ -19,6 +19,18 @@
 		{
 		}
 
+		/**
+		* Remplissage de l'objet avec les données du tableau
+		*/
+		public function hydrate($arrData){
+			foreach($arrData as $key=>$value){
+				$strMethod = "set".ucfirst(str_replace("utilisateur_", "", $key));
+				if (method_exists($this, $strMethod)){
+					$this->$strMethod($value);
+				}
+			}
+		}
+
 		public function getUtilisateurId() {
 			return $this->_utilisateur_id;
 		}
@@ -26,18 +38,18 @@
 			$this->_utilisateur_id = $intUtilisateur_id;
 		}
 
-		public function getUtilisateurNom() {
+		public function getNom() {
 			return $this->_utilisateur_nom;
 		}
-		public function setUtilisateurNom($strUtilisateur_nom) {
+		public function setNom($strUtilisateur_nom) {
 			$this->_utilisateur_nom = $strUtilisateur_nom;
 		}
 
-		public function getUtilisateurPrenom() {
+		public function getPrenom() {
 			return $this->_utilisateur_prenom;
 		}
-		public function setUtilisateurPrenom($strUtilisateur_prenom) {
-			$this->_utilisateur_prenom = $$strUtilisateur_prenom;
+		public function setPrenom($strUtilisateur_prenom) {
+			$this->_utilisateur_prenom = $strUtilisateur_prenom;
 		}
 
 		public function getUtilisateurAdresse() {

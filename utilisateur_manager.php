@@ -26,13 +26,13 @@
 		/**
 		* Méthode de création des utilisateurs
 		*/
-		public function creerUtilisateur(){
+		public function creerUtilisateur($objUser){
 			$strRqAdd 	= "INSERT INTO utilisateur 
 								(utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_mail, utilisateur_mdp, utilisateur_type, utilisateur_date_creation)
 							VALUES 
-								('".$strUtilisateur_nom."','$strFirstname','$strAddress','$strMail','$strPassword','$strUserType', NOW());";
+								('".$objUser->getNom()."','".$objUser->getPrenom()."','".$strAddress."','".$strMail."','".$strPassword."','".$strUserType."', NOW());";
 
-			var_dump($strUtilisateur_nom);
+			var_dump($strName);
 			var_dump($strRqAdd);
 			return $this->_db->exec($strRqAdd);
 		}
