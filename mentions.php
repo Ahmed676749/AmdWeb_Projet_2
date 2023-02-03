@@ -2,7 +2,7 @@
   $strTitle = "AmdWeb, offres d'emplois spécialisé web, mentions légales";
   $strPage = "mentions";
 
-  include("header.php");
+  include("views/header.php");
 
 ?>
 
@@ -203,5 +203,5 @@
       </main>
     </div>
     <!--Footer-->
-    <?php include("footer.php") ?>
+    <?php include("views/footer.php") ?>
    

@@ -1,5 +1,5 @@
 <?php
-  include("connect.php");
+  include("models/connect.php");
 
 
   $strTitle = "AmdWeb offres d'emplois, liste des offres d’emplois";

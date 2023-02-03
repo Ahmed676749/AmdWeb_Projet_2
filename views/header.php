@@ -43,7 +43,7 @@
               <nav class="collapse navbar-collapse color-style" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link <?php if($strPage == "index") {echo "active";} ?> " aria-current="page" href="index.php">Accueil</a>
+                    <a class="nav-link <?php if($strPage == "index") {echo "active";} ?> " aria-current="page" href="index.php?ctrl=utilisateur&action=accueil">Accueil</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" <?php if($strPage == "emploi") {echo "active";} ?> href="emploi.php">Emploi</a>
@@ -53,7 +53,7 @@
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "inscription") {echo "active";} ?> href="inscription.php">Inscription</a>
+                    <a class="nav-link" <?php if($strPage == "inscription") {echo "active";} ?> href="index.php?ctrl=utilisateur&action=inscription">Inscription</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" <?php if($strPage == "connexion") {echo "active";} ?> href="connexion.php">Connexion</a>

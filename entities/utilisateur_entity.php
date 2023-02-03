@@ -52,73 +52,73 @@
 			$this->_utilisateur_prenom = $strUtilisateur_prenom;
 		}
 
-		public function getUtilisateurAdresse() {
+		public function getAdresse() {
 			return $this->_utilisateur_adresse;
 		}
-		public function setUtilisateurAdresse($strUtilisateur_adresse) {
+		public function setAdresse($strUtilisateur_adresse) {
 			$this->_utilisateur_adresse = $strUtilisateur_adresse;
 		}
 
-		public function getUtilisateurType() {
+		public function getType() {
 			return $this->_utilisateur_type;
 		}
-		public function setUtilisateurType($strUtilisateur_type) {
+		public function setType($strUtilisateur_type) {
 			$this->_utilisateur_type = $strUtilisateur_type;
 		}
 
-		public function getUtilisateurCv() {
+		public function getCv() {
 			return $this->_utilisateur_cv;
 		}
-		public function setUtilisateurCv($strUtilisateur_cv) {
+		public function setCv($strUtilisateur_cv) {
 			$this->_utilisateur_cv = $strUtilisateur_cv;
 		}
 
-		public function getUtilisateurMail() {
+		public function getMail() {
 			return $this->_utilisateur_mail;
 		}
-		public function setUtilisateurMail($strUtilisateur_mail) {
+		public function setMail($strUtilisateur_mail) {
 			$this->_utilisateur_mail = $strUtilisateur_mail;
 		}
 
-		public function getUtilisateurMdp() {
+		public function getMdp() {
 			return $this->_utilisateur_mdp;
 		}
-		public function setUtilisateurMdp($strUtilisateur_mdp) {
+		public function setMdp($strUtilisateur_mdp) {
 			$this->_utilisateur_mdp = $strUtilisateur_mdp;
 		}
 
-		public function getUtilisateurDateCreation() {
+		public function getDateCreation() {
 			return $this->_utilisateur_date_creation;
 		}
-		public function setUtilisateurDateCreation($strUtilisateur_date_creation) {
+		public function setCreation($strUtilisateur_date_creation) {
 			$this->_utilisateur_date_creation = $strUtilisateur_date_creation;
 		}
 
-		public function getUtilisateurDateModification() {
+		public function getDateModification() {
 			return $this->_utilisateur_date_modification;
 		}
-		public function setUtilisateurDateModification($strUtilisateur_date_modification) {
+		public function setDateModification($strUtilisateur_date_modification) {
 			$this->_utilisateur_date_modification = $strUtilisateur_date_modification;
 		}
 
-		public function getUtilisateurDateConnexion() {
+		public function getDateConnexion() {
 			return $this->_utilisateur_date_connexion;
 		}
-		public function setUtilisateurDateConnexion($strUtilisateur_date_connexion) {
+		public function setDateConnexion($strUtilisateur_date_connexion) {
 			$this->_utilisateur_date_connexion = $strUtilisateur_date_connexion;
 		}
 
-		public function getUtilisateurVilleId() {
+		public function getVilleId() {
 			return $this->_utilisateur_ville_id;
 		}
-		public function setUtilisateurVilleId($intUtilisateur_ville_id) {
+		public function setVilleId($intUtilisateur_ville_id) {
 			$this->_utilisateur_ville_id = $intUtilisateur_ville_id;
 		}
 
-        public function getUtilisateurDroitId() {
+        public function getDroitId() {
 			return $this->_utilisateur_droit_id;
 		}
-		public function setUtilisateurDroitId($intUtilisateur_droit_id) {
+		public function setDroitId($intUtilisateur_droit_id) {
 			$this->_utilisateur_droit_id = $intUtilisateur_droit_id;
 		}
 	} 
