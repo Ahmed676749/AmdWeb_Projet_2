@@ -21,9 +21,11 @@
 		public function findOffres(int $intLimit = 0){
 			// Début de la requête
 			$strRq 		= "	SELECT offre_id, offre_titre, offre_description,
-								offre_date_creation, utilisateur_prenom AS 'offre_creator', utilisateur_nom
+								offre_date_creation, utilisateur_prenom AS 'offre_creator', utilisateur_nom, offre_ville_id
 							FROM offre
-								INNER JOIN utilisateur ON offre_utilisateur_id = utilisateur_id ";
+								INNER JOIN utilisateur ON offre_utilisateur_id = utilisateur_id 
+								INNER JOIN ville ON offre_ville_id = ville_id ";
+								
 			$strWhere	= " WHERE ";
 			
 	

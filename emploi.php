@@ -6,11 +6,18 @@ $strPage = "emploi";
 
 include("header.php");
 
+
+
+
+$strKeywords 	= $_POST['keywords']??'';
+
 // inclure les fichiers des classes
 require("offre_entity.php"); 
 require("offre_manager.php"); 
 $objOffreManager 	= new OffreManager(); // instancier la classe
 $arrOffres 		= $objOffreManager->findOffres(); // utiliser la classe
+
+
 
 
   // $strRq 			= "	SELECT *
@@ -30,6 +37,7 @@ $arrOffres 		= $objOffreManager->findOffres(); // utiliser la classe
             id="search-bar"
             type="text"
             placeholder="Recherche par mots-clés"
+            name="keyword"
           />
         </form>
         <button class="style-button" type="submit">Trouver</button>
@@ -42,7 +50,7 @@ $arrOffres 		= $objOffreManager->findOffres(); // utiliser la classe
           d'emplois sur cette page!
         </p>
         <div class="wrapper-layer">
-          <a href="details-emploi.php" class="card-job">
+          <!-- <a href="details-emploi.php" class="card-job">
             <h3>Développeur Web</h3>
             <address>strasbourg</address>
             <p>Salaire: 1800 &euro; / mois</p>
@@ -81,15 +89,19 @@ $arrOffres 		= $objOffreManager->findOffres(); // utiliser la classe
             <h3>Développeur React</h3>
             <address>lyon</address>
             <p>Salaire: 2600 &euro; / mois</p>
-          </a>
-        </div>
+          </a> -->
 
-        <?php
+          <?php
 				foreach($arrOffres as $arrDetOffre){
 					$objOffre = new Offre;
 					$objOffre->hydrate($arrDetOffre);
+          // var_dump($objOffre);die;
 					include("offre.php");
 				} ?>
+
+        </div>
+
+    
       </section>
       <!--Footer-->
       <?php include("footer.php") ?>

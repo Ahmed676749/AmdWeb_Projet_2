@@ -233,7 +233,7 @@ public function getUtilisateur_id():int{
 */
 
 public function getVille_id():int{
-  return $this->_utilisateur_id;
+  return $this->_ville_id;
  }
 
  /**
