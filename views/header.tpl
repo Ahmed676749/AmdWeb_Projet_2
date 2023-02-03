@@ -1,6 +1,3 @@
-<?php
-    $strPath = "../";
- ?>
 
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -16,9 +13,10 @@
     />
     <link rel="stylesheet" href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>assets/css/style.css" />
     
-    <title><?php echo $strTitle; ?></title>
+    <title>{$strTitle}</title>
   </head>
   <body>
+    {block name="head_infos"}
     <div class="wrapper">
       <!--Header navigation-->
       <div class="wrap-header">
@@ -47,25 +45,26 @@
               <nav class="collapse navbar-collapse color-style" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link <?php if($strPage == "index") {echo "active";} ?> " aria-current="page" href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>index.php">Accueil</a>
+                    <a class="nav-link {if ($strPage == "index")} class='active' {/if} " aria-current="page" href="index.php">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "emploi") {echo "active";} ?> href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/job/emploi.php">Emploi</a>
+                    <a class="nav-link" {if ($strPage == "emploi")} class='active' {/if} href="index.php?ctrl=page&action=ajouterOffreEmploi"
+                     href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/job/emploi.php">Emploi</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "galerie") {echo "active";} ?> href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/photos/galerie.php"
+                    <a class="nav-link" {if ($strPage == "galerie")} class='active' {/if} href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/photos/galerie.php"
                       >Galerie</a
                     >
                   </li>
                   <li class="nav-item">
                     <a
-                      class="nav-link" <?php if($strPage == "inscription") {echo "active";} ?>
+                      class="nav-link" {if ($strPage == "inscription")} class='active' {/if}
                       href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/enregistrement/inscription.php"
                       >Inscription</a
                     >
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "connexion") {echo "active";} ?> href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/depots/connexion.php"
+                    <a class="nav-link" {if ($strPage == "connexion")} class='active' {/if} href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/depots/connexion.php"
                       >Connexion</a
                     >
                   </li>
@@ -74,8 +73,9 @@
             </div>
           </div>
         </header>
-        <?php if(($strPage == "index") && ($strPage == "emploi")) {echo 
-        "<div class='search-box'>
+        {/block}
+        {if($strPage == "index") && ($strPage == "emploi")}
+        <div class='search-box'>
           <form>
             <label for='search-bar'></label>
             <input
@@ -85,5 +85,5 @@
             />
           </form>
           <button class='style-button' type='submit'>Trouver</button>
-        </div>";
-        } ?>
+        </div>
+        {/if}

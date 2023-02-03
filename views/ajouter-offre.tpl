@@ -3,35 +3,36 @@
   $strPage = "ajouter-offre";
   include("../../controllers/connect.php");
   include("../../views/header.php");
-
+  require("../../entities/offre_entity");
+  
    
+
+ 
     // $strAjouterNouvelleOffre = new Offre();
 
 
-
-    class AjouterOffre extends Offre {
-
-        public function __construct()
-		{
-            public function __construct()
-		}
-
-        public function ajouterNouvelleOffre() {
-     $strOffreTitre = $_POST["offreTitre"]??"";
-    $strOffreDescription = $_POST["offreDescription"]??"";
-    $strOffreSalaire = $_POST["offreSalaire"]??"";
-    $strOffreSiret = $_POST["offreSiret"]??"";
-    $strOffreLieu = $_POST["offreLieu"]??"";
-
-    $strRq = "INSERT INTO offre (offre_titre, offre_description, offre_salaire, offre_siret, offre_adresse)
-              VALUES ('".$strOffreTitre."', '".$strOffreDescription."', '".$strOffreSalaire."', '".$strOffreSiret."', '".$strOffreLieu."')"; 
-
-       $arrAddJob = $db->exec($strRq);
-        }
+    
+   
+    // $strOffreTitre = $_POST["offreTitre"]??"";
+    // $strOffreDescription = $_POST["offreDescription"]??"";
+    // $strOffreSalaire = $_POST["offreSalaire"]??"";
+    // $strOffreSiret = $_POST["offreSiret"]??"";
+    // $strOffreLieu = $_POST["offreLieu"]??"";
+  
+    // $objAjouter = new Offre();
+    // $objAjouter->setOffreTitre($strOffreTitre);
         
-    }
+    
 
-    $ajoutTest = new ajouterNouvelleOffre();
+    // $strRq = "INSERT INTO offre (offre_titre, offre_description, offre_salaire, offre_siret, offre_adresse)
+    //           VALUES ('".$strOffreTitre."', '".$strOffreDescription."', '".$strOffreSalaire."', '".$strOffreSiret."', '".$strOffreLieu."')"; 
+
+    //    $arrAddJob = $db->exec($strRq);
+        
+       
+    
+
+   
 
 
 
@@ -79,5 +80,18 @@
                 </button>
             </div>
     </form>
+
+    <article>
+	
+	<div>
+		<h3>{$objOffre->getTitre()} - 
+			<span class="addDate">
+			
+			</span>
+			
+		</h3>
+		<p class="content">{$objOffre->getContent()}</p>
+	</div>
+</article>
 
 <?php include("../../views/footer.php") ?>

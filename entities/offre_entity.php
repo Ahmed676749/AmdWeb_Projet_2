@@ -29,18 +29,18 @@
 			return $this->_offre_description;
 		}
 
-		public function getOffreTitre() {
+		public function getTitre() {
 			return $this->_offre_titre;
 		}
-		public function setOffreTitre($strOffre_titre) {
-			$this->_offre_titre = $strOffre_titre;
+		public function setTitre($strOffretitre) {
+			$this->_offre_titre = $strOffretitre;
 		}
 
 		public function getOffreAdresse() {
 			return $this->_offre_adress;
 		}
 		public function setOffreAdresse($strOffre_adresse) {
-			return $this->_offre_adresse;
+			 $this->_offre_adresse = $strOffre_adresse;
 		}
 
 		public function getOffreSiret() {
@@ -57,11 +57,12 @@
 			return $this->_offre_salaire;
 		}
 
-		public function getOffreDateCreation() {
-			return $this->_offre_date_creation;
+		public function getOffreDateCreation():string {
+			$date = new DateTime($this->_offre_date_creation);
+			return $date->format('d/m/Y');
 		}
-		public function setOffreDateCreation($stOffre_date_creation) {
-			return $this->_offre_date_creation;
+		public function setOffreDateCreation($strOffre_date_creation) {
+			 $this->_offre_date_creation = $strOffre_date_creation;
 		}
 
 		public function getOffreDateModification() {
@@ -84,5 +85,17 @@
 		public function setOffreVilleId($intOffre_ville_id) {
 			return $this->_offre_ville_id;
 		}
+
+		public function hydrate($arrData){
+			foreach($arrData as $key=>$value){
+				$strMethod = "set".ucfirst(str_replace("offre_", "", $key));
+				if (method_exists($this, $strMethod)){
+					$this->$strMethod($value);
+				}
+			}
+		}
 	} 
+
+
+	
 ?>

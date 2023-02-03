@@ -1,12 +1,12 @@
 <?php
-  $strTitle = "AmdWeb, offres d'emplois spécialisé web";
-  $strPage = "index";
+  // $strTitle = "AmdWeb, offres d'emplois spécialisé web";
+  // $strPage = "index";
 
-  include("controllers/connect.php");
-  include("views/header.php");
+  // include("controllers/connect.php");
+  // include("views/header.php");
 ?>
         <!--Section barre de recherche-->
-        <div class="search-box">
+        <!-- <div class="search-box">
           <form>
             <label for="search-bar"></label>
             <input
@@ -17,9 +17,9 @@
           </form>
           <button class="style-button" type="submit">Trouver</button>
         </div>
-      </div>
+      </div> -->
       <!--Section de présentation-->
-      <section class="presentation-section">
+      <!-- <section class="presentation-section">
         <h1 class="style-h">
           Des opportunités dans le web avec <strong>AmdWeb</strong>
         </h1>
@@ -50,9 +50,9 @@
             seront très utiles pour le développement de mon site.
           </p>
         </div>
-      </section>
+      </section> -->
       <!--Section photos-->
-      <div class="wrap-section">
+      <!-- <div class="wrap-section">
         <div class="inscription-section">
           <h2 class="style-h">Inscription pour les offres d'emplois.</h2>
           <div class="btn-link-wrap style-button">
@@ -65,8 +65,27 @@
             <a href="pages/job/ajouter-offre.php">Déposez</a>
           </div>
         </div>
-      </div>
+      </div> -->
       <!--Footer-->
-<?php include("views/footer.php") ?>
+<?php 
+// include("views/footer.php") 
+?>
 
-
+<?php
+	// Session sur toutes les pages
+	session_start();
+	
+	require("controllers/base_controller.php");
+	
+	$strCtrl 	= $_GET['ctrl']??"page";
+	$strAction 	= $_GET['action']??"ajouterOffreEmploi";
+	
+	// inclure le fichier qui contient la classe
+	require("controllers/".$strCtrl."_controller.php");
+	// instancie un objet
+	$strClassName 	= ucfirst($strCtrl)."_controller";
+	$objCtrl 		= new $strClassName;
+	// appel à la méthode
+	$strMethodName	= $strAction;
+	$objCtrl->$strMethodName();
+	
