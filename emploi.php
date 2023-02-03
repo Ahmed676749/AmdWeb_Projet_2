@@ -1,21 +1,18 @@
 <?php
-
-
 $strTitle = "AmdWeb offres d'emplois, liste des offres d’emplois";
 $strPage = "emploi";
-
 include("header.php");
 
-
-
-
-$strKeywords 	= $_POST['keywords']??'';
 
 // inclure les fichiers des classes
 require("offre_entity.php"); 
 require("offre_manager.php"); 
 $objOffreManager 	= new OffreManager(); // instancier la classe
 $arrOffres 		= $objOffreManager->findOffres(); // utiliser la classe
+
+
+// Pour récupéprer les informations du formulaire
+$strKeywords 	= $_POST['keywords']??'';
 
 
 
@@ -31,17 +28,19 @@ $arrOffres 		= $objOffreManager->findOffres(); // utiliser la classe
 
       <!--Section barre de recherche-->
       <div class="search-box">
-        <form>
+        <form method="post" action="#">
           <label for="search-bar"></label>
           <input
             id="search-bar"
             type="text"
             placeholder="Recherche par mots-clés"
-            name="keyword"
+            name="keywords"
           />
         </form>
         <button class="style-button" type="submit">Trouver</button>
       </div>
+
+      <?php var_dump($_POST); ?>
       <!--Section cartes emplois-->
       <section class="job-section-list">
         <h1 class="style-h">Les offres d'emplois</h1>

@@ -27,6 +27,13 @@
 								INNER JOIN ville ON offre_ville_id = ville_id ";
 								
 			$strWhere	= " WHERE ";
+
+			$strKeywords 	= $_POST['keywords']??'';
+			if ($strKeywords != ''){
+				$strRq 		.= $strWhere." (offre_titre LIKE '%".$strKeywords."%' 
+									OR offre_description LIKE '%".$strKeywords."%' )";
+				$strWhere	= " AND ";
+			}
 			
 	
 			return $this->_db->query($strRq)->fetchAll();
