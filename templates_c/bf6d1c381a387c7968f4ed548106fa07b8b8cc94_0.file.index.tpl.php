@@ -1,6 +1,47 @@
-{extends file="views/structure.tpl"}
+<?php
+/* Smarty version 4.2.1, created on 2023-02-05 15:56:56
+  from 'C:\xampp\htdocs\amdweb\views\index.tpl' */
 
-{block name="content"}
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.2.1',
+  'unifunc' => 'content_63dfc3b891a090_04276688',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'bf6d1c381a387c7968f4ed548106fa07b8b8cc94' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\amdweb\\views\\index.tpl',
+      1 => 1675609014,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_63dfc3b891a090_04276688 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, true);
+?>
+
+
+<?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_198629061163dfc3b8918234_17055991', "content");
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/structure.tpl");
+}
+/* {block "content"} */
+class Block_198629061163dfc3b8918234_17055991 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'content' => 
+  array (
+    0 => 'Block_198629061163dfc3b8918234_17055991',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+
 	 <!--Section de présentation-->
       <section class="presentation-section">
         <h1 class="style-h">
@@ -49,4 +90,8 @@
           </div>
         </div>
       </div> 
-{/block}
+<?php
+}
+}
+/* {/block "content"} */
+}

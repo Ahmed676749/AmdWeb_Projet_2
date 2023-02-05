@@ -5,28 +5,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>assets/css/style.css" />
-    
+    {block name="head_infos"}
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+        crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="assets/css/style.css" />
+    {/block}
     <title>{$strTitle}</title>
   </head>
   <body>
-    {block name="head_infos"}
+    
     <div class="wrapper">
       <!--Header navigation-->
       <div class="wrap-header">
         <header class="color-style">
           <div class="navbar navbar-expand-lg">
             <div class="container-fluid">
-              <a class="navbar-brand" href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>index.php">
+              <a class="navbar-brand" href="index.php">
                 <div class="logo-box">
                 <img
-                  src="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>assets/images/img_first_page/logo.png"
+                  src="assets/images/img_first_page/logo.png"
                   alt="logo"
                 />
                 </div>
@@ -45,36 +46,35 @@
               <nav class="collapse navbar-collapse color-style" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link {if ($strPage == "index")} class='active' {/if} " aria-current="page" href="index.php">Accueil</a>
+                    <a class="nav-link {if ($strPage == "index")} class='active' {/if} " aria-current="page" 
+                    href="index.php">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" {if ($strPage == "emploi")} class='active' {/if} href="index.php?ctrl=page&action=ajouterOffreEmploi"
-                     href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/job/emploi.php">Emploi</a>
+                    <a class="nav-link" {if ($strPage == "emploi")} class='active' {/if} 
+                    href="index.php?ctrl=offre&action=afficherOffres">Emploi</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" {if ($strPage == "galerie")} class='active' {/if} href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/photos/galerie.php"
-                      >Galerie</a
-                    >
+                    <a class="nav-link" {if ($strPage == "galerie")} class='active' {/if} 
+                    href="index.php?ctrl=page&action=galerie">Galerie</a>
                   </li>
                   <li class="nav-item">
-                    <a
-                      class="nav-link" {if ($strPage == "inscription")} class='active' {/if}
-                      href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/enregistrement/inscription.php"
-                      >Inscription</a
-                    >
+                    <a class="nav-link" {if ($strPage == "inscription")} class='active' {/if}
+                      href="index.php?ctrl=page&action=inscription">Inscription</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" {if ($strPage == "connexion")} class='active' {/if} href="<?php echo ($strPage == "index") ? "" : $strPath.$strPath; ?>pages/depots/connexion.php"
-                      >Connexion</a
-                    >
+                    <a class="nav-link" {if ($strPage == "connexion")} class='active' {/if}
+                    href="index.php?ctrl=page&action=connexion">Connexion</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" {if ($strPage == "ajouteroffre")} class='active' {/if}
+                    href="index.php?ctrl=page&action=ajouteroffre">Ajouter offre</a>
                   </li>
                 </ul>
               </nav>
             </div>
           </div>
         </header>
-        {/block}
-        {if($strPage == "index") && ($strPage == "emploi")}
+        {if ($strPage == "accueil") || ($strPage == "emploi")}
         <div class='search-box'>
           <form>
             <label for='search-bar'></label>

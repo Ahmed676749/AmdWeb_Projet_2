@@ -1,7 +1,7 @@
-{include file ="header.tpl"}
+{include file ="views/header.tpl"}
 
 {block name="content"}
 	
 {/block}
 
-{include file ="footer.tpl"}
+{include file ="views/footer.tpl"}
