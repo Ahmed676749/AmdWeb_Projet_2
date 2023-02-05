@@ -1,35 +1,14 @@
-<?php
-  $strTitle = "AmdWeb détails de l'offre d'emploi";
-  $strPage = "détails-emploi";
-  include("../../controllers/connect.php");
-  include("../../views/header.php");
-
-
-
-
-  // $strRq = "SELECT * FROM offre";
-  //  echo $strRq;
-  // var_dump($strRq);
-
-  // $arrDetailsOffres = $db->query($strRq)->fetchAll();
- 
-
-  // foreach($arrDetailsOffres as $arrDetailsOffre) {
-  //   echo $arrDetailsOffre["offre_titre"];
-  // }
-  // var_dump($arrDetailsOffre);
-
-?>
-
-
-
+{extends file="views/structure.tpl"}
+{block name="content"}
+  {foreach from=$arrAfficheUneOffre item=$objUneAfOffre}
       <main>
         <!--Section description-->
         <section class="description">
           <h1 class="style-h"></h1>
           <div class="wrapper-details">
+          
             <div class="left-box card-job">
-              <p>marseille</p>
+              <p>{$objUneAfOffre->getTitre()}</p>
               <p>Salaire: 2500 &euro; / mois</p>
             </div>
             <div class="right-box card-job">
@@ -66,9 +45,9 @@
               </p>
               <button class="style-button" type="submit">POSTULEZ</button>
             </div>
+         
           </div>
         </section>
       </main>
-      <!--Footer-->
-      <?php include("../../views/footer.php") ?>
-      
+    {/foreach}
+    {/block}

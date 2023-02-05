@@ -26,13 +26,18 @@
 		public function trouverOffre() {
 			$strRqAfficher = "SELECT offre_titre, offre_adresse, offre_salaire
 							  FROM offre";
-			$arrOffreTab = $this->_db->query($strRqAfficher)->fetchAll();
-			return $arrOffreTab;
-			var_dump($arrOffreTab);
-			var_dump($strRqAfficher);
+			return $this->_db->query($strRqAfficher)->fetchAll();
 		}
 
-		public function afficherUneOffre($id){}
+		public function afficherUneOffre(Offre $id){
+			$strId = $id->getId();
+			// if($strId == ""){echo "selected";}else{echo"";}
+			$strRqOffreSelect =  "SELECT * FROM offre WHERE offre_id = '".$strId."';";
+			return $this->_db->query($strRqOffreSelect)->fetchAll();
+		}
+
+
+
 		public function modifierOffre(){}
 		public function supprimerOffre(){}
 	}
