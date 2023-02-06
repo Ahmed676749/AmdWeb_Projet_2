@@ -43,20 +43,20 @@
               <nav class="collapse navbar-collapse color-style" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link <?php if($strPage == "index") {echo "active";} ?> " aria-current="page" href="index.php?ctrl=utilisateur&action=accueil">Accueil</a>
+                    <a class="nav-link <?php if($strPage == "index") {echo "active";} ?> " aria-current="page" href="index.php?ctrl=page&action=accueil">Accueil</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "emploi") {echo "active";} ?> href="emploi.php">Emploi</a>
+                    <a class="nav-link" <?php if($strPage == "emploi") {echo "active";} ?> href="index.php?ctrl=page&action=emploi">Emploi</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "galerie") {echo "active";} ?> href="galerie.php">Galerie</a
+                    <a class="nav-link" <?php if($strPage == "galerie") {echo "active";} ?> href="index.php?ctrl=page&action=galerie">Galerie</a
                     >
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" <?php if($strPage == "inscription") {echo "active";} ?> href="index.php?ctrl=utilisateur&action=inscription">Inscription</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" <?php if($strPage == "connexion") {echo "active";} ?> href="connexion.php">Connexion</a>
+                    <a class="nav-link" <?php if($strPage == "connexion") {echo "active";} ?> href="index.php?ctrl=utilisateur&action=connexion">Connexion</a>
                   </li>
                 </ul>
               </nav>
