@@ -18,7 +18,7 @@
 		public function getId() {
 			return $this->_offreId;
 		}
-		public function setOfferId($intId) {
+		public function setId($intId) {
 			$this->_offreId = $intId;
 		}
 

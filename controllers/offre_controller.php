@@ -43,30 +43,17 @@
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php"); 
 			$objOffreManager = new OffreManager();
-			$objUneOffre = new Offre;
-			$arrUneOffre = $objOffreManager->afficherUneOffre($objUneOffre);
 
-			$arrAfficheUneOffre = array();
-			foreach($arrUneOffre as $arrDetUneOffre){
-				// $objUneOffre = new Offre;
-				$objUneOffre->hydrate($arrDetUneOffre);
-				$arrAfficheUneOffre[]= $objUneOffre;
+			$objUneOffre = $objOffreManager->afficherUneOffre($_GET["id"]);
 
-				// $strSelected = "selected";
-				// if(($strId == $strSelected) && ($objUneOffre->getId()) == $strSelected) {
-				// 	return $objUneOffre->getId();
-				// } else {
-				// 	echo "ca marche PAS!!";
-				// }
-
-				$strSelected = ($strId == $objUneOffre->getId())?"selected":"";
+			$objOffre = new Offre;
+				$objOffre->hydrate($objUneOffre);
 				
+	
+			
 
-
-			}
-
-			$this->_arrData['arrAfficheUneOffre'] = $arrAfficheUneOffre;
-			var_dump($arrAfficheUneOffre);
+			$this->_arrData['uneOffre'] = $objOffre;
+		
 			$this->_arrData['strTitle']	= "page détails emploi";
 			$this->_arrData['strPage']	= "details-emploi";
 			$this->display("detailsemploi");

@@ -6,26 +6,21 @@
         <section class="description">
           <h1 class="style-h"></h1>
           <div class="wrapper-details">
-          {foreach from=$arrAfficheUneOffre item=$objUneAfOffre}
+          
+            
             <div class="left-box card-job">
-              <p {$objUneAOffre->$strSelected}>{$objUneAfOffre->getTitre()}</p>
-              <p>Salaire: 2500 &euro; / mois</p>
+              <p>{$uneOffre->getTitre()}</p>
+              <p>Salaire: {$uneOffre->getSalaire()} &euro; / mois</p>
             </div>
             <div class="right-box card-job">
               <p>Description :</p>
               <p>
-                Venez nous rejoindre dans un grand loft avec une Play-Station,
-                mario kart et une ambiance convivial. Nous cherchons un
-                développeur à part entière de l'équipe. Nous développons une IA
-                et avons besoin d'un développeur front pour nous soulager dans
-                le développement des maquettes. Nous sommes plus impressionnés
-                par les projets personnels réalisés que par votre niveau
-                d'étude.
+              {$uneOffre->getDescription()}
               </p>
               <p>
                 Type d'emploi : Temps plein, CDI
                 <br />
-                Salaire : 2500 / mois
+               
               </p>
               <p>
                 Avantages :
@@ -45,7 +40,7 @@
               </p>
               <button class="style-button" type="submit">POSTULEZ</button>
             </div>
-          {/foreach}
+         
           </div>
         </section>
       </main>

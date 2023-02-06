@@ -9,7 +9,7 @@
         </p>
         <div class="wrapper-layer">  
           {foreach from=$arrOffreAffichage item=$objOffreDet}
-            <a href="index.php?ctrl=offre&action=afficherOffre" class="card-job">
+            <a href="index.php?ctrl=offre&action=afficherOffre&id={$objOffreDet->getId()}" class="card-job">
               <h3 {}>{$objOffreDet->getTitre()}</h3>
               <address>{$objOffreDet->getAdresse()}</address>
               <p>Salaire: {$objOffreDet->getSalaire()} &euro; / mois</p>
