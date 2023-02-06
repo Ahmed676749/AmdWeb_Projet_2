@@ -5,7 +5,7 @@
 	*/
 	class Utilisateur_controller {
 
-        public function accueil() {
+        /* public function accueil() {
 			$strTitle 	= "AmdWeb, offres d'emplois spécialisé web";
 			$strPage	= "index";
 			include("views/header.php");
@@ -17,7 +17,7 @@
 			require('views/index.php');
 			include("views/footer.php");
 			
-		}
+		} */
 
         public function inscription() {
 			$strTitle 	= "AmdWeb, offres d'emplois spécialisé web";
@@ -78,8 +78,6 @@
             }
         
 
-
-
             $objUser = new Utilisateur;
 			$objUser->hydrate($_POST);
             
@@ -90,7 +88,4 @@
 			
 		}
 
-
-    }
-
-?>
+}
