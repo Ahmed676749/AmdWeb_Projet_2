@@ -1,14 +1,14 @@
 {extends file="views/structure.tpl"}
 {block name="content"}
-  {foreach from=$arrAfficheUneOffre item=$objUneAfOffre}
+  
       <main>
         <!--Section description-->
         <section class="description">
           <h1 class="style-h"></h1>
           <div class="wrapper-details">
-          
+          {foreach from=$arrAfficheUneOffre item=$objUneAfOffre}
             <div class="left-box card-job">
-              <p>{$objUneAfOffre->getTitre()}</p>
+              <p {$objUneAOffre->$strSelected}>{$objUneAfOffre->getTitre()}</p>
               <p>Salaire: 2500 &euro; / mois</p>
             </div>
             <div class="right-box card-job">
@@ -45,9 +45,9 @@
               </p>
               <button class="style-button" type="submit">POSTULEZ</button>
             </div>
-         
+          {/foreach}
           </div>
         </section>
       </main>
-    {/foreach}
+   
     {/block}

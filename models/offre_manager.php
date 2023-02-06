@@ -31,8 +31,9 @@
 
 		public function afficherUneOffre(Offre $id){
 			$strId = $id->getId();
+			$strTitre = $id->getId();
 			// if($strId == ""){echo "selected";}else{echo"";}
-			$strRqOffreSelect =  "SELECT * FROM offre WHERE offre_id = '".$strId."';";
+			$strRqOffreSelect =  "SELECT offre_titre FROM offre WHERE offre_id = '".$strId."';";
 			return $this->_db->query($strRqOffreSelect)->fetchAll();
 		}
 

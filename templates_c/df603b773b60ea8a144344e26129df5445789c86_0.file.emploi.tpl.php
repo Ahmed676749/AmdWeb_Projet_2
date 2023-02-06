@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-05 22:20:18
+/* Smarty version 4.2.1, created on 2023-02-06 06:04:41
   from 'C:\xampp\htdocs\amdweb\views\emploi.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63e01d92626208_79370242',
+  'unifunc' => 'content_63e08a69c85663_17581812',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df603b773b60ea8a144344e26129df5445789c86' => 
     array (
       0 => 'C:\\xampp\\htdocs\\amdweb\\views\\emploi.tpl',
-      1 => 1675628664,
+      1 => 1675659656,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63e01d92626208_79370242 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63e08a69c85663_17581812 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
       <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9443946463e01d9261ae70_83895314', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_148295931863e08a69c6fe65_85472640', "content");
 ?>
 
         </div>
@@ -35,12 +35,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9443946463e01d9261
       <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/structure.tpl");
 }
 /* {block "content"} */
-class Block_9443946463e01d9261ae70_83895314 extends Smarty_Internal_Block
+class Block_148295931863e08a69c6fe65_85472640 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_9443946463e01d9261ae70_83895314',
+    0 => 'Block_148295931863e08a69c6fe65_85472640',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -61,7 +61,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['objOffreDet']->v
 $_smarty_tpl->tpl_vars['objOffreDet']->do_else = false;
 ?>
             <a href="index.php?ctrl=offre&action=afficherOffre" class="card-job">
-              <h3><?php echo $_smarty_tpl->tpl_vars['objOffreDet']->value->getTitre();?>
+              <h3 {}><?php echo $_smarty_tpl->tpl_vars['objOffreDet']->value->getTitre();?>
 </h3>
               <address><?php echo $_smarty_tpl->tpl_vars['objOffreDet']->value->getAdresse();?>
 </address>

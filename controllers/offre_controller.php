@@ -48,19 +48,25 @@
 
 			$arrAfficheUneOffre = array();
 			foreach($arrUneOffre as $arrDetUneOffre){
-				$objUneOffre = new Offre;
+				// $objUneOffre = new Offre;
 				$objUneOffre->hydrate($arrDetUneOffre);
 				$arrAfficheUneOffre[]= $objUneOffre;
 
-				$strSelected = "selected";
-				if(($strId == $strSelected) && ($objUneOffre->getId()) == $strSelected) {
-					return $objUneOffre->getId();
-				} else {
-					echo "ca marche PAS!!";
-				}
+				// $strSelected = "selected";
+				// if(($strId == $strSelected) && ($objUneOffre->getId()) == $strSelected) {
+				// 	return $objUneOffre->getId();
+				// } else {
+				// 	echo "ca marche PAS!!";
+				// }
+
+				$strSelected = ($strId == $objUneOffre->getId())?"selected":"";
+				
+
+
 			}
 
 			$this->_arrData['arrAfficheUneOffre'] = $arrAfficheUneOffre;
+			var_dump($arrAfficheUneOffre);
 			$this->_arrData['strTitle']	= "page détails emploi";
 			$this->_arrData['strPage']	= "details-emploi";
 			$this->display("detailsemploi");
