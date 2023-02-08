@@ -8,8 +8,8 @@
             <p>AmdWeb@ccicampus.fr</p>
           </div>
           <div class='nav-footer'>
-            <a href='index.php?ctrl=utilisateur&action=plan-site'>Plan du site</a>
-            <a href='index.php?ctrl=utilisateur&action=mention'>Mentions légales</a>
+            <a href='index.php?ctrl=page&action=plan'>Plan du site</a>
+            <a href='index.php?ctrl=page&action=mentions'>Mentions légales</a>
           </div>
         </div>
         <div class='wrap-map'>
