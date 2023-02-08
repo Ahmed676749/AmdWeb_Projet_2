@@ -38,7 +38,7 @@
 		* Page Emploi
 		*/
 		public function emploi(){
-			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web, mentions légales";
+			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web";
 			$this->_arrData['strPage']	= "emploi";
 			$this->display("emploi");
 		}
@@ -47,9 +47,9 @@
 		* Page Plan du site
 		*/
 		public function plan(){
-			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web, mentions légales";
-			$this->_arrData['strPage']	= "plan-site";
-			$this->display("plan-site");
+			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web, plan du site";
+			$this->_arrData['strPage']	= "plan";
+			$this->display("plan");
 		}
 
 	}

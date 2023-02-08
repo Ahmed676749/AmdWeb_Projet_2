@@ -5,20 +5,6 @@
 	*/
 	class Utilisateur_controller {
 
-        /* public function accueil() {
-			$strTitle 	= "AmdWeb, offres d'emplois spécialisé web";
-			$strPage	= "index";
-			include("views/header.php");
-			
-			// inclure les fichiers des classes
-			require("entities/utilisateur_entity.php"); 
-			require("models/utilisateur_manager.php"); 
-
-			require('views/index.php');
-			include("views/footer.php");
-			
-		} */
-
         public function inscription() {
 			$strTitle 	= "AmdWeb, offres d'emplois spécialisé web";
 			$strPage	= "inscription";
@@ -87,5 +73,20 @@
 			include("views/footer.php");
 			
 		}
+
+        public function connexion() {
+			$strTitle 	= "AmdWeb, offres d'emplois spécialisé web";
+			$strPage	= "connexion";
+			include("views/header.php");
+			
+			// inclure les fichiers des classes
+			require("entities/utilisateur_entity.php"); 
+			require("models/utilisateur_manager.php"); 
+
+            require('views/connexion.php');   
+			include("views/footer.php");
+
+
+        }
 
 }
