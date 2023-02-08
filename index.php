@@ -1,6 +1,6 @@
 <?php
 
-	$strCtrl 	= $_GET['ctrl']??"utilisateur";
+	$strCtrl 	= $_GET['ctrl']??"page";
 	$strAction 	= $_GET['action']??"accueil";
 	
 	// inclure le fichier qui contient la classe
