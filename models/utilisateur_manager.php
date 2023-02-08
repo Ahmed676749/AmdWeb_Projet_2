@@ -1,6 +1,6 @@
 <?php
 
-	require_once("models/connect.php");//Classe mère des managers
+	require_once("connect.php");//Classe mère des managers
 	/**
 	* Class manager des utilisateurs
 	* @creator Jonathan Legrand
@@ -34,8 +34,8 @@
 							VALUES 
 								('".$objUser->getNom()."','".$objUser->getPrenom()."','".$objUser->getAdresse()."','".$objUser->getMail()."','".$objUser->getMdp()."','".$objUser->getType()."', NOW());";
 
-			var_dump($objUser);
-			var_dump($strRqAdd);
+			// var_dump($objUser);
+			// var_dump($strRqAdd);
 			return $this->_db->exec($strRqAdd);
 		}
 		

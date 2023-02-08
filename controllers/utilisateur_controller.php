@@ -3,30 +3,24 @@
 	* Controller des utilisateurs
 	* @autor Jonathan Legrand
 	*/
-	class Utilisateur_controller {
+	class Utilisateur_controller extends Base_controller {
 
         public function inscription() {
-			$strTitle 	= "AmdWeb, offres d'emplois spécialisé web";
-			$strPage	= "inscription";
-			include("views/header.php");
-			
-			// inclure les fichiers des classes
-			require("entities/utilisateur_entity.php"); 
-			require("models/utilisateur_manager.php"); 
-			$objManager 	= new UtilisateurManager(); // instancier la classe
+            /**
+             * Traitement du formulaire d'inscription
+             */
 
-             // Récupération des informations du formulaire
+            // Récupération des informations du formulaire
             $strUserType  = $_POST['type']??'candidat';
             $strName      = $_POST['nom']??'';
             $strFirstname = $_POST['prenom']??'';
             $strAddress   = $_POST['adresse']??'';
             $strMail      = $_POST['mail']??'';
             $strPassword  = $_POST['mdp']??'';
-
-            var_dump($_POST);
-
-            $arrErrors 	= array(); // Initialisation du tableau des erreurs
-            if (count($_POST) > 0){ // si formulaire envoyé
+            
+            
+             $arrErrors 	= array(); // Initialisation du tableau des erreurs
+             if (count($_POST) > 0){ // si formulaire envoyé
                 // Tests erreurs
                 if ($strName == ''){
                 $arrErrors['name'] = "Merci de renseigner un nom";
@@ -41,51 +35,58 @@
                 $arrErrors['email'] = "Merci de renseigner une adresse mail";
                 }
                 if ($strPassword == ''){
-                $arrErrors['password'] = "Merci de renseigner un mot de passe";
+                    $arrErrors['password'] = "Merci de renseigner un mot de passe";
                 }
-                
-                if (count($arrErrors)>0){ // Affichage des erreurs, s'il y en a
+                // Affichage des erreurs, s'il y en a
+                if (count($arrErrors) > 0) { 
                     echo "<div class='error'>";
                     foreach($arrErrors as $strError){
-                echo "<p>".$strError."</p>";
+                        echo "<p>".$strError."</p>";
                     }
                     echo "</div>";
-                }else{	// Insertion en BDD, si pas d'erreurs
-                    // Créer l'objet user
-                    $objUser = new Utilisateur;
-                    $objUser->hydrate($_POST);
-                    
-                    //$objUtilisateurManager2 	= new UtilisateurManager(); // instancier la classe
-                    $arrCreerUtilisateur 		= $objManager->creerUtilisateur($objUser); // utiliser la classe
-                    
-                    //header("Location:index.php"); // Redirection page d'accueil
-                }
-            var_dump($arrErrors);
-            }
-        
+                } else {	
+                    // Si pas d'erreur :
+                    require("entities/utilisateur_entity.php"); // inclure les fichiers des classes
+                    $objUser = new Utilisateur; // Créer l'objet user
+                    $objUser->hydrate($_POST); // Le remplir avec les données du formulaire
 
-            $objUser = new Utilisateur;
-			$objUser->hydrate($_POST);
-            
-			$arrCreerUtilisateur = $objManager->creerUtilisateur($objUser); // utiliser la classe
+                    require("models/utilisateur_manager.php"); // inclure les fichiers des classes
+                    $objManager = new UtilisateurManager(); // instancier la classe
+                    $objManager->creerUtilisateur($objUser); // Envoyer les informations à la BDD
+
+                    header("Location:index.php"); // Redirection page d'accueil
+                }
+                // var_dump($arrErrors);
+            }
 			
-			require('views/inscription.php');   
-			include("views/footer.php");
-			
+            // Affichage de la page Inscription
+            $this->_arrData['strUserType']  = $strUserType;
+            $this->_arrData['strName']      = $strName;
+            $this->_arrData['strFirstname'] = $strFirstname;
+            $this->_arrData['strAddress']   = $strAddress;
+            $this->_arrData['strMail']      = $strMail;
+            $this->_arrData['strPassword']  = $strPassword;
+
+            $this->_arrData['strTitle'] = "AmdWeb, offres d'emplois spécialisé web";
+            $this->_arrData['strPage']	= "inscription";
+
+            $this->display("inscription");
 		}
 
+        /**
+         * Traitement du formulaire de connexion
+         */
         public function connexion() {
-			$strTitle 	= "AmdWeb, offres d'emplois spécialisé web";
-			$strPage	= "connexion";
-			include("views/header.php");
+
+            // Affichage de la page Connexion
+            $this->_arrData['strTitle'] = "AmdWeb, offres d'emplois spécialisé web";
+            $this->_arrData['strPage']	= "connexion";
+
+            $this->display("connexion");
 			
 			// inclure les fichiers des classes
-			require("entities/utilisateur_entity.php"); 
-			require("models/utilisateur_manager.php"); 
-
-            require('views/connexion.php');   
-			include("views/footer.php");
-
+			// require("entities/utilisateur_entity.php"); 
+			// require("models/utilisateur_manager.php"); 
 
         }
 

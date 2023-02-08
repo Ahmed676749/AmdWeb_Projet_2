@@ -1,5 +1,7 @@
 <?php
 
+	require('controllers/base_controller.php');
+
 	$strCtrl 	= $_GET['ctrl']??"page";
 	$strAction 	= $_GET['action']??"accueil";
 	

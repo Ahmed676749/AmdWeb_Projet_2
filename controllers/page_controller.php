@@ -1,8 +1,7 @@
 <?php
-	require('controllers/base_controller.php');
 	/**
 	* Controller des pages
-	* @autor Christel Ehrhart
+	* @autor Jonathan Legrand
 	*/
 	class Page_controller extends Base_controller{
 		
@@ -12,8 +11,8 @@
 		public function accueil(){
 			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web";
 			$this->_arrData['strPage']	= "index";
-			$this->display("index");
 			
+			$this->display("index");
 		}
 		
 		/**
@@ -22,6 +21,7 @@
 		public function galerie(){
 			$this->_arrData['strTitle']	= "AmdWeb offres d'emplois, galerie photos";
 			$this->_arrData['strPage']	= "galerie";
+
 			$this->display("galerie");
 		}
 		
@@ -31,6 +31,7 @@
 		public function mentions(){
 			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web, mentions légales";
 			$this->_arrData['strPage']	= "mentions";
+
 			$this->display("mentions");
 		}
 
@@ -40,6 +41,7 @@
 		public function emploi(){
 			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web";
 			$this->_arrData['strPage']	= "emploi";
+
 			$this->display("emploi");
 		}
 
@@ -49,6 +51,7 @@
 		public function plan(){
 			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web, plan du site";
 			$this->_arrData['strPage']	= "plan";
+
 			$this->display("plan");
 		}
 
