@@ -31,27 +31,27 @@
 								<li class="nav-item">
 									<a class="nav-link <?php if ($strPage == "index") {
 															echo "active";
-														} ?> " aria-current="page" href="index.php?ctrl=page&action=accueil">Accueil</a>
+														} ?>" href="index.php?ctrl=page&action=accueil">Accueil</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" <?php if ($strPage == "emploi") {
+									<a class="nav-link <?php if ($strPage == "emploi") {
 															echo "active";
-														} ?> href="index.php?ctrl=page&action=emploi">Emploi</a>
+														} ?>" href="index.php?ctrl=page&action=emploi">Emploi</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" <?php if ($strPage == "galerie") {
+									<a class="nav-link <?php if ($strPage == "galerie") {
 															echo "active";
-														} ?> href="index.php?ctrl=page&action=galerie">Galerie</a>
+														} ?>" href="index.php?ctrl=page&action=galerie">Galerie</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" <?php if ($strPage == "inscription") {
+									<a class="nav-link <?php if ($strPage == "inscription") {
 															echo "active";
-														} ?> href="index.php?ctrl=utilisateur&action=inscription">Inscription</a>
+														} ?>" href="index.php?ctrl=utilisateur&action=inscription">Inscription</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" <?php if ($strPage == "connexion") {
+									<a class="nav-link <?php if ($strPage == "connexion") {
 															echo "active";
-														} ?> href="index.php?ctrl=utilisateur&action=connexion">Connexion</a>
+														} ?>" href="index.php?ctrl=utilisateur&action=connexion">Connexion</a>
 								</li>
 							</ul>
 						</nav>
