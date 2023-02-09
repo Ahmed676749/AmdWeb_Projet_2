@@ -12,7 +12,7 @@
 			Oui, l'inscription est obligatoire comme sur tous les sites.
 			</p>
 
-			{$smarty.post|var_dump}
+			{*$smarty.post|var_dump*}
 
 
 			<div class="form-box">
