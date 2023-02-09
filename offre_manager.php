@@ -14,9 +14,9 @@
 	
 		
 		/**
-		* Methode de récupération des articles
+		* Methode de récupération des Offres
 		* @param int $intLimit Nombre limite de résultats
-		* @return array Liste des articles
+		* @return array Liste des Offres
 		*/
 		public function findOffres(int $intLimit = 0){
 			// Début de la requête

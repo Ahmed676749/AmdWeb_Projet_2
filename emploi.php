@@ -7,6 +7,12 @@ include("header.php");
 // inclure les fichiers des classes
 require("offre_entity.php"); 
 require("offre_manager.php"); 
+
+
+
+
+
+
 $objOffreManager 	= new OffreManager(); // instancier la classe
 $arrOffres 		= $objOffreManager->findOffres(); // utiliser la classe
 
@@ -17,12 +23,18 @@ $strKeywords 	= $_POST['keywords']??'';
 
 
 
+
+
+
+
+
+
   // $strRq 			= "	SELECT *
 	// 					FROM offre";
 
 	// $arrOffres 	= $db->query($strRq)->fetchAll();
 
-  // var_dump($arrOffres);
+  var_dump($strKeywords);
   
 ?>
 
@@ -35,12 +47,12 @@ $strKeywords 	= $_POST['keywords']??'';
             type="text"
             placeholder="Recherche par mots-clés"
             name="keywords"
+            value="<?php echo $strKeywords; ?>"
           />
         </form>
         <button class="style-button" type="submit">Trouver</button>
       </div>
 
-      <?php var_dump($_POST); ?>
       <!--Section cartes emplois-->
       <section class="job-section-list">
         <h1 class="style-h">Les offres d'emplois</h1>
