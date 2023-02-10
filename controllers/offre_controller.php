@@ -18,13 +18,11 @@
 				$objOffre->hydrate($_POST);
 				$objOffreManager->ajouterOffre($objOffre);
 			}
-
-			// public function ajouteroffre(){
+		
 				$this->_arrData['uneOffre'] = $objOffre;
 				$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
 				$this->_arrData['strPage']	= "ajouteroffre";
 				$this->display("ajouteroffre");
-			// }
     }
 
   		public function afficherOffres() {
