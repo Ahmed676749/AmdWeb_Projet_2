@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 10 fév. 2023 à 10:03
+-- Généré le : ven. 10 fév. 2023 à 10:25
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -193,12 +193,12 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `utilisateur_date_creation` datetime NOT NULL,
   `utilisateur_date_modification` datetime DEFAULT NULL,
   `utilisateur_date_connexion` datetime DEFAULT NULL,
-  `utilisateur_droit_id` int UNSIGNED NOT NULL,
-  `utilisateur_ville_id` int UNSIGNED NOT NULL,
+  `utilisateur_droit_id` int UNSIGNED NOT NULL DEFAULT '5',
+  `utilisateur_ville_id` int UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`utilisateur_id`),
   KEY `utilisateur_droit_id` (`utilisateur_droit_id`),
   KEY `utilisateur_ville_id` (`utilisateur_ville_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -210,7 +210,8 @@ INSERT INTO `utilisateur` (`utilisateur_id`, `utilisateur_nom`, `utilisateur_pre
 (3, 'BONNEAU', 'Jean', '11 rue de la Charcuterie', 'candidat', NULL, 'jeanbonneau@dev.fr', 'Jean*dev68', '2023-01-25 11:16:13', '2023-01-25 14:12:50', NULL, 1, 6),
 (4, 'CONDA', 'Anna', '7 rue de la Jungle', 'candidat', NULL, 'annaconda@amazon.br', 'Moogli*7', '2023-01-25 13:00:59', '2023-01-25 14:15:19', NULL, 1, 11),
 (5, 'SAILAIR', 'Jacques', '20 boulevard Aryton Senna', 'recruteur', NULL, 'jaksailair@surlaroute.vit', 'Porshe911', '2023-01-25 13:17:12', '2023-01-25 14:17:12', NULL, 2, 9),
-(6, 'TIME', 'Vincent', '20 rue de la Tirelire', 'visiteur', NULL, 'vincentime@poche.in', 'Moneyman*68', '2023-01-25 13:17:12', '0000-00-00 00:00:00', NULL, 5, 8);
+(6, 'TIME', 'Vincent', '20 rue de la Tirelire', 'visiteur', NULL, 'vincentime@poche.in', 'Moneyman*68', '2023-01-25 13:17:12', '0000-00-00 00:00:00', NULL, 5, 8),
+(8, 'LEGRAND', 'Jonathan', 'ffrfrefqerf', 'candidat', NULL, 'jlegrand77@gmail.com', '123456', '2023-02-10 11:24:04', NULL, NULL, 5, NULL);
 
 -- --------------------------------------------------------
 
