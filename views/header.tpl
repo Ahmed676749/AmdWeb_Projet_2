@@ -67,7 +67,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" {if ($strPage == "ajouteroffre")} class='active' {/if}
-                    href="index.php?ctrl=page&action=ajouteroffre">Ajouter offre</a>
+                    href="index.php?ctrl=offre&action=ajouterOffre">Ajouter offre</a>
                   </li>
                 </ul>
               </nav>

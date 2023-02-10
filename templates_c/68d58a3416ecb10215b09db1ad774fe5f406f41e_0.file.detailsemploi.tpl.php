@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-05 22:21:27
-  from 'C:\xampp\htdocs\amdweb\views\details-emploi.tpl' */
+/* Smarty version 4.2.1, created on 2023-02-10 08:18:20
+  from 'C:\wamp64\www\AmdWeb_Projet_2\views\detailsemploi.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63e01dd742ecd6_82345130',
+  'unifunc' => 'content_63e5fdcc7352f0_58507558',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '9eeffc69104ca7f01cbe39011a63a36048b9dfca' => 
+    '68d58a3416ecb10215b09db1ad774fe5f406f41e' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\amdweb\\views\\details-emploi.tpl',
-      1 => 1675632085,
+      0 => 'C:\\wamp64\\www\\AmdWeb_Projet_2\\views\\detailsemploi.tpl',
+      1 => 1676015805,
       2 => 'file',
     ),
   ),
@@ -20,59 +20,51 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63e01dd742ecd6_82345130 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63e5fdcc7352f0_58507558 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_37221691763e01dd741e800_09883854', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_191826484063e5fdcc72f958_93602662', "content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/structure.tpl");
 }
 /* {block "content"} */
-class Block_37221691763e01dd741e800_09883854 extends Smarty_Internal_Block
+class Block_191826484063e5fdcc72f958_93602662 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_37221691763e01dd741e800_09883854',
+    0 => 'Block_191826484063e5fdcc72f958_93602662',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-  <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['arrAfficheUneOffre']->value, 'objUneAfOffre');
-$_smarty_tpl->tpl_vars['objUneAfOffre']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['objUneAfOffre']->value) {
-$_smarty_tpl->tpl_vars['objUneAfOffre']->do_else = false;
-?>
+  
       <main>
         <!--Section description-->
         <section class="description">
           <h1 class="style-h"></h1>
           <div class="wrapper-details">
           
+            
             <div class="left-box card-job">
-              <p><?php echo $_smarty_tpl->tpl_vars['objUneAfOffre']->value->getTitre();?>
+              <p><?php echo $_smarty_tpl->tpl_vars['uneOffre']->value->getTitre();?>
 </p>
-              <p>Salaire: 2500 &euro; / mois</p>
+              <p>Salaire: <?php echo $_smarty_tpl->tpl_vars['uneOffre']->value->getSalaire();?>
+ &euro; / mois</p>
             </div>
             <div class="right-box card-job">
               <p>Description :</p>
               <p>
-                Venez nous rejoindre dans un grand loft avec une Play-Station,
-                mario kart et une ambiance convivial. Nous cherchons un
-                développeur à part entière de l'équipe. Nous développons une IA
-                et avons besoin d'un développeur front pour nous soulager dans
-                le développement des maquettes. Nous sommes plus impressionnés
-                par les projets personnels réalisés que par votre niveau
-                d'étude.
+              <?php echo $_smarty_tpl->tpl_vars['uneOffre']->value->getDescription();?>
+
               </p>
               <p>
                 Type d'emploi : Temps plein, CDI
                 <br />
-                Salaire : 2500 / mois
+               
               </p>
               <p>
                 Avantages :
@@ -96,9 +88,7 @@ $_smarty_tpl->tpl_vars['objUneAfOffre']->do_else = false;
           </div>
         </section>
       </main>
-    <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+   
     <?php
 }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-06 21:22:47
-  from 'C:\xampp\htdocs\amdweb\views\emploi.tpl' */
+/* Smarty version 4.2.1, created on 2023-02-10 08:18:09
+  from 'C:\wamp64\www\AmdWeb_Projet_2\views\emploi.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63e16197c86162_16497448',
+  'unifunc' => 'content_63e5fdc19f76f6_58979499',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'df603b773b60ea8a144344e26129df5445789c86' => 
+    '055246ca21c443b6b1b95c5667c30873372c3fbf' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\amdweb\\views\\emploi.tpl',
-      1 => 1675714844,
+      0 => 'C:\\wamp64\\www\\AmdWeb_Projet_2\\views\\emploi.tpl',
+      1 => 1676017087,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63e16197c86162_16497448 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63e5fdc19f76f6_58979499 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
       <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_51258628763e16197c5d577_88446952', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_198464512963e5fdc19ed728_54088916', "content");
 ?>
 
-        </div>
-  </section>
-  
       <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/structure.tpl");
 }
 /* {block "content"} */
-class Block_51258628763e16197c5d577_88446952 extends Smarty_Internal_Block
+class Block_198464512963e5fdc19ed728_54088916 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_51258628763e16197c5d577_88446952',
+    0 => 'Block_198464512963e5fdc19ed728_54088916',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -72,7 +69,10 @@ $_smarty_tpl->tpl_vars['objOffreDet']->do_else = false;
           <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-        <?php
+        
+        </div>
+  </section>
+  <?php
 }
 }
 /* {/block "content"} */

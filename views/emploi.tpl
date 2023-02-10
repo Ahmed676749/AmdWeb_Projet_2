@@ -15,8 +15,8 @@
               <p>Salaire: {$objOffreDet->getSalaire()} &euro; / mois</p>
             </a>
           {/foreach}
-        {/block}
+        
         </div>
   </section>
-  
+  {/block}
       

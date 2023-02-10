@@ -18,6 +18,13 @@
 				$objOffre->hydrate($_POST);
 				$objOffreManager->ajouterOffre($objOffre);
 			}
+
+			// public function ajouteroffre(){
+				$this->_arrData['uneOffre'] = $objOffre;
+				$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
+				$this->_arrData['strPage']	= "ajouteroffre";
+				$this->display("ajouteroffre");
+			// }
     }
 
   		public function afficherOffres() {
@@ -47,13 +54,9 @@
 			$objUneOffre = $objOffreManager->afficherUneOffre($_GET["id"]);
 
 			$objOffre = new Offre;
-				$objOffre->hydrate($objUneOffre);
-				
-	
-			
 
+			$objOffre->hydrate($objUneOffre);
 			$this->_arrData['uneOffre'] = $objOffre;
-		
 			$this->_arrData['strTitle']	= "page détails emploi";
 			$this->_arrData['strPage']	= "details-emploi";
 			$this->display("detailsemploi");

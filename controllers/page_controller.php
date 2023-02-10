@@ -11,11 +11,11 @@
 			$this->display("index");
 		}
 
-		public function ajouteroffre(){
-			$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
-			$this->_arrData['strPage']	= "ajouteroffre";
-			$this->display("ajouteroffre");
-		}
+		// public function ajouteroffre(){
+		// 	$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
+		// 	$this->_arrData['strPage']	= "ajouteroffre";
+		// 	$this->display("ajouteroffre");
+		// }
 		
 		public function emploi(){
 			$this->_arrData['strTitle']	= "pages des emplois";

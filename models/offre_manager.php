@@ -35,9 +35,6 @@
 			$strRqOffreSelect =  "SELECT offre_id, offre_titre, offre_description, offre_salaire, offre_siret, offre_adresse FROM offre WHERE offre_id = $intId";
 			return $this->_db->query($strRqOffreSelect)->fetch();
 		}
-
-
-
 		public function modifierOffre(){}
 		public function supprimerOffre(){}
 	}
