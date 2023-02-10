@@ -1,75 +1,22 @@
 {extends file="views/structure.tpl"}
-
-{block name="content"}
-    <!--Section barre de recherche-->
-    <div class="search-box">
-        <form>
-            <label for="search-bar"></label>
-            <input id="search-bar" type="text" placeholder="Recherche par mots-clés" />
-        </form>
-        <button class="style-button" type="submit">Trouver</button>
-    </div>
-    <!--Section cartes emplois-->
-    <!--Section cartes emplois-->
-    <section class="job-section-list">
+      {block name="content"}
+      <!--Section cartes emplois-->
+      <section class="job-section-list">
         <h1 class="style-h">Les offres d'emplois</h1>
-    <p class="text-presentation">
-        Comme promis, vous n'allez pas être déçu. Retrouvez toutes les offres
-            d'emplois sur cette page!
+        <p class="text-presentation">
+          Comme promis, vous n'allez pas être deçu. Retrouvez toutes les offres
+          d'emplois sur cette page!
         </p>
-        <div class="wrapper-layer">
-            <!-- <a href="details-emploi.php" class="card-job">
-              <h3>Développeur Web</h3>
-              <address>strasbourg</address>
-              <p>Salaire: 1800 &euro; / mois</p>
+        <div class="wrapper-layer">  
+          {foreach from=$arrOffreAffichage item=$objOffreDet}
+            <a href="index.php?ctrl=offre&action=afficherOffre&id={$objOffreDet->getId()}" class="card-job">
+              <h3 {}>{$objOffreDet->getTitre()}</h3>
+              <address>{$objOffreDet->getAdresse()}</address>
+              <p>Salaire: {$objOffreDet->getSalaire()} &euro; / mois</p>
             </a>
-            <a href="details-emploi.php" class="card-job">
-              <h3>Développeur Fullstack</h3>
-              <address>paris</address>
-              <p>Salaire: 3000 &euro; / mois</p>
-            </a>
-            <a href="details-emploi.php" class="card-job">
-              <h3>Développeur PHP</h3>
-              <address>marseille</address>
-              <p>Salaire: 2500 &euro; / mois</p>
-            </a>
-            <a href="details-emploi.php" class="card-job">
-              <h3>Développeur JavaScript</h3>
-              <address>lyon</address>
-              <p>Salaire: 2300 &euro; / mois</p>
-            </a>
-            <a href="details-emploi.php" class="card-job">
-              <h3>Développeur Back End</h3>
-              <address>strasbourg</address>
-              <p>Salaire: 1800 &euro; / mois</p>
-            </a>
-            <a href="details-emploi.php" class="card-job">
-              <h3>Développeur Front End</h3>
-              <address>bordeaux</address>
-              <p>Salaire: 2000 &euro; / mois</p>
-            </a>
-            <a href="details-emploi.php" class="card-job">
-              <h3>Développeur PHP/Symfony</h3>
-              <address>paris</address>
-              <p>Salaire: 3600 &euro; / mois</p>
-            </a>
-            <a href="details-emploi.php" class="card-job">
-              <h3>Développeur React</h3>
-              <address>lyon</address>
-              <p>Salaire: 2600 &euro; / mois</p>
-            </a> -->
-
-
-            {foreach from=$arrOffres item=arrDetOffre}
-                {php}
-                $objOffre = new Offre;
-                $objOffre->hydrate($arrDetOffre);
-                {/php}
-                {include file="offre.php"}
-            {/foreach}
-
+          {/foreach}
+        
         </div>
-
-
-    </section>
-{/block}
+  </section>
+  {/block}
+      

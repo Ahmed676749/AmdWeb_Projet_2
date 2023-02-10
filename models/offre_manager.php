@@ -1,43 +1,57 @@
 <?php
-	require_once("connect.php");//Classe mère des managers
+	require_once("models/connect.php");
+	require_once("entities/offre_entity.php");//Classe mère des managers
 	/**
 	* Class manager des articles
-	* @creator Lucien Bruzzese
+	* @creator Ahmed AL AMRI
 	*/
 	class OffreManager extends Manager{
-		/**
-		* Constructeur de la classe
-		*/
 		public function __construct(){
 			parent::__construct();
 		}
-	
-		
-		/**
-		* Methode de récupération des Offres
-		* @param int $intLimit Nombre limite de résultats
-		* @return array Liste des Offres
-		*/
-		public function findOffres(int $intLimit = 0){
-			// Début de la requête
-			$strRq 		= "	SELECT offre_id, offre_titre, offre_description,
-								offre_date_creation, utilisateur_prenom AS 'offre_creator', utilisateur_nom, offre_ville_id
-							FROM offre
-								INNER JOIN utilisateur ON offre_utilisateur_id = utilisateur_id 
-								INNER JOIN ville ON offre_ville_id = ville_id ";
-								
-			$strWhere	= " WHERE ";
 
-			$strKeywords 	= $_POST['keywords']??'';
-			if ($strKeywords != ''){
-				$strRq 		.= $strWhere." (offre_titre LIKE '%".$strKeywords."%' 
-									OR offre_description LIKE '%".$strKeywords."%' )";
-				$strWhere	= " AND ";
+		public function ajouterOffre(Offre $offre) {
+			$strTitre = $offre->getTitre();
+			$strDescription = $offre->getDescription();
+			$strSalaire = $offre->getSalaire();
+			$strSiret = $offre->getSiret();
+			$strAdresse = $offre->getAdresse();
+	
+    		$strRq = "INSERT INTO offre (offre_titre, offre_description, offre_salaire, offre_siret, offre_adresse)
+                      VALUES ('".$strTitre."', '".$strDescription."', '".$strSalaire."', '".$strSiret."', '".$strAdresse."')"; 
+
+        	return $this->_db->exec($strRq);
+		}
+
+		public function trouverOffre() {
+			$strRqAfficher = "SELECT *
+							  FROM offre";
+			
+			return $this->_db->query($strRqAfficher)->fetchAll();
+			
+		}
+
+		public function afficherUneOffre($intId){
+			$strRqOffreSelect =  "SELECT offre_id, offre_titre, offre_description, offre_salaire, offre_siret, offre_adresse FROM offre WHERE offre_id = $intId";
+			return $this->_db->query($strRqOffreSelect)->fetch();
+		}
+		public function modifierOffre(){}
+		public function supprimerOffre(){}
+
+		public function rechercherOffre() {
+
+			$strKeywords = $_POST['keywords']??'';
+			if ($strKeywords != '') {
+
+				"SELECT * FROM offre WHERE offre_titre LIKE '%".$strKeywords."%' OR offre_description LIKE '%".$strKeywords."%'";
+
 			}
 			
-	
-			return $this->_db->query($strRq)->fetchAll();
-			
+
+		}
+
 		
 	}
-}
+
+	
+
