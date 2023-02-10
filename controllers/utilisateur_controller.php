@@ -5,73 +5,70 @@
 	*/
 	class Utilisateur_controller extends Base_controller {
 
+        /**
+        * Constructeur de la classe
+        */ 
+        public function __construct(){
+            require("models/utilisateur_manager.php"); 
+            require("entities/utilisateur_entity.php"); 
+        }
+
+        /**
+        * Page inscription
+        */
         public function inscription() {
-            /**
-             * Traitement du formulaire d'inscription
-             */
 
-            // Récupération des informations du formulaire
-            $strUserType  = $_POST['type']??'candidat';
-            $strName      = $_POST['nom']??'';
-            $strFirstname = $_POST['prenom']??'';
-            $strAddress   = $_POST['adresse']??'';
-            $strMail      = $_POST['mail']??'';
-            $strPassword  = $_POST['mdp']??'';
-            
-            
-             $arrErrors 	= array(); // Initialisation du tableau des erreurs
-             if (count($_POST) > 0){ // si formulaire envoyé
-                // Tests erreurs
-                if ($strName == ''){
-                $arrErrors['name'] = "Merci de renseigner un nom";
-                }
-                if ($strFirstname == ''){
-                $arrErrors['firstname'] = "Merci de renseigner un prénom";
-                }
-                if ($strAddress == ''){
-                $arrErrors['address'] = "Merci de renseigner une adresse";
-                }
-                if ($strMail == ''){
-                $arrErrors['email'] = "Merci de renseigner une adresse mail";
-                }
-                if ($strPassword == ''){
-                    $arrErrors['password'] = "Merci de renseigner un mot de passe";
-                }
-                // Affichage des erreurs, s'il y en a
-                if (count($arrErrors) > 0) { 
-                    echo "<div class='error'>";
-                    foreach($arrErrors as $strError){
-                        echo "<p>".$strError."</p>";
-                    }
-                    echo "</div>";
-                } else {	
-                    // Si pas d'erreur :
-                    require("entities/utilisateur_entity.php"); // inclure les fichiers des classes
-                    $objUser = new Utilisateur; // Créer l'objet user
-                    $objUser->hydrate($_POST); // Le remplir avec les données du formulaire
+            // Création de l'objet Utilisateur
+            $objUser = new Utilisateur;
 
-                    require("models/utilisateur_manager.php"); // inclure les fichiers des classes
+            var_dump($_POST);
+            
+            $arrError = array(); // Tableau des erreurs initialisé
+            if (count($_POST) > 0) { // Si le formulaire est envoyé
+                // On hydrate l'objet
+                $objUser->hydrate($_POST);
+                var_dump($_POST['nom']);
+                var_dump($objUser);
+                
+                // On teste les informations
+                if ($objUser->getNom() == ''){ // Tests sur le nom
+                    $arrError[]	= "Merci de renseigner un nom";
+                }
+                if ($objUser->getPrenom() == ''){ // Tests sur le prénom
+                    var_dump($objUser->getPrenom());
+                    $arrError[]	= "Merci de renseigner un prénom";
+                    echo "Merci de renseigner un prénom";
+                }
+                if ($objUser->getMail() == ''){ // Tests sur le mail
+                    $arrError[]	= "Merci de renseigner une adresse mail";
+                }
+                if ($objUser->getMdp() == ''){ // Tests sur le mot de passe
+                    $arrError[]	= "Merci de renseigner un mot de passe";
+                }
+                var_dump($arrError);
+                /* if (!password_verify($_POST['confirmPwd'], $objUser->getPwd())){ // Tests sur la confirmation du mot de passe
+                    $arrError[]	= "Le mot de passe et sa confirmation ne sont pas identiques";
+                } */
+                // Si aucune erreur, on créer l'objet User et on l'insert en BDD
+                if (count($arrError) == 0){ 
                     $objManager = new UtilisateurManager(); // instancier la classe
-                    $objManager->creerUtilisateur($objUser); // Envoyer les informations à la BDD
-
-                    header("Location:index.php"); // Redirection page d'accueil
+                    if($objManager->creerUtilisateur($objUser)){ // Envoyer les informations à la BDD
+                        //header("Location:index.php");   // Redirection vers la page d'accueil
+                    }else{
+                        $arrError[]	= "Erreur lors de l'ajout";
+                    }
                 }
-                // var_dump($arrErrors);
             }
-			
-            // Affichage de la page Inscription
-            $this->_arrData['strUserType']  = $strUserType;
-            $this->_arrData['strName']      = $strName;
-            $this->_arrData['strFirstname'] = $strFirstname;
-            $this->_arrData['strAddress']   = $strAddress;
-            $this->_arrData['strMail']      = $strMail;
-            $this->_arrData['strPassword']  = $strPassword;
+            
+            //Affichage
+            $this->_arrData['objUser']		= $objUser;
+            $this->_arrData['arrError']		= $arrError;
 
-            $this->_arrData['strTitle'] = "AmdWeb, offres d'emplois spécialisé web";
-            $this->_arrData['strPage']	= "inscription";
+            $this->_arrData['strTitle']		= "AmdWeb, offres d'emplois spécialisé web";
+            $this->_arrData['strPage']		= "inscription";
 
             $this->display("inscription");
-		}
+        }
 
         /**
          * Traitement du formulaire de connexion

@@ -1,5 +1,6 @@
 <?php
 	class Utilisateur {
+
 		private $_utilisateur_id;
 		private $_utilisateur_nom;
 		private $_utilisateur_prenom;
@@ -42,21 +43,23 @@
 			return $this->_utilisateur_nom;
 		}
 		public function setNom($strUtilisateur_nom) {
-			$this->_utilisateur_nom = $strUtilisateur_nom;
+			$this->_utilisateur_nom = filter_var(trim($strUtilisateur_nom),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getPrenom() {
 			return $this->_utilisateur_prenom;
 		}
+
 		public function setPrenom($strUtilisateur_prenom) {
-			$this->_utilisateur_prenom = $strUtilisateur_prenom;
+			$this->_utilisateur_prenom = filter_var(trim($strUtilisateur_prenom),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getAdresse() {
 			return $this->_utilisateur_adresse;
 		}
+		
 		public function setAdresse($strUtilisateur_adresse) {
-			$this->_utilisateur_adresse = $strUtilisateur_adresse;
+			$this->_utilisateur_adresse = filter_var(trim($strUtilisateur_adresse),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getType() {
@@ -77,14 +80,19 @@
 			return $this->_utilisateur_mail;
 		}
 		public function setMail($strUtilisateur_mail) {
-			$this->_utilisateur_mail = $strUtilisateur_mail;
+			$this->_utilisateur_mail = filter_var(trim(strtolower($strUtilisateur_mail)),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getMdp() {
 			return $this->_utilisateur_mdp;
 		}
-		public function setMdp($strUtilisateur_mdp) {
-			$this->_utilisateur_mdp = $strUtilisateur_mdp;
+		public function setMdp(string $strUtilisateur_mdp) {
+			$strUtilisateur_mdp = filter_var(trim($strUtilisateur_mdp),FILTER_SANITIZE_SPECIAL_CHARS);
+			if ($strUtilisateur_mdp != ''){ // On ne hache le mot de passe que s'il est renseigné
+				$this->_utilisateur_mdp = password_hash($strUtilisateur_mdp, PASSWORD_DEFAULT);
+			}else{
+				$this->_utilisateur_mdp = $strUtilisateur_mdp;
+			}
 		}
 
 		public function getDateCreation() {

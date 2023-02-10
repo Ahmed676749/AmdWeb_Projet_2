@@ -34,8 +34,8 @@
 							VALUES 
 								('".$objUser->getNom()."','".$objUser->getPrenom()."','".$objUser->getAdresse()."','".$objUser->getMail()."','".$objUser->getMdp()."','".$objUser->getType()."', NOW());";
 
-			// var_dump($objUser);
-			// var_dump($strRqAdd);
+			var_dump($strRqAdd);
+			var_dump($objUser);
 			return $this->_db->exec($strRqAdd);
 		}
 		
