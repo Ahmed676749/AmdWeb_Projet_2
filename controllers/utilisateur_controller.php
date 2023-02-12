@@ -19,41 +19,47 @@
         public function inscription() {
 
             // Création de l'objet Utilisateur
-            $objUser = new Utilisateur;
+            $objUserToAdd = new Utilisateur;
 
-            var_dump($_POST);
+            // var_dump($_POST);
             
-            $arrError = array(); // Tableau des erreurs initialisé
-            if (count($_POST) > 0) { // Si le formulaire est envoyé
+            $arrError = array();            // Tableau des erreurs initialisé
+            if (count($_POST) > 0) {        // Si le formulaire est envoyé
                 // On hydrate l'objet
-                $objUser->hydrate($_POST);
-                var_dump($_POST['nom']);
-                var_dump($objUser);
+                $objUserToAdd->hydrate($_POST);
+                // var_dump($_POST['nom']);
+                var_dump($objUserToAdd);
                 
                 // On teste les informations
-                if ($objUser->getNom() == ''){ // Tests sur le nom
+                if ($objUserToAdd->getNom() == ''){              // Tests sur le nom
                     $arrError[]	= "Merci de renseigner un nom";
                 }
-                if ($objUser->getPrenom() == ''){ // Tests sur le prénom
-                    var_dump($objUser->getPrenom());
+                if ($objUserToAdd->getPrenom() == ''){           // Tests sur le prénom
                     $arrError[]	= "Merci de renseigner un prénom";
-                    echo "Merci de renseigner un prénom";
                 }
-                if ($objUser->getMail() == ''){ // Tests sur le mail
+                if ($objUserToAdd->getMail() == ''){             // Tests sur le mail
                     $arrError[]	= "Merci de renseigner une adresse mail";
                 }
-                if ($objUser->getMdp() == ''){ // Tests sur le mot de passe
+                if ($objUserToAdd->getMdp() == ''){              // Tests sur le mot de passe
                     $arrError[]	= "Merci de renseigner un mot de passe";
                 }
-                var_dump($arrError);
-                /* if (!password_verify($_POST['confirmPwd'], $objUser->getPwd())){ // Tests sur la confirmation du mot de passe
-                    $arrError[]	= "Le mot de passe et sa confirmation ne sont pas identiques";
+
+                $smarty = new Smarty;
+                $smarty->assign('arrErrors', $arrError);
+                // var_dump($arrError);
+                /* foreach ($arrError as $Error) {
+                    echo '<div class="alert alert-warning">
+                    Attention : '.$Error.'
+                    </div>';
                 } */
+
                 // Si aucune erreur, on créer l'objet User et on l'insert en BDD
                 if (count($arrError) == 0){ 
-                    $objManager = new UtilisateurManager(); // instancier la classe
-                    if($objManager->creerUtilisateur($objUser)){ // Envoyer les informations à la BDD
-                        //header("Location:index.php");   // Redirection vers la page d'accueil
+                    $objManager = new UtilisateurManager();           // instancier la classe
+                    var_dump($objManager);
+
+                    if($objManager->creerUtilisateur($objUserToAdd)){    // Envoyer les informations à la BDD
+                        header("Location:index.php");               // Puis redirection vers la page d'accueil
                     }else{
                         $arrError[]	= "Erreur lors de l'ajout";
                     }
@@ -61,7 +67,7 @@
             }
             
             //Affichage
-            $this->_arrData['objUser']		= $objUser;
+            $this->_arrData['objUserToAdd']		= $objUserToAdd;
             $this->_arrData['arrError']		= $arrError;
 
             $this->_arrData['strTitle']		= "AmdWeb, offres d'emplois spécialisé web";
@@ -80,11 +86,6 @@
             $this->_arrData['strPage']	= "connexion";
 
             $this->display("connexion");
-			
-			// inclure les fichiers des classes
-			// require("entities/utilisateur_entity.php"); 
-			// require("models/utilisateur_manager.php"); 
-
         }
 
 }
