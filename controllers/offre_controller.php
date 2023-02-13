@@ -27,7 +27,7 @@
 			// }
     }
 
-			$this->_arrData['strKeywords'] 	= $_POST['keywords']??'';
+			
 
 	
 
