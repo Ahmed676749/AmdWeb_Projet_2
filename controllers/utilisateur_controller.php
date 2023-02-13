@@ -46,13 +46,7 @@
 
                 $smarty = new Smarty;
                 $smarty->assign('arrErrors', $arrError);
-                // var_dump($arrError);
-                /* foreach ($arrError as $Error) {
-                    echo '<div class="alert alert-warning">
-                    Attention : '.$Error.'
-                    </div>';
-                } */
-
+                
                 // Si aucune erreur, on créer l'objet User et on l'insert en BDD
                 if (count($arrError) == 0){ 
                     $objManager = new UtilisateurManager();           // instancier la classe
@@ -76,10 +70,33 @@
             $this->display("inscription");
         }
 
-        /**
-         * Traitement du formulaire de connexion
-         */
-        public function connexion() {
+			/**
+			* Page connexion
+			*/
+			public function connexion() {
+				if (count($_POST) > 0){
+				$strMail 	= $_POST['mail']??'';
+				$strPwd 	= $_POST['passwd']??'';
+				
+				$objUserManager = new UserManager;
+				// Vérifier l'utilisateur / mdp en base de données
+				$arrUser = $objUserManager->verifUser($strMail, $strPwd);
+				if ($arrUser === false){
+					$this->_arrData['strError'] = "Erreur de connexion";
+				}else{
+					// Stocker les informations utiles de l'utilisateur en session
+					$_SESSION['user']	= $arrUser;
+				}
+			}
+
+
+
+
+
+
+
+
+
 
             // Affichage de la page Connexion
             $this->_arrData['strTitle'] = "AmdWeb, offres d'emplois spécialisé web";

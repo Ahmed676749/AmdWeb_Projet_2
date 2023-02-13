@@ -39,11 +39,11 @@
 			$prep->bindValue(':adresse', $objUserToAdd->getAdresse(), PDO::PARAM_STR);
 			$prep->bindValue(':mail', $objUserToAdd->getMail(), PDO::PARAM_STR);
 			$prep->bindValue(':mdp', $objUserToAdd->getMdp(), PDO::PARAM_STR);
-			$prep->bindValue(':typeUtil', $objUserToAdd->getType(), PDO::PARAM_STR);
+			$prep->bindValue(':type', $objUserToAdd->getType(), PDO::PARAM_STR);
 
 			// var_dump($objUserToAdd);
-			$prep->execute();
-			var_dump($prep);
+			return $prep->execute();
+			//var_dump($prep);
 			// return $this->_db->exec($strRqAdd);
 		}
 		

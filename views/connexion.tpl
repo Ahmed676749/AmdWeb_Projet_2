@@ -6,24 +6,29 @@
     <section>
         <div class="wrapper-subscribe">
             <h1 class="style-h">Connexion</h1>
-            <p class="text-presentation">
-                Vous n'avez de compte? &ensp;
-                <a href="index.php?ctrl=utilisateur&action=inscription"> Inscrivez-vous!</a>
-            </p>
+			
+			{$smarty.post|var_dump}
+			
+			<form name="formConnect" method="post" action="#">
+				<p class="text-presentation">
+					Vous n'avez de compte? &ensp;
+					<a href="index.php?ctrl=utilisateur&action=inscription"> Inscrivez-vous!</a>
+				</p>
 
-            <div class="style">
-                <label for="email">Email</label>
-                <input type="email" id="email" />
-            </div>
+				<div class="style">
+					<label for="email">Email</label>
+					<input type="email" id="email" name="mail" />
+				</div>
 
-            <div class="style">
-                <label for="passWord">Mot de passe</label>
-                <input type="password" id="passWord" />
-            </div>
+				<div class="style">
+					<label for="passWord">Mot de passe</label>
+					<input type="password" id="password" name="mdp" />
+				</div>
 
-            <div class="wrap-btn-connexion">
-            <button class="btn-subscribe style-button" type="submit">Connexion</button>
-            </div>
+				<div class="wrap-btn-connexion">
+				<button class="btn-subscribe style-button" type="submit">Connexion</button>
+				</div>
+			</form>
         </div>
     </section>
 </main>
