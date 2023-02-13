@@ -1,13 +1,6 @@
-<?php
-  $strTitle = "AmdWeb offres d'emplois, galerie photos";
-  $strPage = "galerie";
+{extends file="views/structure.tpl"}
 
-  include("../../views/header.php");
-
-  
-?>
-
-
+{block name="content"}
       <main class="gallery-box">
         <h1 class="style-h">Galerie photos</h1>
         <p class="text-presentation">
@@ -76,7 +69,15 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+        <div class="formImage">
+        <form action="#" method="post" enctype="multipart/form-data">
+            <label for="photo">Selectionnez une image</label>
+            <input type="file" name="photo_nom" id="photo">
+            <label for="submit">Ajouter</label>
+            <input type="submit" value="" name="submit">
+        </form>
+        </div>
       </main>
-      <!--Footer-->
-      <?php include("../../views/footer.php") ?>
+    {/block}
+    
       
