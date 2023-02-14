@@ -2,7 +2,7 @@
 
 {block name="content"}
       <main class="gallery-box">
-        <h1 class="style-h">Galerie photos</h1>
+        {* <h1 class="style-h">Galerie photos</h1>
         <p class="text-presentation">
           Voici quelques très jolie photographies pour vous mettre dans
           l'ambiance.
@@ -68,14 +68,18 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
-        </div>
+        </div> *}
         <div class="formImage">
         <form action="#" method="post" enctype="multipart/form-data">
             <label for="photo">Selectionnez une image</label>
             <input type="file" name="photo_nom" id="photo">
-            <label for="submit">Ajouter</label>
-            <input type="submit" value="" name="submit">
+            <label for="ut">utilisateur</label>
+            <input type="text" name="photo_utilisateur_id" id="ut">
+            <button class="btn-addPhoto style-button" type="submit">Ajouter</button>
         </form>
+        <div>
+          <img alt="image" src="assets/images/img_first_page/{$objPhoto->getNom()}">
+        </div>
         </div>
       </main>
     {/block}

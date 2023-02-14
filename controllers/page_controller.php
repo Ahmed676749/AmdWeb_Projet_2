@@ -23,11 +23,11 @@
 			$this->display("emploi");
 		}
 	
-		public function galerie(){
-			$this->_arrData['strTitle']	= "pages des photos";
-			$this->_arrData['strPage']	= "galerie";
-			$this->display("galerie");
-		}
+		// public function galerie(){
+		// 	$this->_arrData['strTitle']	= "pages des photos";
+		// 	$this->_arrData['strPage']	= "galerie";
+		// 	$this->display("galerie");
+		// }
 
 		public function inscription(){
 			$this->_arrData['strTitle']	= "pages inscription";

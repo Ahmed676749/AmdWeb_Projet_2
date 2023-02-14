@@ -55,7 +55,7 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" {if ($strPage == "galerie")} class='active' {/if} 
-                    href="index.php?ctrl=offre&action=ajouterPhoto">Galerie</a>
+                    href="index.php?ctrl=photo&action=ajouterPhoto">Galerie</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" {if ($strPage == "inscription")} class='active' {/if}
