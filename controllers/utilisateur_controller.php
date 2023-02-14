@@ -19,28 +19,28 @@
         public function inscription() {
 
             // Création de l'objet Utilisateur
-            $objUserToAdd = new Utilisateur;
+            $objUser = new Utilisateur;
 
             // var_dump($_POST);
             
             $arrError = array();            // Tableau des erreurs initialisé
             if (count($_POST) > 0) {        // Si le formulaire est envoyé
                 // On hydrate l'objet
-                $objUserToAdd->hydrate($_POST);
+                $objUser->hydrate($_POST);
                 // var_dump($_POST['nom']);
-                var_dump($objUserToAdd);
+                var_dump($objUser);
                 
                 // On teste les informations
-                if ($objUserToAdd->getNom() == ''){              // Tests sur le nom
+                if ($objUser->getNom() == ''){              // Tests sur le nom
                     $arrError[]	= "Merci de renseigner un nom";
                 }
-                if ($objUserToAdd->getPrenom() == ''){           // Tests sur le prénom
+                if ($objUser->getPrenom() == ''){           // Tests sur le prénom
                     $arrError[]	= "Merci de renseigner un prénom";
                 }
-                if ($objUserToAdd->getMail() == ''){             // Tests sur le mail
+                if ($objUser->getMail() == ''){             // Tests sur le mail
                     $arrError[]	= "Merci de renseigner une adresse mail";
                 }
-                if ($objUserToAdd->getMdp() == ''){              // Tests sur le mot de passe
+                if ($objUser->getMdp() == ''){              // Tests sur le mot de passe
                     $arrError[]	= "Merci de renseigner un mot de passe";
                 }
 
@@ -52,7 +52,7 @@
                     $objManager = new UtilisateurManager();           // instancier la classe
                     var_dump($objManager);
 
-                    if($objManager->creerUtilisateur($objUserToAdd)){    // Envoyer les informations à la BDD
+                    if($objManager->creerUtilisateur($objUser)){    // Envoyer les informations à la BDD
                         header("Location:index.php");               // Puis redirection vers la page d'accueil
                     }else{
                         $arrError[]	= "Erreur lors de l'ajout";
@@ -61,7 +61,7 @@
             }
             
             //Affichage
-            $this->_arrData['objUserToAdd']		= $objUserToAdd;
+            $this->_arrData['objUser']		= $objUser;
             $this->_arrData['arrError']		= $arrError;
 
             $this->_arrData['strTitle']		= "AmdWeb, offres d'emplois spécialisé web";
@@ -103,5 +103,66 @@
             session_destroy();
             header("Location:index.php");
         }
+
+        /**
+		* Page Modifier le compte
+		*/
+		public function modifier_compte(){
+			if (!isset($_SESSION['user'])){
+				header("Location:index.php?ctrl=error&action=error_403");
+			}
+			// Création de l'objet Utilisateur
+			$objUser = new Utilisateur;
+					
+			$arrError = array(); // Tableau des erreurs initialisé
+			if (count($_POST) > 0) { // Si le formulaire est envoyé
+				// On hydrate l'objet
+				$objUser->hydrate($_POST);
+				// On teste les informations
+				if ($objUser->getNom() == ''){ // Tests sur le nom
+					$arrError[]	= "Merci de renseigner un nom";
+				}
+				if ($objUser->getPrenom() == ''){ // Tests sur le prénom
+					$arrError[]	= "Merci de renseigner un prénom";
+				}
+				if ($objUser->getMail() == ''){ // Tests sur le mail
+					$arrError[]	= "Merci de renseigner une adresse mail";
+				}
+				/*if ($objUser->getPwd() == ''){ // Tests sur le mot de passe
+					$arrError[]	= "Merci de renseigner un mot de passe";
+				}*/
+				/* if ($objUser->getPwd() != '' && !password_verify($_POST['confirmPwd'], $objUser->getPwd())){ // Tests sur la confirmation du mot de passe
+					$arrError[]	= "Le mot de passe et sa confirmation ne sont pas identiques";
+				} */
+				
+				// Si aucune erreur on l'insert en BDD
+				if (count($arrError) == 0){ 
+					$objUserManager = new UtilisateurManager;
+					if($objUserManager->updateUtilisateur($objUser)){
+						// Mettre à jour la session, si compte de l'utilisateur connecté
+						if($_SESSION['user']['utilisateur_id'] == $objUser->getUtilisateurId()){
+							$_SESSION['user']['utilisateur_prenom'] = $objUser->getPrenom();
+						}
+						header("Location:index.php");
+					}else{
+						$arrError[]	= "Erreur lors de l'ajout";
+					}
+				}
+			}else{
+				// Récupérer les informations de l'utilisateur qui est en session, dans la BDD 
+				$objUserManager = new UtilisateurManager;
+				$arrUser 		= $objUserManager->getUtilisateur();
+				// Hydrater l'objet avec la méthode de l'entité
+				$objUser->hydrate($arrUser);
+			}
+			//var_dump($objUser);
+			// Si le formulaire est envoyé, traiter celui-ci pour pour modification en BDD
+			$this->_arrData['objUser']		= $objUser;
+			$this->_arrData['arrError']		= $arrError;
+
+			$this->_arrData['strTitle']		= "Modifier un compte";
+			$this->_arrData['strPage']		= "modifier_compte";
+			$this->display("inscription");
+		}
 
 }
