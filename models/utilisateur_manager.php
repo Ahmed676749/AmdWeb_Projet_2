@@ -17,7 +17,13 @@
 		* @return array Liste des utilisateurs
 		*/
 		public function afficherUtilisateur(){
-			$strRqUsers = "SELECT utilisateur_type, utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_mail, utilisateur_mdp FROM utilisateur;";
+			$strRqUsers = "SELECT utilisateur_type, 
+									utilisateur_nom, 
+									utilisateur_prenom, 
+									utilisateur_adresse, 
+									utilisateur_mail, 
+									utilisateur_mdp 
+									FROM utilisateur";
 
 			var_dump($strRqUsers);
 						
@@ -46,6 +52,27 @@
 			//var_dump($prep);
 			// return $this->_db->exec($strRqAdd);
 		}
+
+		/**
+		* Méthode de vérification des utilisateurs
+		*/
+		public function verifierUtilisateur($strMail, $strPwd){
+			$strRqUser = "SELECT utilisateur_id,
+									utilisateur_prenom, 
+									utilisateur_mdp
+							FROM utilisateur
+							WHERE utilisateur_mail = '".$strMail."'";
+			$arrUser 	= $this->_db->query($strRqUser)->fetch();
+
+			if ($arrUser !== false){
+				if(password_verify($strPwd, $arrUser['utilisateur_mdp'])) {
+					unset($arrUser['utilisateur_mdp']);
+					return $arrUser;
+				}
+			}
+			return false;
+		}
+
 		
 		
 	}

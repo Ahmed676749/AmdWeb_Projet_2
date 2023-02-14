@@ -25,7 +25,7 @@
 					<input type="password" id="password" name="mdp" />
 				</div>
 
-				<div class="wrap-btn-connexion">
+				<div class="style">
 				<button class="btn-subscribe style-button" type="submit">Connexion</button>
 				</div>
 			</form>

@@ -70,39 +70,38 @@
             $this->display("inscription");
         }
 
-			/**
-			* Page connexion
-			*/
-			public function connexion() {
-				if (count($_POST) > 0){
-				$strMail 	= $_POST['mail']??'';
-				$strPwd 	= $_POST['passwd']??'';
-				
-				$objUserManager = new UserManager;
-				// Vérifier l'utilisateur / mdp en base de données
-				$arrUser = $objUserManager->verifUser($strMail, $strPwd);
-				if ($arrUser === false){
-					$this->_arrData['strError'] = "Erreur de connexion";
-				}else{
-					// Stocker les informations utiles de l'utilisateur en session
-					$_SESSION['user']	= $arrUser;
-				}
-			}
+        /**
+        * Page connexion
+        */
+        public function connexion() {
+            if (count($_POST) > 0){
+            $strMail 	= $_POST['mail']??'';
+            $strPwd 	= $_POST['mdp']??'';
+            
+            $objUserManager = new UtilisateurManager;
+            // Vérifier l'utilisateur / mdp en base de données
+            $arrUser = $objUserManager->verifierUtilisateur($strMail, $strPwd);
+            if ($arrUser === false){
+                $this->_arrData['strError'] = "Erreur de connexion";
+            }else{
+                // Stocker les informations utiles de l'utilisateur en session
+                $_SESSION['user']	= $arrUser;
+            }
+        }
 
+        // Affichage de la page Connexion
+        $this->_arrData['strTitle'] = "AmdWeb, offres d'emplois spécialisé web";
+        $this->_arrData['strPage']	= "connexion";
 
+        $this->display("connexion");
+        }
 
-
-
-
-
-
-
-
-            // Affichage de la page Connexion
-            $this->_arrData['strTitle'] = "AmdWeb, offres d'emplois spécialisé web";
-            $this->_arrData['strPage']	= "connexion";
-
-            $this->display("connexion");
+        /**
+        * Page Se déconnecter
+        */
+        public function deconnection(){
+            session_destroy();
+            header("Location:index.php");
         }
 
 }

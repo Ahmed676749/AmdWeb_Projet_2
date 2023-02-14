@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.0, created on 2023-02-10 14:31:50
+/* Smarty version 4.3.0, created on 2023-02-14 10:56:04
   from 'C:\wamp64\www\AmdWeb_Projet_2\views\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.0',
-  'unifunc' => 'content_63e65556243742_28667611',
+  'unifunc' => 'content_63eb68c4c6c219_39626856',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ea6f9c0a744600217701d1d02d1598683c6c1b3c' => 
     array (
       0 => 'C:\\wamp64\\www\\AmdWeb_Projet_2\\views\\header.tpl',
-      1 => 1675953508,
+      1 => 1676372160,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63e65556243742_28667611 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63eb68c4c6c219_39626856 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="fr-FR">
 
@@ -71,5 +71,19 @@ function content_63e65556243742_28667611 (Smarty_Internal_Template $_smarty_tpl)
 						</nav>
 					</div>
 				</div>
-			</header><?php }
+			</header>
+			<div id="user">
+			<?php if ((isset($_SESSION['user']['utilisateur_id'])) && $_SESSION['user']['utilisateur_id'] != '') {?>
+				<p class="text-right">Bonjour <a href="index.php?ctrl=utilisateur&action=modifier_compte" title="Modifier son profil"><?php echo $_SESSION['user']['utilisateur_prenom'];?>
+</a>
+				| 
+				<a href="index.php?ctrl=utilisateur&action=deconnection" title="Se déconnecter">Se déconnecter<i class="fas fa-sign-out-alt"></i></a> 
+				</p>
+			<?php }?>
+			</div>
+
+			<?php echo var_dump($_SESSION);?>
+
+
+<?php }
 }

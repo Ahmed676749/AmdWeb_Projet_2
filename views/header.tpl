@@ -48,3 +48,14 @@
 					</div>
 				</div>
 			</header>
+			<div id="user">
+			{if isset($smarty.session.user.utilisateur_id) && $smarty.session.user.utilisateur_id != ''}
+				<p class="text-right">Bonjour <a href="index.php?ctrl=utilisateur&action=modifier_compte" title="Modifier son profil">{$smarty.session.user.utilisateur_prenom}</a>
+				| 
+				<a href="index.php?ctrl=utilisateur&action=deconnection" title="Se déconnecter">Se déconnecter<i class="fas fa-sign-out-alt"></i></a> 
+				</p>
+			{/if}
+			</div>
+
+			{$smarty.session|var_dump}
+
