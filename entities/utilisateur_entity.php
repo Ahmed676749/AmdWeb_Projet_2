@@ -44,7 +44,7 @@
 		* Getter de utilisateur_id
 		* @return int utilisateur_id
 		*/
-		public function getUtilisateurId():int{
+		public function getUtilisateurId():int|null{
 			return $this->_utilisateur_id;
 		}
 		/**
@@ -104,14 +104,14 @@
 		* Getter de utilisateur_type
 		* @return string utilisateur_type
 		*/
-		public function getType():string|null{
+		public function getType(){
 			return $this->_utilisateur_type;
 		}
 		/**
 		* Setter de utilisateur_type
 		* @param $strUtilisateur_type Type
 		*/
-		public function setType(string $strUtilisateur_type) {
+		public function setType($strUtilisateur_type) {
 			$this->_utilisateur_type = $strUtilisateur_type;
 		}
 
@@ -214,7 +214,7 @@
 		* Getter de utilisateur_ville_id
 		* @return int utilisateur_ville_id
 		*/
-		public function getVilleId():int{
+		public function getVilleId():int|null{
 			return $this->_utilisateur_ville_id;
 		}
 		/**
