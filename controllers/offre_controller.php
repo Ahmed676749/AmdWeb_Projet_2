@@ -49,6 +49,11 @@
 			$this->_arrData['strTitle']	= "page emploi";
 			$this->_arrData['strPage']	= "emploi";
 			$this->display("emploi");
+
+			$this->_arrData['strKeywords'] 	= $_POST['keywords']??'';
+
+		
+
     }
 		
 
@@ -66,7 +71,10 @@
 			$this->_arrData['strTitle']	= "page détails emploi";
 			$this->_arrData['strPage']	= "details-emploi";
 			$this->display("detailsemploi");
+
 		}
+
+		
 }
 
 ?>

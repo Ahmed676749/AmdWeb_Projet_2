@@ -70,6 +70,6 @@
             <label for='search-bar'></label>
             <input id='search-bar' type='text' placeholder='Recherche par mots-clés' name='keywords' />
           </form>
-          <button class='style-button' type='submit'>Trouver</button>
+          <button class='style-button' value="rechercher" type='submit'>Trouver</button>
         </div>
 {/if}
