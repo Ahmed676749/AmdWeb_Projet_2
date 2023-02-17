@@ -19,7 +19,8 @@
 		public function getUtilisateur(){
 			$intId 		= $_GET['id']??$_SESSION['user']['utilisateur_id'];
 
-			$strRqUsers = "SELECT utilisateur.utilisateur_type, 
+			$strRqUsers = "SELECT utilisateur.utilisateur_id,
+								utilisateur.utilisateur_type, 
 								utilisateur.utilisateur_nom, 
 								utilisateur.utilisateur_prenom, 
 								utilisateur.utilisateur_adresse, 
@@ -31,7 +32,7 @@
 									-- INNER JOIN photo ON photo.photo_utilisateur_id = utilisateur.utilisateur_id
 									WHERE utilisateur_id = '".$intId."'";
 
-			var_dump($strRqUsers);
+			// var_dump($strRqUsers);
 						
 			return $this->_db->query($strRqUsers)->fetch();
 		}
@@ -94,29 +95,54 @@
 								SET utilisateur_nom = :nom, 
 									utilisateur_prenom = :prenom, 
 									utilisateur_adresse = :adresse, 
-									utilisateur_mail = :mail, 
-									utilisateur_mdp = :mdp" ;
-			// var_dump($objUser);
+									utilisateur_mail = :mail";
+								
+			// var_dump($objUser->getId());
 
 			if ($objUser->getMdp() != ''){
-				$strRqUpdate	.=	", utilisateur_mdp = :mdp";
+				$strRqUpdate	.=	", utilisateur_mdp = :mdp";	
 			}
-			$strRqUpdate	.= " WHERE utilisateur_id = ".$objUser->getUtilisateurId();//$_SESSION['user']['id'];
-			$prep			= $this->_db->prepare($strRqUpdate);
 			
+			$strRqUpdate	.= " WHERE utilisateur_id = ".$objUser->getId();		//$_SESSION['user']['id'];
+			$prep			= $this->_db->prepare($strRqUpdate);
 			$prep->bindValue(':nom', $objUser->getNom(), PDO::PARAM_STR);
 			$prep->bindValue(':prenom', $objUser->getPrenom(), PDO::PARAM_STR);
 			$prep->bindValue(':adresse', $objUser->getAdresse(), PDO::PARAM_STR);
 			$prep->bindValue(':mail', $objUser->getMail(), PDO::PARAM_STR);
-			$prep->bindValue(':mdp', $objUser->getMdp(), PDO::PARAM_STR);
 
-			/* if ($objUser->getMdp() != ''){
+			if ($objUser->getMdp() != ''){
 				$prep->bindValue(':mdp', $objUser->getMdp(), PDO::PARAM_STR);
-			} */
-			var_dump($objUser);
+			}
+			
+			// var_dump($objUser->getNom());
 			var_dump($prep);
 			
 			return $prep->execute();
+		}
+
+		/**
+		* Méthode permettant de vérifier que le mail n'existe pas déjà en bdd
+		* @param object $objUser Objet de l'utilisateur
+		* @return bool le mail existe ou non
+		*/
+		public function mail_exist(object $objUser):bool{
+			$strRqUsers = "SELECT *
+							FROM utilisateur
+							WHERE utilisateur_mail = :mail";
+			if ($objUser->getId() != ''){
+				$strRqUsers	.=	" AND utilisateur_id <> :id";
+			}							
+			$prep	= $this->_db->prepare($strRqUsers);
+			
+			$prep->bindValue(':mail', $objUser->getMail(), PDO::PARAM_STR);	
+			if ($objUser->getId() != ''){
+				$prep->bindValue(':id', $objUser->getId(), PDO::PARAM_INT);	
+			}
+
+			$prep->execute();
+			$arrUser = $prep->fetch();
+			
+			return ($arrUser !== false);
 		}
 		
 	}

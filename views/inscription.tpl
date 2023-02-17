@@ -6,7 +6,7 @@
 	<section>
 		<div class="wrapper-subscribe">
 
-			{$smarty.post|var_dump}
+			{* {$smarty.post|var_dump} *}
 
 			{if $strPage == "inscription"}
 				<h1 class="style-h">Inscrivez vous</h1>
@@ -32,7 +32,7 @@
 				<form name="formAdd" method="post" action="index.php?ctrl=utilisateur&action={$strPage}" enctype="multipart/form-data">
 					<div class="radio-btn">
 					<p>Vous êtes :</p>
-					<input type="hidden" name="id" value="{$objUser->getUtilisateurId()}" />
+					<input type="hidden" name="id" value="{$objUser->getId()}" />
 					<div class="wrap-radio">
 						<input type="radio" id="recruiter" name="type" value="recruteur" {if ($objUser->getType() == "recruteur")} checked {/if} />
 						<label for="recruiter">Recruteur</label>

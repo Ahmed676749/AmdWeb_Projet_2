@@ -44,14 +44,14 @@
 		* Getter de utilisateur_id
 		* @return int utilisateur_id
 		*/
-		public function getUtilisateurId():int|null{
+		public function getId() {
 			return $this->_utilisateur_id;
 		}
 		/**
 		* Setter de utilisateur_id
 		* @param $intUtilisateur_id Identifiant
 		*/
-		public function setUtilisateurId(int $intUtilisateur_id) {
+		public function setId($intUtilisateur_id) {
 			$this->_utilisateur_id = $intUtilisateur_id;
 		}
 

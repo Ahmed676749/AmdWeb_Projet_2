@@ -7,13 +7,20 @@
         <div class="wrapper-subscribe">
             <h1 class="style-h">Connexion</h1>
 			
-			{$smarty.post|var_dump}
+			{* {$smarty.post|var_dump} *}
 			
 			<form name="formConnect" method="post" action="#">
 				<p class="text-presentation">
 					Vous n'avez de compte? &ensp;
 					<a href="index.php?ctrl=utilisateur&action=inscription"> Inscrivez-vous!</a>
 				</p>
+
+				{* Affichage des erreurs de saisie pour l'utilisateur *}
+				{if count($arrErrorCo) > 0}
+					<div class="alert alert-warning">
+						Attention ! : {$arrErrorCo['erreur']}
+					</div>
+				{/if}
 
 				<div class="style">
 					<label for="email">Email</label>
