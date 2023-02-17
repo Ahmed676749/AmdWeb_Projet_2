@@ -17,6 +17,9 @@
             <a href="index.php?ctrl=offre&action=modifierOffre&idMod={$objOffreDet->getId()}" class="btn-addJob style-button" >
                   Modifier
             </a>
+            <a href="index.php?ctrl=offre&action=supprimerOffre&idSup={$objOffreDet->getId()}&delete='1'" class="btn-addJob style-button" >
+                  Supprimer
+            </a>
           {/foreach}
         
         </div>

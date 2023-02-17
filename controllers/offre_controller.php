@@ -78,6 +78,21 @@
 			$this->_arrData['strPage']	= "modifieroffre";
 			$this->display("modifieroffre");
 		}
+
+
+		public function supprimerOffre() {
+			require("entities/offre_entity.php"); 
+			require("models/offre_manager.php");
+			$offreSupprim = $_GET["idSup"];
+			$managerSup = new OffreManager;
+
+			if(isset($_GET) && isset($_GET["delete"]) && isset($_GET["delete"]) == "1") {
+				$managerSup->supprimerOffres($offreSupprim);
+				header("Location: index.php?ctrl=offre&action=afficherOffres");
+			}
+
+
+		}
 }
 
 ?>

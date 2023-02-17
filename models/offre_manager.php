@@ -57,5 +57,9 @@
 		}
 
 
-		public function supprimerOffre(){}
+		public function supprimerOffres($offreSup){
+			$rqSuppOffre = "DELETE FROM offre WHERE offre_id = $offreSup";
+			$this->_db->exec($rqSuppOffre);
+
+		}
 	}

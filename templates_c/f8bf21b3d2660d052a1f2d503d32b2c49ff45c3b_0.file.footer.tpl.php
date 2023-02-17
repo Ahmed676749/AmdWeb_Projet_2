@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-17 05:22:25
-  from 'C:\xampp\htdocs\amdweb\views\footer.tpl' */
+/* Smarty version 4.2.1, created on 2023-02-17 08:59:10
+  from 'C:\wamp64\www\AmdWeb_Projet_2\views\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63ef01015b09c9_68462900',
+  'unifunc' => 'content_63ef41de441af9_14327218',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'adce9e07cac6d7d16e03043e4d066e16ee9057d9' => 
+    'f8bf21b3d2660d052a1f2d503d32b2c49ff45c3b' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\amdweb\\views\\footer.tpl',
-      1 => 1675608927,
+      0 => 'C:\\wamp64\\www\\AmdWeb_Projet_2\\views\\footer.tpl',
+      1 => 1676015805,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63ef01015b09c9_68462900 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63ef41de441af9_14327218 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer>
         <div class='wrap-footer'>
           <div class='adress-footer'>
