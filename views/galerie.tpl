@@ -70,16 +70,19 @@
           </button>
         </div> *}
         <div class="formImage">
-        <form action="#" method="post" enctype="multipart/form-data">
-            <label for="photo">Selectionnez une image</label>
-            <input type="file" name="photo_nom" id="photo">
-            <label for="ut">utilisateur</label>
-            <input type="text" name="photo_utilisateur_id" id="ut">
-            <button class="btn-addPhoto style-button" type="submit">Ajouter</button>
-        </form>
-        <div>
-          <img alt="image" src="assets/images/img_first_page/{$objPhoto->getNom()}">
-        </div>
+          <form action="#" method="post" enctype="multipart/form-data">
+              <label for="photo">Selectionnez une image</label>
+              <input type="file" name="photo_nom" id="photo">
+              <label for="ut">utilisateur</label>
+              <input type="text" name="photo_utilisateur_id" id="ut">
+              <button class="btn-addPhoto style-button" type="submit">Ajouter</button>
+              <a href="index.php?ctrl=photo&action=supprimerPhoto&idSupPhoto={$smarty.get.idSupPhoto}&delete='1'" class="btn-addJob style-button" >
+                  Supprimer
+              </a>
+          </form>
+          <div>
+            <img alt="image" src="assets/images/img_first_page/{$objPhoto->getNom()}">
+          </div>
         </div>
       </main>
     {/block}

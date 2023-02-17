@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-17 08:59:10
+/* Smarty version 4.2.1, created on 2023-02-17 14:49:06
   from 'C:\wamp64\www\AmdWeb_Projet_2\views\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63ef41de3bf2a1_03147252',
+  'unifunc' => 'content_63ef93e21e6678_52829969',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63ef41de3bf2a1_03147252 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63ef93e21e6678_52829969 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -32,7 +32,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_104700524763ef41de3b10f7_71208593', "head_infos");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13055050163ef93e21d69c0_67398460', "head_infos");
 ?>
 
     <title><?php echo $_smarty_tpl->tpl_vars['strTitle']->value;?>
@@ -111,12 +111,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_104700524763ef41de
         <?php }
 }
 /* {block "head_infos"} */
-class Block_104700524763ef41de3b10f7_71208593 extends Smarty_Internal_Block
+class Block_13055050163ef93e21d69c0_67398460 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'head_infos' => 
   array (
-    0 => 'Block_104700524763ef41de3b10f7_71208593',
+    0 => 'Block_13055050163ef93e21d69c0_67398460',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -1,6 +1,6 @@
 <?php
 	require_once("models/connect.php");
-	require_once("entities/offre_entity.php");//Classe mère des managers
+	require_once("entities/offre_entity.php");
 	/**
 	* Class manager des articles
 	* @creator Ahmed AL AMRI

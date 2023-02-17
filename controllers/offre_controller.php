@@ -14,7 +14,9 @@
 			$objOffreManager = new OffreManager(); 
 			$objOffre = new Offre;
 
-			if($_POST){
+			if(count($_POST) > 0){
+				
+
 				$objOffre->hydrate($_POST);
 				$objOffreManager->ajouterOffre($objOffre);
 			}
