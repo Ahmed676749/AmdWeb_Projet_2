@@ -10,24 +10,12 @@
 			$this->_arrData['strPage']	= "accueil";
 			$this->display("index");
 		}
-
-		// public function ajouteroffre(){
-		// 	$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
-		// 	$this->_arrData['strPage']	= "ajouteroffre";
-		// 	$this->display("ajouteroffre");
-		// }
 		
 		public function emploi(){
 			$this->_arrData['strTitle']	= "pages des emplois";
 			$this->_arrData['strPage']	= "emploi";
 			$this->display("emploi");
 		}
-	
-		// public function galerie(){
-		// 	$this->_arrData['strTitle']	= "pages des photos";
-		// 	$this->_arrData['strPage']	= "galerie";
-		// 	$this->display("galerie");
-		// }
 
 		public function inscription(){
 			$this->_arrData['strTitle']	= "pages inscription";

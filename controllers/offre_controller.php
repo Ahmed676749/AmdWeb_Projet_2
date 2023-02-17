@@ -59,6 +59,25 @@
 			$this->_arrData['strPage']	= "details-emploi";
 			$this->display("detailsemploi");
 		}
+
+		public function modifierOffre() {
+			require("entities/offre_entity.php"); 
+			require("models/offre_manager.php");
+
+			$managerModif = new OffreManager;
+			if(count($_POST) > 0) {
+			$managerModif->modifierOffres($_GET["idMod"]);
+
+			$objModif = new Offre;
+			$objModif->hydrate($objModif);
+			$this->_arrData['uneMod']	= $objModif;
+			}
+			
+			
+			$this->_arrData['strTitle']	= "modifier offre  d'emploi";
+			$this->_arrData['strPage']	= "modifieroffre";
+			$this->display("modifieroffre");
+		}
 }
 
 ?>
