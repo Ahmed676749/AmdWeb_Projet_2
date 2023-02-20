@@ -76,7 +76,7 @@
               <label for="ut">utilisateur</label>
               <input type="text" name="photo_utilisateur_id" id="ut">
               <button class="btn-addPhoto style-button" type="submit">Ajouter</button>
-              <a href="index.php?ctrl=photo&action=supprimerPhoto&idSupPhoto={$smarty.get.idSupPhoto}&delete='1'" class="btn-addJob style-button" >
+              <a href="index.php?ctrl=photo&action=supprimerPhoto&idSupPhoto=62&delete=1" class="btn-addJob style-button" >
                   Supprimer
               </a>
           </form>
@@ -86,5 +86,5 @@
         </div>
       </main>
     {/block}
-    
+    {* {$smarty.get.idSupPhoto} *}
       
