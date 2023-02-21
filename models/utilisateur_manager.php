@@ -72,8 +72,10 @@
 		*/
 		public function verifierUtilisateur($strMail, $strPwd){
 			$strRqUser = "SELECT utilisateur_id,
+								utilisateur_nom,
 								utilisateur_prenom, 
-								utilisateur_mdp
+								utilisateur_mdp,
+								utilisateur_droit_id
 							FROM utilisateur
 							WHERE utilisateur_mail = '".$strMail."'";
 			$arrUser 	= $this->_db->query($strRqUser)->fetch();
@@ -145,4 +147,13 @@
 			return ($arrUser !== false);
 		}
 		
+		/**
+		* Méthode de récupération des utilisateurs
+		* @return array Liste des utilisateurs
+		*/
+		public function findUtilisateurs():array{
+			$strRqUsers = "SELECT utilisateur_id, utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_mail FROM utilisateur;";
+							
+			return $this->_db->query($strRqUsers)->fetchAll();
+		}
 	}

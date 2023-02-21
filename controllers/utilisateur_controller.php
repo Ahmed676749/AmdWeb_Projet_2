@@ -102,8 +102,6 @@
             }
         }
 
-
-
         // Affichage de la page Connexion
         $this->_arrData['arrErrorCo']	= $arrErrorCo;
 
@@ -125,9 +123,6 @@
 		* Page Modifier le compte
 		*/
 		public function modifier_compte(){
-            echo 'coucou';
-            var_dump($_SESSION['user']);
-
 			if (!isset($_SESSION['user'])){
 				header("Location:index.php?ctrl=error&action=error_403");
 			}
@@ -150,6 +145,7 @@
 				}else if($objUserManager->mail_exist($objUser)){ // test si déjà existant
 					$arrError[]	= "Mail déjà utilisé, merci d'en renseigner une
                     autre ou de vous connecter";
+                }
 				/*if ($objUser->getPwd() == ''){ // Tests sur le mot de passe
 					$arrError[]	= "Merci de renseigner un mot de passe";
 				}*/
@@ -170,20 +166,20 @@
 						$arrError[]	= "Erreur lors de l'ajout";
 					}
 				}
-                }else{
-                    // Récupérer les informations de l'utilisateur qui est en session, dans la BDD 
-                    $objUserManager = new UtilisateurManager;
-                    $arrUser 		= $objUserManager->getUtilisateur();
+            }else{
+                // Récupérer les informations de l'utilisateur qui est en session, dans la BDD 
+                $objUserManager = new UtilisateurManager;
+                $arrUser 		= $objUserManager->getUtilisateur();
 
-                    // tests sur utilisateur trouvé
-                    if ($arrUser === false){
-                        header("Location:index.php?ctrl=error&action=error_403");
-                    }else{
-                        // Hydrater l'objet avec la méthode de l'entité
-                        $objUser->hydrate($arrUser);
-                        var_dump($arrUser);
-                    }
+                // tests sur utilisateur trouvé
+                if ($arrUser === false){
+                    header("Location:index.php?ctrl=error&action=error_403");
+                }else{
+                    // Hydrater l'objet avec la méthode de l'entité
+                    $objUser->hydrate($arrUser);
+                    var_dump($arrUser);
                 }
+                
             }
         
 
@@ -197,6 +193,34 @@
             
         } 
 
-
+        /**
+		* Page qui affiche la liste des utilisateurs
+		*/
+		public function list_user(){
+			if ( !isset($_SESSION['user']) // utilisateur non connecté
+				||  
+				($_SESSION['user']['utilisateur_droit_id'] != 3) ) // utilisateur non admin
+			{
+				header("Location:index.php?ctrl=error&action=error_403");
+			}
+			
+			// Récupération des utilisateurs
+			$objUserManager = new UtilisateurManager;
+			$arrUsers = $objUserManager->findUtilisateurs();
+			
+			// Liste des utilisateurs en mode objet
+			$arrUsersToDisplay = array();
+			foreach($arrUsers as $arrDetUser){
+				$objUser = new Utilisateur;
+				$objUser->hydrate($arrDetUser);
+				$arrUsersToDisplay[] = $objUser;
+			}
+			
+			// Affichage
+			$this->_arrData['strTitle']		= "Liste des utilisateurs";
+			$this->_arrData['strPage']		= "list_user";
+			$this->_arrData['arrUsersToDisplay']		= $arrUsersToDisplay;
+			$this->display("list_user");
+		}
 
     }
