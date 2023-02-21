@@ -33,7 +33,7 @@
             seront très utiles pour le développement de mon site.
           </p>
         </div>
-      </section> -->
+      </section> 
       <!--Section photos-->
       <div class="wrap-section">
         <div class="inscription-section">

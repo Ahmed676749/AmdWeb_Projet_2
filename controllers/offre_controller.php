@@ -14,14 +14,46 @@
 			$objOffreManager = new OffreManager(); 
 			$objOffre = new Offre;
 
+			$arrErrors 	= array(); // Initialisation du tableau des erreurs
 			if(count($_POST) > 0){
-				
-
 				$objOffre->hydrate($_POST);
-				$objOffreManager->ajouterOffre($objOffre);
+
+				if ($objOffre->getTitre() == ''){
+					$arrErrors['titre'] = "Merci de renseigner un titre";
+				}
+
+				if ($objOffre->getDescription() == ''){
+					$arrErrors['description'] = "Merci de renseigner une description";
+				}
+				
+				if ($objOffre->getAdresse() == ''){
+					$arrErrors['adresse'] = "Merci de renseigner une adresse";
+				}	
+
+				if ($objOffre->getSalaire() == ''){
+					$arrErrors['salaire'] = "Merci de renseigner un salaire";
+				}
+
+				if ($objOffre->getSiret() == ''){
+					$arrErrors['siret'] = "Merci de renseigner un siret";
+				}
+				
+				if (count($arrErrors)==0){ 
+					$objOffreManager->ajouterOffre($objOffre);
+				}
+				
+				
 			}
-		
-				$this->_arrData['uneOffre'] = $objOffre;
+				$this->_arrData['objOffre'] = $objOffre;
+				$this->_arrData['arrError']	= $arrErrors;
+
+				// echo "<pre>";
+				// print_r($this->_arrData);
+
+
+				// echo "<pre>";
+				// print_r($this->_arrData['objOffre'] = $objOffre);
+
 				$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
 				$this->_arrData['strPage']	= "ajouteroffre";
 				$this->display("ajouteroffre");

@@ -26,35 +26,35 @@
 			return $this->_offreDescription;
 		}
 		public function setDescription($strDescription) {
-			$this->_offreDescription = $strDescription;
+			$this->_offreDescription = filter_var(trim($strDescription),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
-		public function getTitre() {
+		public function getTitre():string|null {
 			return $this->_offreTitre;
 		}
 		public function setTitre($strTitre) {
-			$this->_offreTitre = $strTitre;
+			$this->_offreTitre = filter_var(trim($strTitre),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getAdresse() {
 			return $this->_offreAdresse;
 		}
 		public function setAdresse($strAdresse) {
-			 $this->_offreAdresse = $strAdresse;
+			 $this->_offreAdresse = filter_var(trim($strAdresse),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getSiret() {
 			return $this->_offreSiret;
 		}
 		public function setSiret($strSiret) {
-			 $this->_offreSiret = $strSiret;
+			 $this->_offreSiret = filter_var(trim($strSiret),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getSalaire() {
 			return $this->_offreSalaire;
 		}
 		public function setSalaire($intSalaire) {
-			 $this->_offreSalaire = $intSalaire;
+			 $this->_offreSalaire = filter_var(trim($intSalaire),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
 		public function getCreation():string {

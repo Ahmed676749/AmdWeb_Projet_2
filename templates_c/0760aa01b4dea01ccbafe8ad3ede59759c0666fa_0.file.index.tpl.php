@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-17 14:53:47
+/* Smarty version 4.2.1, created on 2023-02-21 15:33:56
   from 'C:\wamp64\www\AmdWeb_Projet_2\views\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63ef94fbd8cb04_60770878',
+  'unifunc' => 'content_63f4e464b06391_19820646',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0760aa01b4dea01ccbafe8ad3ede59759c0666fa' => 
     array (
       0 => 'C:\\wamp64\\www\\AmdWeb_Projet_2\\views\\index.tpl',
-      1 => 1676015805,
+      1 => 1676993602,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63ef94fbd8cb04_60770878 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63f4e464b06391_19820646 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_59132807563ef94fbd8bb58_22866689', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_46191152363f4e464b05351_89033026', "content");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/structure.tpl");
 }
 /* {block "content"} */
-class Block_59132807563ef94fbd8bb58_22866689 extends Smarty_Internal_Block
+class Block_46191152363f4e464b05351_89033026 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_59132807563ef94fbd8bb58_22866689',
+    0 => 'Block_46191152363f4e464b05351_89033026',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -74,7 +74,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
             seront très utiles pour le développement de mon site.
           </p>
         </div>
-      </section> -->
+      </section> 
       <!--Section photos-->
       <div class="wrap-section">
         <div class="inscription-section">
