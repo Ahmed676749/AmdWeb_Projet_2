@@ -24,6 +24,8 @@
 				$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
 				$this->_arrData['strPage']	= "ajouteroffre";
 				$this->display("ajouteroffre");
+
+				
 			// }
     }
 
@@ -35,8 +37,15 @@
   		public function afficherOffres() {
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php"); 
+
+			$this->_arrData['strKeywords'] 	= $_POST['keywords']??'';
+
+			var_dump($_POST);
+
 			$objOffreManager = new OffreManager(); 
 			$arrOffres = $objOffreManager->trouverOffre();
+
+			
 
 			$arrOffreAffichage = array();
 			foreach($arrOffres as $arrDetOffre){
@@ -50,7 +59,9 @@
 			$this->_arrData['strPage']	= "emploi";
 			$this->display("emploi");
 
-			$this->_arrData['strKeywords'] 	= $_POST['keywords']??'';
+			
+
+			
 
 		
 
@@ -61,6 +72,8 @@
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php"); 
 			$objOffreManager = new OffreManager();
+
+			
 
 			$objUneOffre = $objOffreManager->afficherUneOffre($_GET["id"]);
 
@@ -74,6 +87,7 @@
 
 		}
 
+		
 		
 }
 

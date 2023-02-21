@@ -40,13 +40,13 @@
 
 		public function rechercherOffre() {
 
-			
 
 			$strKeywords = $_POST['keywords']??'';
 			
 			if ($strKeywords != '') {
 
 				$strRqOffreRechercher = "SELECT * FROM offre WHERE offre_titre LIKE '%".$strKeywords."%' OR offre_description LIKE '%".$strKeywords."%'";
+
 				return $this->_db->query($strRqOffreRechercher)->fetchAll();
 
 			}
