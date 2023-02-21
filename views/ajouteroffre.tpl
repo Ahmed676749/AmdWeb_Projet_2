@@ -4,6 +4,7 @@
   {include file="views/erreur.tpl"}
     <form method="post" action="index.php?ctrl=offre&action=ajouterOffre">
             <div class="wrap-addJob">
+            
                 <div class="style" >
                   <label for="titre" >Titre de l'offre d'emploi</label>
                   <input type="text" id="titre" name="offre_titre" value="{if $objOffre->getTitre() != ''}{$objOffre->getTitre()|unescape}{/if}"/>

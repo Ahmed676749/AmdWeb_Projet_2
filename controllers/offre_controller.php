@@ -21,6 +21,7 @@
 				if ($objOffre->getTitre() == ''){
 					$arrErrors['titre'] = "Merci de renseigner un titre";
 				}
+				
 
 				if ($objOffre->getDescription() == ''){
 					$arrErrors['description'] = "Merci de renseigner une description";

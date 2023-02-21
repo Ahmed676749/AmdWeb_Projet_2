@@ -49,6 +49,7 @@
 		public function setSiret($strSiret) {
 			 $this->_offreSiret = filter_var(trim($strSiret),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
+		
 
 		public function getSalaire() {
 			return $this->_offreSalaire;
