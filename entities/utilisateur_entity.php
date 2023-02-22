@@ -169,14 +169,14 @@
 		* Getter de utilisateur_date_creation
 		* @return string utilisateur_date_creation
 		*/
-		public function getDateCreation():string{
+		public function getDate_creation():string{
 			return $this->_utilisateur_date_creation;
 		}
 		/**
 		* Setter de utilisateur_date_creation
 		* @param $strUtilisateur_date_creation Date de création de l'utilisateur
 		*/
-		public function setCreation(string $strUtilisateur_date_creation) {
+		public function setDate_creation(string $strUtilisateur_date_creation) {
 			$this->_utilisateur_date_creation = $strUtilisateur_date_creation;
 		}
 
@@ -184,14 +184,15 @@
 		* Getter de utilisateur_date_modification
 		* @return string utilisateur_date_modification
 		*/
-		public function getDateModification():string{
+		public function getDate_modification():string{
 			return $this->_utilisateur_date_modification;
 		}
 		/**
 		* Setter de utilisateur_date_modification
 		* @param $strUtilisateur_date_modification Date de modification de l'utilisateur
 		*/
-		public function setDateModification(string $strUtilisateur_date_modification) {
+		public function setDate_modification(string $strUtilisateur_date_modification) {
+			$strUtilisateur_date_modification = date("Y-m-d H:i:s");
 			$this->_utilisateur_date_modification = $strUtilisateur_date_modification;
 		}
 
@@ -199,14 +200,14 @@
 		* Getter de utilisateur_date_connexion
 		* @return string utilisateur_date_connexion
 		*/
-		public function getDateConnexion():string{
+		public function getDate_connexion():string{
 			return $this->_utilisateur_date_connexion;
 		}
 		/**
 		* Setter de utilisateur_date_connexion
 		* @param $strUtilisateur_date_connexion Date de connexion de l'utilisateur
 		*/
-		public function setDateConnexion(string $strUtilisateur_date_connexion) {
+		public function setDate_connexion(string $strUtilisateur_date_connexion) {
 			$this->_utilisateur_date_connexion = $strUtilisateur_date_connexion;
 		}
 
@@ -214,14 +215,14 @@
 		* Getter de utilisateur_ville_id
 		* @return int utilisateur_ville_id
 		*/
-		public function getVilleId():int|null{
+		public function getVille_id():int|null{
 			return $this->_utilisateur_ville_id;
 		}
 		/**
 		* Setter de utilisateur_ville_id
 		* @param $intUtilisateur_ville_id Identifiant de la ville de l'utilisateur
 		*/
-		public function setVilleId(int $intUtilisateur_ville_id) {
+		public function setVille_id(int $intUtilisateur_ville_id) {
 			$this->_utilisateur_ville_id = $intUtilisateur_ville_id;
 		}
 
@@ -229,14 +230,14 @@
 		* Getter de utilisateur_droit_id
 		* @return int utilisateur_droit_id
 		*/
-        public function getDroitId():int{
+        public function getDroit_id():int{
 			return $this->_utilisateur_droit_id;
 		}
 		/**
 		* Setter de utilisateur_droit_id
 		* @param $intUtilisateur_droit_id Identifiant des droits de l'utilisateur
 		*/
-		public function setDroitId(int $intUtilisateur_droit_id) {
+		public function setDroit_id(int $intUtilisateur_droit_id) {
 			$this->_utilisateur_droit_id = $intUtilisateur_droit_id;
 		}
 	}

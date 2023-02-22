@@ -1,7 +1,7 @@
 {extends file="views/structure.tpl"}
 
 {block name="head_infos" append}
-	<link rel="stylesheet" href="assets/styles/jquery.dataTables.min.css" />	
+	<link rel="stylesheet" href="assets/css/jquery.dataTables.min.css" />	
 	
 	<script src="assets/javascript/jquery-3.5.1.js"></script>
 	<script src="assets/javascript/jquery.dataTables.min.js"></script>
@@ -27,7 +27,7 @@
 				<td>{$objUser->getMail()|unescape}</td>
 				<td>
 					<a href="index.php?ctrl=utilisateur&action=modifier_compte&id={$objUser->getId()}" >Modifier</a>
-					<a href="index.php?ctrl=utilisateur&action=delete&id={$objUser->getId()}" >Désactiver</a>
+					<a href="index.php?ctrl=utilisateur&action=supprimer_compte&id={$objUser->getId()}" >Supprimer</a>
 				</td>
 			</tr>
 			{/foreach}

@@ -43,31 +43,33 @@
 					</div>
 					</div>
 					<div class="style">
-						<label for="name">Nom *</label>
+						<label for="name">Nom</label>
 						<input type="text" id="name" name="nom" value="{$objUser->getNom()}" />
 					</div>
 					<div class="style">
-						<label for="firstName">Prénom *</label>
+						<label for="firstName">Prénom</label>
 						<input type="text" id="firstName" name="prenom" value="{$objUser->getPrenom()}" />
 					</div>
 					<div class="style">
-						<label for="email">Email *</label>
+						<label for="email">Email</label>
 						<input type="email" id="email" name="mail" value="{$objUser->getMail()}"/>
 					</div>
-					<div class="style">
-						<label for="address">Adresse</label>
-						<input type="text" id="address" name="adresse" value="{$objUser->getAdresse()}"/>
-					</div>
-					<div class="style">
-						<label for="ville">Ville</label>
-						<input type="text" id="ville" name="ville" value="{$objUser->getVilleId()}"/>
-					</div>
+					
+					{if $strPage == "modifier_compte"}
+						<div class="style">
+							<label for="address">Adresse</label>
+							<input type="text" id="address" name="adresse" value="{$objUser->getAdresse()}"/>
+						</div>
+						<div class="style">
+							<label for="ville">Ville</label>
+							<input type="text" id="ville" name="ville_nom" value="{$arrUser['ville_nom']}"/>
+						</div>
+					{/if}
 
 					<div class="style">
-						<label for="password">Mot de passe *</label>
+						<label for="password">Mot de passe</label>
 						<input type="password" id="password" name="mdp" value="{*$objUser->getMdp()*}"/>
 					</div>
-					<p>* Champ obligatoire</p>
 					<button class="btn-subscribe style-button" type="submit">{if $strPage == 'inscription'}S'inscrire{else}Modifier{/if}</button>
 				</form>
 			</div>
