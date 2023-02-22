@@ -37,7 +37,7 @@
 		}
 
 		public function getOffreAdresse() {
-			return $this->_offre_adress;
+			return $this->_offre_adresse;
 		}
 		public function setOffreAdresse($strOffre_adresse) {
 			return $this->_offre_adresse;
