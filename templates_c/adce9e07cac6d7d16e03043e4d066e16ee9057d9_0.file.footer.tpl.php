@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-19 10:23:21
+/* Smarty version 4.2.1, created on 2023-02-22 15:11:30
   from 'C:\xampp\htdocs\amdweb\views\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63f1ea8919dcb7_48648983',
+  'unifunc' => 'content_63f6229270dae2_54366967',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63f1ea8919dcb7_48648983 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63f6229270dae2_54366967 (Smarty_Internal_Template $_smarty_tpl) {
 ?><footer>
         <div class='wrap-footer'>
           <div class='adress-footer'>

@@ -13,15 +13,41 @@
 
 			$objOffreManager = new OffreManager(); 
 			$objOffre = new Offre;
-
+			$arrErrors 	= array(); // Initialisation du tableau des erreurs
 			if(count($_POST) > 0){
+				$objOffre->hydrate($_POST);
+
+				if ($objOffre->getTitre() == ''){
+					$arrErrors['titre'] = "Merci de renseigner un titre";
+				}
 				
 
-				$objOffre->hydrate($_POST);
-				$objOffreManager->ajouterOffre($objOffre);
+				if ($objOffre->getDescription() == ''){
+					$arrErrors['description'] = "Merci de renseigner une description";
+				}
+				
+				if ($objOffre->getAdresse() == ''){
+					$arrErrors['adresse'] = "Merci de renseigner une adresse";
+				}	
+
+				if ($objOffre->getSalaire() == ''){
+					$arrErrors['salaire'] = "Merci de renseigner un salaire";
+				}
+
+				if ($objOffre->getSiret() == ''){
+					$arrErrors['siret'] = "Merci de renseigner un siret";
+				}
+
+				if (count($arrErrors)==0){ 
+					$objOffreManager->ajouterOffre($objOffre);
+				}
+				
+				
+				
 			}
 		
-				$this->_arrData['uneOffre'] = $objOffre;
+				$this->_arrData['objOffre'] = $objOffre;
+				$this->_arrData['arrError']	= $arrErrors;
 				$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
 				$this->_arrData['strPage']	= "ajouteroffre";
 				$this->display("ajouteroffre");
@@ -65,17 +91,51 @@
 		public function modifierOffre() {
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php");
-
-			$managerModif = new OffreManager;
-			if(count($_POST) > 0) {
-			$managerModif->modifierOffres($_GET["idMod"]);
-
 			$objModif = new Offre;
-			$objModif->hydrate($objModif);
-			$this->_arrData['uneMod']	= $objModif;
+			$managerModif = new OffreManager;
+			$id = $_GET["idMod"];
+			
+			$arrErrors 	= array(); // Initialisation du tableau des erreurs
+			
+			// echo "<pre>";
+			// print_r($objModif);
+			if(count($_POST) > 0) {
+
+				$objModif->hydrate($_POST);
+			// 	echo "<pre>";
+			// print_r($_POST);
+				
+				if ($objModif->getTitre() == ''){
+					$arrErrors['titre'] = "Merci de renseigner un titre";
+				}
+				
+
+				if ($objModif->getDescription() == ''){
+					$arrErrors['description'] = "Merci de renseigner une description";
+				}
+				
+				if ($objModif->getAdresse() == ''){
+					$arrErrors['adresse'] = "Merci de renseigner une adresse";
+				}	
+
+				if ($objModif->getSalaire() == ''){
+					$arrErrors['salaire'] = "Merci de renseigner un salaire";
+				}
+
+				if ($objModif->getSiret() == ''){
+					$arrErrors['siret'] = "Merci de renseigner un siret";
+				}
+
+				if (count($arrErrors)==0){ 
+					$managerModif->modifierOffres($objModif);
+				}
+			
+			
+			
+			
 			}
-			
-			
+			$this->_arrData['arrError']	= $arrErrors;
+			$this->_arrData['objModif']	= $objModif;
 			$this->_arrData['strTitle']	= "modifier offre  d'emploi";
 			$this->_arrData['strPage']	= "modifieroffre";
 			$this->display("modifieroffre");

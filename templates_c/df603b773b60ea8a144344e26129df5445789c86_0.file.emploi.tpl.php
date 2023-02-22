@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2023-02-17 14:55:21
-  from 'C:\wamp64\www\AmdWeb_Projet_2\views\emploi.tpl' */
+/* Smarty version 4.2.1, created on 2023-02-22 15:31:09
+  from 'C:\xampp\htdocs\amdweb\views\emploi.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_63ef9559db5b00_89105768',
+  'unifunc' => 'content_63f6272d51ac85_17819550',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '055246ca21c443b6b1b95c5667c30873372c3fbf' => 
+    'df603b773b60ea8a144344e26129df5445789c86' => 
     array (
-      0 => 'C:\\wamp64\\www\\AmdWeb_Projet_2\\views\\emploi.tpl',
-      1 => 1676628023,
+      0 => 'C:\\xampp\\htdocs\\amdweb\\views\\emploi.tpl',
+      1 => 1676800099,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63ef9559db5b00_89105768 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63f6272d51ac85_17819550 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
       <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4329244763ef9559da8f87_88160733', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_40243578763f6272d4ebed6_48693439', "content");
 ?>
 
       <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "views/structure.tpl");
 }
 /* {block "content"} */
-class Block_4329244763ef9559da8f87_88160733 extends Smarty_Internal_Block
+class Block_40243578763f6272d4ebed6_48693439 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_4329244763ef9559da8f87_88160733',
+    0 => 'Block_40243578763f6272d4ebed6_48693439',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -71,7 +71,7 @@ $_smarty_tpl->tpl_vars['objOffreDet']->do_else = false;
                   Modifier
             </a>
             <a href="index.php?ctrl=offre&action=supprimerOffre&idSup=<?php echo $_smarty_tpl->tpl_vars['objOffreDet']->value->getId();?>
-&delete='1'" class="btn-addJob style-button" >
+&delete=1" class="btn-addJob style-button" >
                   Supprimer
             </a>
             
