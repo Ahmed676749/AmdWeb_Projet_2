@@ -93,9 +93,6 @@
 
             if ($arrUser === false){
                 $arrErrorCo['erreur'] = "Erreur de connexion";
-                var_dump($arrErrorCo);
-                // $smarty = new Smarty;
-                // $smarty->assign('arrErrorCo', $arrErrorCo);var_dump($arrErrorCo);
             }else{
                 // Stocker les informations utiles de l'utilisateur en session
                 $_SESSION['user']	= $arrUser;
@@ -123,11 +120,19 @@
 		* Page Modifier le compte
 		*/
 		public function modifier_compte(){
-			if (!isset($_SESSION['user'])){
-				header("Location:index.php?ctrl=error&action=error_403");
-			}
+			if (
+					// utilisateur non connecté
+                    (!isset($_SESSION['user']))
+                ||
+                    // utilisateur non admin qui veut changer un autre compte
+					(isset($_GET['id']) && $_SESSION['user']['utilisateur_droit_id'] != 3) 
+                    
+                ){
+                    header("Location:index.php?ctrl=error&action=error_403");
+                }
 			// Création de l'objet Utilisateur
 			$objUser = new Utilisateur;
+            $objUserManager = new UtilisateurManager;
 					
 			$arrError = array(); // Tableau des erreurs initialisé
 			if (count($_POST) > 0) { // Si le formulaire est envoyé
@@ -155,20 +160,20 @@
 				
 				// Si aucune erreur on l'insert en BDD
 				if (count($arrError) == 0){ 
-					$objUserManager = new UtilisateurManager;
 					if($objUserManager->updateUtilisateur($objUser)){
 						// Mettre à jour la session, si compte de l'utilisateur connecté
 						if($_SESSION['user']['utilisateur_id'] == $objUser->getId()){
 							$_SESSION['user']['utilisateur_prenom'] == $objUser->getPrenom();
 						}
-						header("Location:index.php");
+                        header("Location:".$_SERVER['HTTP_REFERER']);
+                        // header("Location:index.php");
 					}else{
 						$arrError[]	= "Erreur lors de l'ajout";
 					}
 				}
             }else{
                 // Récupérer les informations de l'utilisateur qui est en session, dans la BDD 
-                $objUserManager = new UtilisateurManager;
+                // $objUserManager = new UtilisateurManager;
                 $arrUser 		= $objUserManager->getUtilisateur();
 
                 // tests sur utilisateur trouvé
@@ -178,6 +183,7 @@
                     // Hydrater l'objet avec la méthode de l'entité
                     $objUser->hydrate($arrUser);
                     var_dump($arrUser);
+                    var_dump($objUser);
                 }
                 
             }
@@ -186,6 +192,7 @@
             // Si le formulaire est envoyé, traiter celui-ci pour pour modification en BDD
             $this->_arrData['objUser']		= $objUser;
             $this->_arrData['arrError']		= $arrError;
+            $this->_arrData['arrUser']		= $arrUser;
 
             $this->_arrData['strTitle']		= "Modifier un compte";
             $this->_arrData['strPage']		= "modifier_compte";
@@ -223,4 +230,21 @@
 			$this->display("list_user");
 		}
 
+        /**
+		* Fonction pour supprimer un compte
+		*/
+		public function supprimer_compte(){
+			if ( !isset($_SESSION['user']) // utilisateur non connecté
+				||  
+				($_SESSION['user']['utilisateur_droit_id'] != 3) ) // utilisateur non admin
+			{
+				header("Location:index.php?ctrl=error&action=error_403");
+			}
+
+            $intId 		= $_GET['id'];
+			$objManager = new UtilisateurManager();
+			$objManager->delUtilisateur($intId);
+
+            header("Location:".$_SERVER['HTTP_REFERER']);
+        }
     }
