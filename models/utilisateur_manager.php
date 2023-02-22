@@ -25,12 +25,13 @@
 								utilisateur.utilisateur_prenom, 
 								utilisateur.utilisateur_adresse, 
 								utilisateur.utilisateur_ville_id,
+								ville.ville_nom,
 								utilisateur.utilisateur_mail, 
 								utilisateur.utilisateur_mdp
 									FROM utilisateur
-									-- INNER JOIN ville ON utilisateur.utilisateur_ville_id = ville.ville_id
+									INNER JOIN ville ON utilisateur.utilisateur_ville_id = ville.ville_id
 									-- INNER JOIN photo ON photo.photo_utilisateur_id = utilisateur.utilisateur_id
-									WHERE utilisateur_id = '".$intId."'";
+									WHERE utilisateur_id = ".$intId;
 
 			// var_dump($strRqUsers);
 						
@@ -58,7 +59,7 @@
 			$prep->bindValue(':nom', $objUserToAdd->getNom(), PDO::PARAM_STR);
 			$prep->bindValue(':prenom', $objUserToAdd->getPrenom(), PDO::PARAM_STR);
 			$prep->bindValue(':adresse', $objUserToAdd->getAdresse(), PDO::PARAM_STR);
-			$prep->bindValue(':ville', $objUserToAdd->getVilleId(), PDO::PARAM_INT);
+			$prep->bindValue(':ville', $objUserToAdd->getVille_id(), PDO::PARAM_INT);
 			$prep->bindValue(':mail', $objUserToAdd->getMail(), PDO::PARAM_STR);
 			$prep->bindValue(':mdp', $objUserToAdd->getMdp(), PDO::PARAM_STR);
 
@@ -93,10 +94,11 @@
 		* Méthode de modification des utilisateurs
 		*/
 		public function updateUtilisateur($objUser){
-			$strRqUpdate	= "UPDATE utilisateur 
+			$strRqUpdate	= "UPDATE utilisateur, ville
 								SET utilisateur_nom = :nom, 
 									utilisateur_prenom = :prenom, 
-									utilisateur_adresse = :adresse, 
+									utilisateur_adresse = :adresse,
+									ville_nom = :ville, 
 									utilisateur_mail = :mail";
 								
 			// var_dump($objUser->getId());
@@ -110,6 +112,7 @@
 			$prep->bindValue(':nom', $objUser->getNom(), PDO::PARAM_STR);
 			$prep->bindValue(':prenom', $objUser->getPrenom(), PDO::PARAM_STR);
 			$prep->bindValue(':adresse', $objUser->getAdresse(), PDO::PARAM_STR);
+			$prep->bindValue(':ville', $objUser->getVille_nom(), PDO::PARAM_STR);
 			$prep->bindValue(':mail', $objUser->getMail(), PDO::PARAM_STR);
 
 			if ($objUser->getMdp() != ''){
@@ -156,4 +159,18 @@
 							
 			return $this->_db->query($strRqUsers)->fetchAll();
 		}
+
+		/**
+		* Méthode de suppression d'un utilisateur
+		* @param int $intId Identifiant de l'utilisateur à supprimer
+		* @return bool La suppression s'est bien passée ou pas
+		*/
+		public function delUtilisateur(int $intId):bool{
+			
+			$strRq	= "DELETE FROM utilisateur 
+						WHERE utilisateur_id = ".$intId;
+			return $this->_db->exec($strRq);
+		}
+
+
 	}
