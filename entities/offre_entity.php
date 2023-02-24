@@ -87,6 +87,9 @@
 			$this->_villeId = $intvilleId;
 		}
 
+		/**
+		* Remplissage de l'objet avec les données du tableau
+		*/
 		public function hydrate($arrData){
 			foreach($arrData as $key=>$value){
 				$strMethod = "set".ucfirst(str_replace("offre_", "", $key));
@@ -96,7 +99,4 @@
 			}
 		}
 	} 
-
-
-	
 ?>

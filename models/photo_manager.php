@@ -7,6 +7,10 @@
             parent::__construct();
         }
 
+        /**
+		* Méthode qui ajoute une photo
+		* @ param objet photo
+		*/
         public function ajouterPhotos(Photo $unePhoto) {
             $strNomPhoto = $unePhoto->getNom();
             $intUt = $unePhoto->getUtilisateurid();
@@ -17,6 +21,10 @@
             return $this->_db->exec($rqAjouterPhoto); 
         }
 
+        /**
+		* Méthode qui supprime une photo
+		* @ param identifiant de l'objet photo
+		*/
         public function supprimerPhotos($idPhotoSup){
 			$rqSuppPhoto = "DELETE FROM photo WHERE photo_id = $idPhotoSup";
 			$this->_db->exec($rqSuppPhoto);
