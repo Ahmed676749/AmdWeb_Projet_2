@@ -15,14 +15,14 @@
 		{
 		}
 
-		public function getId() {
+		public function getId():int {
 			return $this->_offreId;
 		}
 		public function setId($intId) {
 			$this->_offreId = $intId;
 		}
 
-		public function getDescription() {
+		public function getDescription():string|null {
 			return $this->_offreDescription;
 		}
 		public function setDescription($strDescription) {
@@ -36,14 +36,14 @@
 			$this->_offreTitre = filter_var(trim($strTitre),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
-		public function getAdresse() {
+		public function getAdresse():string|null {
 			return $this->_offreAdresse;
 		}
 		public function setAdresse($strAdresse) {
 			 $this->_offreAdresse = filter_var(trim($strAdresse),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
-		public function getSiret() {
+		public function getSiret():string|null {
 			return $this->_offreSiret;
 		}
 		public function setSiret($strSiret) {
@@ -51,7 +51,7 @@
 		}
 		
 
-		public function getSalaire() {
+		public function getSalaire():int|null {
 			return $this->_offreSalaire;
 		}
 		public function setSalaire($intSalaire) {

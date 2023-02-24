@@ -18,7 +18,7 @@
 		public function getCategorienom() {
 			return $this->_categorieNom;
 		}
-		public function setCategorienom($strNom) {
+		public function setNom($strNom) {
 			return $this->_categorieNom = $strNom;
 		}
 

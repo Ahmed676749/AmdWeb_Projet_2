@@ -17,11 +17,13 @@
             return $this->_db->exec($rqAjouterPhoto); 
         }
 
-        public function supprimerPhotos($photoSup){
-			$rqSuppPhoto = "DELETE FROM photo WHERE photo_id = $photoSup";
+        public function supprimerPhotos($idPhotoSup){
+			$rqSuppPhoto = "DELETE FROM photo WHERE photo_id = $idPhotoSup";
 			$this->_db->exec($rqSuppPhoto);
 
 		}
+
+       
 
 
     }

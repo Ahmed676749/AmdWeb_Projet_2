@@ -13,7 +13,7 @@
                 $objDate 		= new DateTime();
                 $arrImage 		= explode(".", $arrPhotos['name']);
                 $strNewName 	= $objDate->format('YmdHis').".".$arrImage[count($arrImage)-1]; // Nom de l'image => A renommer par sécurité
-                $strFileDest 	= $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/AmdWeb_Projet_2/assets/images/img_first_page/'.$strNewName;
+                $strFileDest 	= $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/amdweb/assets/images/img_first_page/'.$strNewName;
     
                 if (move_uploaded_file($strFileName, $strFileDest)){
                     $objManager = new PhotoManager;
@@ -44,8 +44,10 @@
 			$managerSupPhoto = new PhotoManager;
 
 			if(isset($_GET) && isset($_GET["delete"]) && isset($_GET["delete"]) == "1") {
+                
+                
 				$managerSupPhoto->supprimerPhotos($photoSupprim);
-				// header("Location: index.php?ctrl=offre&action=afficherOffres");
+                
 			}
 		}
     }
