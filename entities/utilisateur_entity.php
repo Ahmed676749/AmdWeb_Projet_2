@@ -222,7 +222,7 @@
 		* Setter de utilisateur_ville_id
 		* @param $intUtilisateur_ville_id Identifiant de la ville de l'utilisateur
 		*/
-		public function setVille_id(int $intUtilisateur_ville_id) {
+		public function setVille_id(int|null $intUtilisateur_ville_id) {
 			$this->_utilisateur_ville_id = $intUtilisateur_ville_id;
 		}
 

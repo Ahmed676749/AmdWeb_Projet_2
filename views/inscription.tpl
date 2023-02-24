@@ -60,10 +60,10 @@
 							<label for="address">Adresse</label>
 							<input type="text" id="address" name="adresse" value="{$objUser->getAdresse()}"/>
 						</div>
-						<div class="style">
+						{* <div class="style">
 							<label for="ville">Ville</label>
 							<input type="text" id="ville" name="ville_nom" value="{$arrUser['ville_nom']}"/>
-						</div>
+						</div> *}
 					{/if}
 
 					<div class="style">

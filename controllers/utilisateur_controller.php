@@ -11,6 +11,7 @@
         public function __construct(){
             require("models/utilisateur_manager.php"); 
             require("entities/utilisateur_entity.php"); 
+            require("entities/ville_entity.php"); 
         }
 
         /**
@@ -175,15 +176,13 @@
                 // Récupérer les informations de l'utilisateur qui est en session, dans la BDD 
                 // $objUserManager = new UtilisateurManager;
                 $arrUser 		= $objUserManager->getUtilisateur();
-
                 // tests sur utilisateur trouvé
                 if ($arrUser === false){
                     header("Location:index.php?ctrl=error&action=error_403");
                 }else{
                     // Hydrater l'objet avec la méthode de l'entité
                     $objUser->hydrate($arrUser);
-                    var_dump($arrUser);
-                    var_dump($objUser);
+
                 }
                 
             }

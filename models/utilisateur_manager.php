@@ -29,12 +29,10 @@
 								utilisateur.utilisateur_mail, 
 								utilisateur.utilisateur_mdp
 									FROM utilisateur
-									INNER JOIN ville ON utilisateur.utilisateur_ville_id = ville.ville_id
-									-- INNER JOIN photo ON photo.photo_utilisateur_id = utilisateur.utilisateur_id
+									LEFT OUTER JOIN ville ON utilisateur.utilisateur_ville_id = ville.ville_id
+									LEFT OUTER  JOIN photo ON photo.photo_utilisateur_id = utilisateur.utilisateur_id
 									WHERE utilisateur_id = ".$intId;
 
-			// var_dump($strRqUsers);
-						
 			return $this->_db->query($strRqUsers)->fetch();
 		}
 
@@ -94,14 +92,15 @@
 		* Méthode de modification des utilisateurs
 		*/
 		public function updateUtilisateur($objUser){
-			$strRqUpdate	= "UPDATE utilisateur, ville
+			$strRqUpdate	= "UPDATE utilisateur
 								SET utilisateur_nom = :nom, 
 									utilisateur_prenom = :prenom, 
 									utilisateur_adresse = :adresse,
-									ville_nom = :ville, 
-									utilisateur_mail = :mail";
+									/* ville_nom = :ville, */ 
+									utilisateur_mail = :mail,
+									utilisateur_date_modification = NOW()";
 								
-			// var_dump($objUser->getId());
+			var_dump($objUser);
 
 			if ($objUser->getMdp() != ''){
 				$strRqUpdate	.=	", utilisateur_mdp = :mdp";	
@@ -112,7 +111,7 @@
 			$prep->bindValue(':nom', $objUser->getNom(), PDO::PARAM_STR);
 			$prep->bindValue(':prenom', $objUser->getPrenom(), PDO::PARAM_STR);
 			$prep->bindValue(':adresse', $objUser->getAdresse(), PDO::PARAM_STR);
-			$prep->bindValue(':ville', $objUser->getVille_nom(), PDO::PARAM_STR);
+			// $prep->bindValue(':ville', $objUser->getVille_nom(), PDO::PARAM_STR);
 			$prep->bindValue(':mail', $objUser->getMail(), PDO::PARAM_STR);
 
 			if ($objUser->getMdp() != ''){
@@ -120,7 +119,7 @@
 			}
 			
 			// var_dump($objUser->getNom());
-			var_dump($prep);
+			// var_dump($prep);
 			
 			return $prep->execute();
 		}
