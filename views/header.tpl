@@ -34,7 +34,7 @@
 									<a class="nav-link {if ($strPage == "index")} active {/if}" href="index.php">Accueil</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link {if ($strPage == "emploi")} active {/if}" href="index.php?ctrl=page&action=emploi">Emploi</a>
+									<a class="nav-link {if ($strPage == "emploi")} active {/if}" href="index.php?ctrl=offre&action=afficherOffres">Emploi</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link {if ($strPage == "galerie")} active {/if}" href="index.php?ctrl=page&action=galerie">Galerie</a>

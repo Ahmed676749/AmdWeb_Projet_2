@@ -1,88 +1,102 @@
 <?php
-	class Offre {
-		private $_offre_id;
-		private $_offre_description;
-		private $_offre_titre;
-		private $_offre_adresse;
-		private $_offre_siret;
-		private $_offre_salaire;
-		private $_offre_date_creation;
-		private $_offre_date_modification;
-		private $_offre_utilisateur_id;
-		private $_offre_ville_id;
+	class  Offre{
+		private $_offreId;
+		private $_offreDescription;
+		private $_offreTitre;
+		private $_offreAdresse;
+		private $_offreSiret;
+		private $_offreSalaire;
+		private $_offreCreation;
+		private $_offreModification;
+		private $_offreutilisateurId;
+		private $_villeId;
 
 		public function __construct()
 		{
 		}
 
-		public function getOffreId() {
-			return $this->_offre_id;
+		public function getId():int {
+			return $this->_offreId;
 		}
-		public function setOfferId($intOffre_id) {
-			return $this->_offre_id;
-		}
-
-		public function getOffreDescription() {
-			return $this->_offre_description;
-		}
-		public function setOffreDescription($strOffre_description) {
-			return $this->_offre_description;
+		public function setId($intId) {
+			$this->_offreId = $intId;
 		}
 
-		public function getOffreTitre() {
-			return $this->_offre_titre;
+		public function getDescription():string|null {
+			return $this->_offreDescription;
 		}
-		public function setOffreTitre($strOffre_titre) {
-			return $this->_offre_titre;
-		}
-
-		public function getOffreAdresse() {
-			return $this->_offre_adresse;
-		}
-		public function setOffreAdresse($strOffre_adresse) {
-			return $this->_offre_adresse;
+		public function setDescription($strDescription) {
+			$this->_offreDescription = filter_var(trim($strDescription),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
-		public function getOffreSiret() {
-			return $this->_offre_siret;
+		public function getTitre():string|null {
+			return $this->_offreTitre;
 		}
-		public function setOffreSiret($strOffre_siret) {
-			return $this->_offre_siret;
-		}
-
-		public function getOffreSalaire() {
-			return $this->_offre_salaire;
-		}
-		public function setOffreSalaire($intOffre_salaire) {
-			return $this->_offre_salaire;
+		public function setTitre($strTitre) {
+			$this->_offreTitre = filter_var(trim($strTitre),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
-		public function getOffreDateCreation() {
-			return $this->_offre_date_creation;
+		public function getAdresse():string|null {
+			return $this->_offreAdresse;
 		}
-		public function setOffreDateCreation($stOffre_date_creation) {
-			return $this->_offre_date_creation;
-		}
-
-		public function getOffreDateModification() {
-			return $this->_offre_date_modification;
-		}
-		public function setOffreDateModification($strOffre_date_modification) {
-			return $this->_offre_date_modification;
+		public function setAdresse($strAdresse) {
+			 $this->_offreAdresse = filter_var(trim($strAdresse),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
-		public function getOffreUtilisateurId() {
-			return $this->_offre_utilisateur_id;
+		public function getSiret():string|null {
+			return $this->_offreSiret;
 		}
-		public function setOffreUtilisateurId($intOffre_utilisateur_id) {
-			return $this->_offre_utilisateur_id;
+		public function setSiret($strSiret) {
+			 $this->_offreSiret = filter_var(trim($strSiret),FILTER_SANITIZE_SPECIAL_CHARS);
+		}
+		
+
+		public function getSalaire():int|null {
+			return $this->_offreSalaire;
+		}
+		public function setSalaire($intSalaire) {
+			 $this->_offreSalaire = filter_var(trim($intSalaire),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
-		public function getOffreVilleId() {
-			return $this->_offre_ville_id;
+		public function getCreation():string {
+			$date = new DateTime($this->_offreCreation);
+			return $date->format('d/m/Y');
 		}
-		public function setOffreVilleId($intOffre_ville_id) {
-			return $this->_offre_ville_id;
+		public function setCreation($strCreation) {
+			 $this->_offreCreation = $strCreation;
+		}
+
+		public function getModification() {
+			return $this->_offreModification;
+		}
+		public function setModification($strModification) {
+			$this->_offreModification = $strModification;
+		}
+
+		public function getIdutilisateur() {
+			return $this->_offreutilisateurId;
+		}
+		public function setIdutilisateur($intutilisateurId) {
+			$this->_offreutilisateurId = $intutilisateurId;
+		}
+
+		public function getIdville() {
+			return $this->_villeId;
+		}
+		public function setIdville($intvilleId) {
+			$this->_villeId = $intvilleId;
+		}
+
+		/**
+		* Remplissage de l'objet avec les données du tableau
+		*/
+		public function hydrate($arrData){
+			foreach($arrData as $key=>$value){
+				$strMethod = "set".ucfirst(str_replace("offre_", "", $key));
+				if (method_exists($this, $strMethod)){
+					$this->$strMethod($value); 
+				}
+			}
 		}
 	} 
 ?>
