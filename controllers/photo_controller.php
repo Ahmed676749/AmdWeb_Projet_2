@@ -1,6 +1,10 @@
 <?php
     class Photo_controller extends Base_controller{
 
+
+        /**
+		* Page ajouter une photo
+		*/
         public function ajouterPhoto() {
             require("models/photo_manager.php");
             require_once("entities/photo_entity.php");
@@ -36,6 +40,9 @@
 			$this->display("galerie");
         }
 
+        /**
+		* Fonctionnalité supprimer une photo
+		*/
         public function supprimerPhoto() {
 			require("entities/photo_entity.php"); 
 			require("models/photo_manager.php");

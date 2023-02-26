@@ -49,6 +49,7 @@
 		public function setSiret($strSiret) {
 			 $this->_offreSiret = filter_var(trim($strSiret),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
+		
 
 		public function getSalaire():int|null {
 			return $this->_offreSalaire;
@@ -86,6 +87,9 @@
 			$this->_villeId = $intvilleId;
 		}
 
+		/**
+		* Remplissage de l'objet avec les données du tableau
+		*/
 		public function hydrate($arrData){
 			foreach($arrData as $key=>$value){
 				$strMethod = "set".ucfirst(str_replace("offre_", "", $key));
@@ -95,7 +99,4 @@
 			}
 		}
 	} 
-
-
-	
 ?>

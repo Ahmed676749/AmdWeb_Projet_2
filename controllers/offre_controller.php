@@ -6,17 +6,23 @@
 	*/
 	class Offre_controller extends Base_controller{
 		
+		/**
+		* Page Ajouter une offre d'emploi
+		*/
 		public function ajouterOffre(){
 		// 	// inclure les fichiers des classes
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php"); 
 
 			$objOffreManager = new OffreManager(); 
+			// Création de l'objet Offre
 			$objOffre = new Offre;
-			$arrErrors 	= array(); // Initialisation du tableau des erreurs
-			if(count($_POST) > 0){
-				$objOffre->hydrate($_POST);
 
+			$arrErrors 	= array(); // Initialisation du tableau des erreurs
+			if(count($_POST) > 0){ // Si le formulaire est envoyé
+				$objOffre->hydrate($_POST); // On hydrate l'objet
+
+				// On teste les informations
 				if ($objOffre->getTitre() == ''){
 					$arrErrors['titre'] = "Merci de renseigner un titre";
 				}
@@ -37,15 +43,15 @@
 				if ($objOffre->getSiret() == ''){
 					$arrErrors['siret'] = "Merci de renseigner un siret";
 				}
-
+				
+				// Si aucune erreur on l'insert en BDD
 				if (count($arrErrors)==0){ 
 					$objOffreManager->ajouterOffre($objOffre);
 				}
 				
 				
-				
 			}
-		
+				//Affichage 
 				$this->_arrData['objOffre'] = $objOffre;
 				$this->_arrData['arrError']	= $arrErrors;
 				$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
@@ -53,6 +59,9 @@
 				$this->display("ajouteroffre");
     }
 
+		/**
+		* Page afficher la liste des offres d'emplois
+		*/
   		public function afficherOffres() {
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php"); 
@@ -61,8 +70,9 @@
 
 			$arrOffreAffichage = array();
 			foreach($arrOffres as $arrDetOffre){
+				// Création de l'objet Offre
 				$objOffreAf = new Offre;
-				$objOffreAf->hydrate($arrDetOffre);
+				$objOffreAf->hydrate($arrDetOffre); // On hydrate l'objet
 				$arrOffreAffichage[] = $objOffreAf;
 		}
 
@@ -72,6 +82,10 @@
 			$this->display("emploi");
     }
 
+
+		/**
+		* Page afficher une offre d'emploi en détail
+		*/
 		public function afficherOffre() {
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php"); 
@@ -88,22 +102,23 @@
 			$this->display("detailsemploi");
 		}
 
+		/**
+		* Page modifier une offre d'emploi
+		*/
 		public function modifierOffre() {
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php");
 			$objModif = new Offre;
 			$managerModif = new OffreManager;
 			$id = $_GET["idMod"];
+			$offreActuel = $managerModif->afficherUneOffre($id);
+			$objModif->hydrate($offreActuel);
 			
 			$arrErrors 	= array(); // Initialisation du tableau des erreurs
-			
-			// echo "<pre>";
-			// print_r($objModif);
+		
 			if(count($_POST) > 0) {
 
 				$objModif->hydrate($_POST);
-			// 	echo "<pre>";
-			// print_r($_POST);
 				
 				if ($objModif->getTitre() == ''){
 					$arrErrors['titre'] = "Merci de renseigner un titre";
@@ -142,6 +157,9 @@
 		}
 
 
+		/**
+		* Fonctionnalité supprimer une offre d'emploi 
+		*/
 		public function supprimerOffre() {
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php");
@@ -152,8 +170,6 @@
 				$managerSup->supprimerOffres($offreSupprim);
 				header("Location: index.php?ctrl=offre&action=afficherOffres");
 			}
-
-
 		}
 }
 

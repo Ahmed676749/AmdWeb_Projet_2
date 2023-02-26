@@ -33,19 +33,19 @@
             seront très utiles pour le développement de mon site.
           </p>
         </div>
-      </section> -->
+      </section> 
       <!--Section photos-->
       <div class="wrap-section">
         <div class="inscription-section">
           <h2 class="style-h">Inscription pour les offres d'emplois.</h2>
           <div class="btn-link-wrap style-button">
-            <a href="index.php?ctrl=page&action=inscription"> Inscription </a>
+            <a href="index.php?ctrl=utilisateur&action=inscription"> Inscription </a>
           </div>
         </div>
         <div class="announcement-section">
           <h2 class="style-h">Déposer vos offres d'emplois.</h2>
           <div class="btn-link-wrap style-button">
-            <a href="index.php?ctrl=page&action=ajouteroffre">Déposez</a>
+            <a href="index.php?ctrl=offre&action=ajouteroffre">Déposez</a>
           </div>
         </div>
       </div> 

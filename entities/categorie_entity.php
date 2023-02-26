@@ -29,6 +29,9 @@
 			return $this->_sousId = $intSousid;
 		}
 
+		/**
+		* Remplissage de l'objet avec les données du tableau
+		*/
 		public function hydrate($arrData){
 			foreach($arrData as $key=>$value){
 				$strMethod = "set".ucfirst(str_replace("categorie_", "", $key));

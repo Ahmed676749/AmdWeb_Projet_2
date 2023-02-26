@@ -18,3 +18,4 @@
 			$objSmarty->display("views/".$strView.".tpl");
 		}
 	}
+?>

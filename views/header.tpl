@@ -59,16 +59,16 @@
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" {if ($strPage == "inscription")} class='active' {/if}
-                      href="index.php?ctrl=page&action=inscription">Inscription</a>
+                      href="index.php?ctrl=utilisateur&action=inscription">Inscription</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" {if ($strPage == "connexion")} class='active' {/if}
-                    href="index.php?ctrl=page&action=connexion">Connexion</a>
+                    href="index.php?ctrl=utilisateur&action=connexion">Connexion</a>
                   </li>
-                  <li class="nav-item">
+                  {* <li class="nav-item">
                     <a class="nav-link" {if ($strPage == "ajouteroffre")} class='active' {/if}
                     href="index.php?ctrl=offre&action=ajouterOffre">Ajouter offre</a>
-                  </li>
+                  </li> *}
                 </ul>
               </nav>
             </div>

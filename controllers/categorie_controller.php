@@ -29,9 +29,10 @@
                 
 			} 
 		
-				$this->_arrData['categorie'] = $objCat;
+				$this->_arrData['objCat'] = $objCat;
 				$this->_arrData['strTitle']	= "Ajouter une categorie";
 				$this->_arrData['strPage']	= "ajoutercategorie";
 				$this->display("ajoutercategorie");
     }
 }
+?>
