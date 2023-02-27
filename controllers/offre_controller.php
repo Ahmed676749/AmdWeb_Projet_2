@@ -111,6 +111,8 @@
 			$objModif = new Offre;
 			$managerModif = new OffreManager;
 			$id = $_GET["idMod"];
+			$offreActuel = $managerModif->afficherUneOffre($id);
+			$objModif->hydrate($offreActuel);
 			
 			$arrErrors 	= array(); // Initialisation du tableau des erreurs
 		
