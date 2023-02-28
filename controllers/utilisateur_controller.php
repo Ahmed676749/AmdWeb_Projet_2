@@ -133,7 +133,8 @@
                 ){
                     header("Location:index.php?ctrl=error&action=error_403");
                 }
-                var_dump($_SESSION['user']);
+                // var_dump($_SESSION['user']);
+
 			// Création de l'objet Utilisateur
 			$objUser = new Utilisateur;
             $objUserManager = new UtilisateurManager;
