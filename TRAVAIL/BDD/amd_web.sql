@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 10 fév. 2023 à 10:25
+-- Généré le : mar. 28 fév. 2023 à 15:41
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `candidature` (
 --
 
 INSERT INTO `candidature` (`candidature_id`, `candidature_date`, `candidature_utilisateur_id`, `candidature_offre_id`) VALUES
-(1, '2023-01-18 22:57:57', 1, 1);
+(1, '2023-01-18 22:57:57', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `offre` (
   PRIMARY KEY (`offre_id`),
   KEY `offre_utilisateur_id` (`offre_utilisateur_id`),
   KEY `offre_ville_id` (`offre_ville_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `offre`
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `photo` (
   `photo_utilisateur_id` int UNSIGNED NOT NULL,
   PRIMARY KEY (`photo_id`),
   KEY `photo_utilisateur_id` (`photo_utilisateur_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -198,20 +198,22 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   PRIMARY KEY (`utilisateur_id`),
   KEY `utilisateur_droit_id` (`utilisateur_droit_id`),
   KEY `utilisateur_ville_id` (`utilisateur_ville_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`utilisateur_id`, `utilisateur_nom`, `utilisateur_prenom`, `utilisateur_adresse`, `utilisateur_type`, `utilisateur_cv`, `utilisateur_mail`, `utilisateur_mdp`, `utilisateur_date_creation`, `utilisateur_date_modification`, `utilisateur_date_connexion`, `utilisateur_droit_id`, `utilisateur_ville_id`) VALUES
-(1, 'DUPONT', 'Jean', '3 rue des champs', 'candidat', NULL, 'dupont@jean.fr', '123', '2023-01-18 22:39:08', '2023-01-25 22:39:08', '2023-01-18 22:39:08', 1, 1),
-(2, 'DUROC', 'Tournesol', '35 rue des tournesols', 'recruteur', NULL, 'tournesol@duroc.fr', '235', '2023-01-19 16:22:37', '2023-01-25 16:22:37', '2023-01-19 16:22:37', 2, 2),
-(3, 'BONNEAU', 'Jean', '11 rue de la Charcuterie', 'candidat', NULL, 'jeanbonneau@dev.fr', 'Jean*dev68', '2023-01-25 11:16:13', '2023-01-25 14:12:50', NULL, 1, 6),
-(4, 'CONDA', 'Anna', '7 rue de la Jungle', 'candidat', NULL, 'annaconda@amazon.br', 'Moogli*7', '2023-01-25 13:00:59', '2023-01-25 14:15:19', NULL, 1, 11),
-(5, 'SAILAIR', 'Jacques', '20 boulevard Aryton Senna', 'recruteur', NULL, 'jaksailair@surlaroute.vit', 'Porshe911', '2023-01-25 13:17:12', '2023-01-25 14:17:12', NULL, 2, 9),
-(6, 'TIME', 'Vincent', '20 rue de la Tirelire', 'visiteur', NULL, 'vincentime@poche.in', 'Moneyman*68', '2023-01-25 13:17:12', '0000-00-00 00:00:00', NULL, 5, 8),
-(8, 'LEGRAND', 'Jonathan', 'ffrfrefqerf', 'candidat', NULL, 'jlegrand77@gmail.com', '123456', '2023-02-10 11:24:04', NULL, NULL, 5, NULL);
+(2, 'DUROC', 'Tournesol', '35 rue des tournesols', 'recruteur', NULL, 'tournesol@duroc.fr', '$2y$10$9Df6iYljBiqz1VoUsl7H5uxKjdS08GddmjB25HH1U1wtN5mnh4qFe', '2023-01-19 16:22:37', '2023-02-27 11:01:14', '2023-02-28 13:08:16', 2, 2),
+(3, 'BONNEAU', 'Jean', '11 rue de la Charcuterie', 'candidat', NULL, 'jeanbonneau@dev.fr', '$2y$10$1TsLv.eN7t1QqD.0W7q6teFNWxthxyjuaZigqhUTt7X0J97NBbd92', '2023-01-25 11:16:13', '2023-02-27 15:40:16', '2023-02-28 11:56:55', 1, 6),
+(4, 'CONDA', 'Anna', '7 rue de la Jungle', 'candidat', NULL, 'annaconda@amazon.br', '$2y$10$vdfiNa270DHCiIAV0En3Qe6hs81MDvShQLi3ZltjMFx.Enh6OYUDG', '2023-01-25 13:00:59', '2023-02-27 11:02:00', '2023-02-28 13:35:37', 4, 11),
+(5, 'SAILAIR', 'Jacques', '20 boulevard Aryton Senna', 'recruteur', NULL, 'jaksailair@surlaroute.vit', '$2y$10$fzDCpBO9SC6KBa.pOAQf7ejSmBsPSxuAyCD8P7SdF8E2CbdfUqoVy', '2023-01-25 13:17:12', '2023-02-27 11:02:45', '2023-02-28 09:45:43', 2, 9),
+(6, 'TIME', 'Vincent', '20 rue de la Tirelire', 'visiteur', NULL, 'vincentime@poche.in', '$2y$10$fHaF.KBUCw8OddliTrv.buDqDgw5pEdft1QlzFv5SFC2/uDcpZZWe', '2023-01-25 13:17:12', '2023-02-27 11:03:06', '2023-02-27 13:54:54', 5, 8),
+(13, 'AL AMRI', 'Ahmed', '', 'recruteur', NULL, 'alamri@ahmed.com', '$2y$10$mRWweL2iyT1ZtWk2IsOfUeoJaQ2kvosyumxYU6YEFP9OM1hzNCaHa', '2023-02-17 09:08:33', '2023-02-27 10:58:37', '2023-02-27 13:53:35', 1, NULL),
+(14, 'LEGRAND', 'Jonathan', 'rue des francs', 'candidat', NULL, 'jlegrand77@gmail.com', '$2y$10$2Rbw8R6FTZR2LswWh17EwuFxfJjzO77YUY/rGFXwmyklfIp7rb1V2', '2023-02-27 15:09:38', '2023-02-27 15:53:23', '2023-02-28 13:20:34', 3, NULL),
+(15, 'ddfefezff', 'toto', 'kkk', 'candidat', NULL, 'toto@mail.com', '$2y$10$xlmP2A53ZqpkfWCpL1ySXuaiN2znjImrlTrfm.0hlEqY4MMcf/ef6', '2023-02-27 16:00:39', '2023-02-27 16:03:10', NULL, 5, NULL),
+(16, 'Jean', 'LeJean', 'strasbourg', 'candidat', NULL, 'jean@lejan.fr', '$2y$10$TpE/7eBMk.RXtQlx9jL6y.YOhOSOfCLHtTOtWFNa41RhXHYSPjx1a', '2023-02-28 09:21:57', '2023-02-28 09:22:37', '2023-02-28 09:22:14', 5, NULL);
 
 -- --------------------------------------------------------
 
