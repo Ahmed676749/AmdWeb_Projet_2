@@ -14,6 +14,7 @@
         public function ajouterPhotos(Photo $unePhoto) {
             $strNomPhoto = $unePhoto->getNom();
             $intUt = $unePhoto->getUtilisateurid();
+            // var_dump($intUt);die;
 
             $rqAjouterPhoto = "INSERT INTO photo (photo_nom, photo_utilisateur_id)
                             VALUES ('".$strNomPhoto."', '".$intUt."')";

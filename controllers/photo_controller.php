@@ -23,10 +23,12 @@
                     $objManager = new PhotoManager;
                     $objPhoto = new Photo;
 
+                    // var_dump($_SESSION); die;
                     $tab = [
                         "photo_nom" => $strNewName,
-                        "photo_utilisateurid" => 1
+                        "photo_utilisateurid" => $_SESSION['user']['utilisateur_id']
                     ];
+
                     $objPhoto->hydrate($tab);
                     
                     $objManager->ajouterPhotos($objPhoto);
