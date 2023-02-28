@@ -20,5 +20,10 @@
         	return $this->_db->exec($strRqAjoutCat);
             
 		}
+
+        public function affichCat() {
+			$rq = "SELECT * FROM categorie";
+			return $this->_db->query($rq)->fetchAll();
+		}
     }
 ?>

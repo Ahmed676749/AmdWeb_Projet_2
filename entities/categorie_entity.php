@@ -8,14 +8,14 @@
 		{
 		}
 
-		public function getCategorieid() {
+		public function getId() {
 			return $this->_categorieId;
 		}
-		public function setCategorieid($intId) {
+		public function setId($intId) {
 			return $this->_categorieId = $intId;
 		}
 
-		public function getCategorienom() {
+		public function getNom() {
 			return $this->_categorieNom;
 		}
 		public function setNom($strNom) {
