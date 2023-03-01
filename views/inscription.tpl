@@ -1,4 +1,4 @@
-{extends file="views/structure.tpl"}
+p{extends file="views/structure.tpl"}
 
 {block name="content"}
 <main>
@@ -30,18 +30,20 @@
 			
 			<div class="form-box">
 				<form name="formAdd" method="post" action="index.php?ctrl=utilisateur&action={$strPage}" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="{$objUser->getId()}" />
+				{if $strPage == "inscription"}
 					<div class="radio-btn">
-					<p>Vous êtes :</p>
-					<input type="hidden" name="id" value="{$objUser->getId()}" />
-					<div class="wrap-radio">
-						<input type="radio" id="recruiter" name="type" value="recruteur" {if ($objUser->getType() == "recruteur")} checked {/if} />
-						<label for="recruiter">Recruteur</label>
+						<p>Vous êtes :</p>
+						<div class="wrap-radio">
+							<input type="radio" id="recruiter" name="type" value="recruteur" {if ($objUser->getType() == "recruteur")} checked {/if} />
+							<label for="recruiter">Recruteur</label>
+						</div>
+						<div class="wrap-radio">
+							<input type="radio" id="candidate" name="type" value="candidat" {if $strPage == "inscription"}checked{else if $objUser->getType() == "candidat"} checked {/if} />
+							<label for="candidate">Candidat</label>
+						</div>
 					</div>
-					<div class="wrap-radio">
-						<input type="radio" id="candidate" name="type" value="candidat" {if ($objUser->getType() == "candidat")} checked {/if} />
-						<label for="candidate">Candidat</label>
-					</div>
-					</div>
+				{/if}
 					<div class="style">
 						<label for="name">Nom</label>
 						<input type="text" id="name" name="nom" value="{$objUser->getNom()}" />
@@ -68,7 +70,7 @@
 
 					<div class="style">
 						<label for="password">Mot de passe</label>
-						<input type="password" id="password" name="mdp" value="{*$objUser->getMdp()*}"/>
+						<input type="password" id="password" name="mdp" value="" {if $strPage == "inscription"}required{/if}/>
 					</div>
 					<button class="btn-subscribe style-button" type="submit">{if $strPage == 'inscription'}S'inscrire{else}Modifier{/if}</button>
 				</form>

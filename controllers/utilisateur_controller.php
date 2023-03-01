@@ -97,6 +97,8 @@
             }else{
                 // Stocker les informations utiles de l'utilisateur en session
                 $_SESSION['user']	= $arrUser;
+                $objUserManager = new UtilisateurManager;
+                $objUserManager->dateCoUtilisateur();
             }
         }
 
@@ -131,6 +133,8 @@
                 ){
                     header("Location:index.php?ctrl=error&action=error_403");
                 }
+                // var_dump($_SESSION['user']);
+
 			// Création de l'objet Utilisateur
 			$objUser = new Utilisateur;
             $objUserManager = new UtilisateurManager;
@@ -152,11 +156,8 @@
 					$arrError[]	= "Mail déjà utilisé, merci d'en renseigner une
                     autre ou de vous connecter";
                 }
-				/*if ($objUser->getPwd() == ''){ // Tests sur le mot de passe
+				/* if ($objUser->getMdp() == ''){ // Tests sur le mot de passe
 					$arrError[]	= "Merci de renseigner un mot de passe";
-				}*/
-				/* if ($objUser->getPwd() != '' && !password_verify($_POST['confirmPwd'], $objUser->getPwd())){ // Tests sur la confirmation du mot de passe
-					$arrError[]	= "Le mot de passe et sa confirmation ne sont pas identiques";
 				} */
 				
 				// Si aucune erreur on l'insert en BDD
@@ -182,6 +183,7 @@
                 }else{
                     // Hydrater l'objet avec la méthode de l'entité
                     $objUser->hydrate($arrUser);
+                    // var_dump($objUser);
 
                 }
                 
@@ -191,7 +193,7 @@
             // Si le formulaire est envoyé, traiter celui-ci pour pour modification en BDD
             $this->_arrData['objUser']		= $objUser;
             $this->_arrData['arrError']		= $arrError;
-            $this->_arrData['arrUser']		= $arrUser;
+            // $this->_arrData['arrUser']		= $arrUser;
 
             $this->_arrData['strTitle']		= "Modifier un compte";
             $this->_arrData['strPage']		= "modifier_compte";

@@ -16,6 +16,7 @@
             $intUt = $unePhoto->getUtilisateurid();
 
             $rqAjouterPhoto = "INSERT INTO photo (photo_nom, photo_utilisateur_id)
+                                OUTER JOIN utilisateur ON photo.photo_utilisateur_id = utilisateur.utilisateur_id
                             VALUES ('".$strNomPhoto."', '".$intUt."')";
                             // var_dump($rqAjouterPhoto);
             return $this->_db->exec($rqAjouterPhoto); 

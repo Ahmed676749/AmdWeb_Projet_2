@@ -100,13 +100,14 @@
 									utilisateur_mail = :mail,
 									utilisateur_date_modification = NOW()";
 								
-			var_dump($objUser);
+			// var_dump($objUser);
 
 			if ($objUser->getMdp() != ''){
 				$strRqUpdate	.=	", utilisateur_mdp = :mdp";	
 			}
 			
 			$strRqUpdate	.= " WHERE utilisateur_id = ".$objUser->getId();		//$_SESSION['user']['id'];
+			var_dump($objUser->getId());
 			$prep			= $this->_db->prepare($strRqUpdate);
 			$prep->bindValue(':nom', $objUser->getNom(), PDO::PARAM_STR);
 			$prep->bindValue(':prenom', $objUser->getPrenom(), PDO::PARAM_STR);
@@ -118,10 +119,10 @@
 				$prep->bindValue(':mdp', $objUser->getMdp(), PDO::PARAM_STR);
 			}
 			
-			// var_dump($objUser->getNom());
-			// var_dump($prep);
+			// var_dump($objUser);die;
 			
 			return $prep->execute();
+			// var_dump($prep);
 		}
 
 		/**
@@ -154,7 +155,7 @@
 		* @return array Liste des utilisateurs
 		*/
 		public function findUtilisateurs():array{
-			$strRqUsers = "SELECT utilisateur_id, utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_mail FROM utilisateur;";
+			$strRqUsers = "SELECT utilisateur_id, utilisateur_nom, utilisateur_prenom, utilisateur_adresse, utilisateur_mail, utilisateur_date_creation, utilisateur_date_connexion FROM utilisateur;";
 							
 			return $this->_db->query($strRqUsers)->fetchAll();
 		}
@@ -171,5 +172,17 @@
 			return $this->_db->exec($strRq);
 		}
 
+		/**
+		* Méthode permettant d'ajouter la date et l'heure de connexion d'un utilisateur
+		*/
+		public function dateCoUtilisateur() {
+			$intId 		= $_GET['id']??$_SESSION['user']['utilisateur_id'];
+
+			$strRq = "UPDATE utilisateur
+						SET utilisateur_date_connexion = NOW()
+						WHERE utilisateur_id = ".$intId;
+		
+			return $this->_db->exec($strRq);
+		}
 
 	}

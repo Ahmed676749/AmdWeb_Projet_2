@@ -15,6 +15,8 @@
 				<th>Nom</th>
 				<th>Prénom</th>
 				<th>Mail</th>
+				<th>Derniére connexion</th>
+				<th>Date de création</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -25,6 +27,8 @@
 				<td>{$objUser->getNom()|unescape}</td>
 				<td>{$objUser->getPrenom()|unescape}</td>
 				<td>{$objUser->getMail()|unescape}</td>
+				<td>{$objUser->getDate_connexion()|unescape}</td>
+				<td>{$objUser->getDate_creation()|unescape}</td>
 				<td>
 					<a href="index.php?ctrl=utilisateur&action=modifier_compte&id={$objUser->getId()}" >Modifier</a>
 					<a href="index.php?ctrl=utilisateur&action=supprimer_compte&id={$objUser->getId()}" >Supprimer</a>

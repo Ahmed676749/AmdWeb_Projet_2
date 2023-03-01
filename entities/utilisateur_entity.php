@@ -96,7 +96,7 @@
 		* Setter de utilisateur_adresse
 		* @param $strUtilisateur_adresse Adresse
 		*/
-		public function setAdresse(string $strUtilisateur_adresse) {
+		public function setAdresse(string|null $strUtilisateur_adresse) {
 			$this->_utilisateur_adresse = filter_var(trim($strUtilisateur_adresse),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
@@ -200,14 +200,14 @@
 		* Getter de utilisateur_date_connexion
 		* @return string utilisateur_date_connexion
 		*/
-		public function getDate_connexion():string{
+		public function getDate_connexion():string|null{
 			return $this->_utilisateur_date_connexion;
 		}
 		/**
 		* Setter de utilisateur_date_connexion
 		* @param $strUtilisateur_date_connexion Date de connexion de l'utilisateur
 		*/
-		public function setDate_connexion(string $strUtilisateur_date_connexion) {
+		public function setDate_connexion(string|null $strUtilisateur_date_connexion) {
 			$this->_utilisateur_date_connexion = $strUtilisateur_date_connexion;
 		}
 

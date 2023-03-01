@@ -52,13 +52,68 @@
 			</header>
 			<div id="user">
 			{if isset($smarty.session.user.utilisateur_id) && $smarty.session.user.utilisateur_id != ''}
-				<p class="text-right">Bonjour <a href="index.php?ctrl=utilisateur&action=modifier_compte" title="Modifier son profil">{$smarty.session.user.utilisateur_prenom}</a>
+			<p class="text-right">Bonjour <a href="index.php?ctrl=utilisateur&action=modifier_compte" title="Modifier son profil">{$smarty.session.user.utilisateur_prenom}</a>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#aideModal">
+						Aide
+					</button>
 				| 
 				<a href="index.php?ctrl=utilisateur&action=deconnection" title="Se déconnecter">Se déconnecter</a>
 				{if ($smarty.session.user.utilisateur_droit_id == 3)}
-				|
+				 - 
 				<a href="index.php?ctrl=utilisateur&action=list_user" title="Administration">Administration</a> 
 				{/if}
+				{if ($smarty.session.user.utilisateur_droit_id == 4)}
+				|
+				<a href="index.php?ctrl=offre&action=afficherOffres" title="Modération">Modération</a> 
+				{/if}
+				
+				
+				<!-- Modal -->
+				<div class="modal fade" id="aideModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="exampleModalLabel">Aide utilisateur</h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							{if ($smarty.session.user.utilisateur_droit_id == 4)}
+							<div class="modal-body">
+								En tant que modérateur vous pouvez :
+								<ul>
+									<li>Gérer les offres d'emploi</li>
+									<li>Gérer les photos</li>
+								</ul>
+							</div>
+							{else if ($smarty.session.user.utilisateur_droit_id == 3)}
+							<div class="modal-body">
+								En tant qu'administrateur vous pouvez :
+								<ul>
+									<li>Gérer les offres d'emploi</li>
+									<li>Gérer les photos</li>
+									<li>Gérer les utilisateurs</li>
+								</ul>
+							</div>
+							{else}
+							<div class="modal-body">
+								En tant que candidat vous pouvez :
+								<ul>
+									<li>Consulter les offres d'emploi</li>
+									<li>Postuler à une offre</li>
+									<li>Ajouter des photos</li>
+								</ul>
+								En tant que recruteur vous pouvez en plus :
+								<ul>
+									<li>Déposer des offres d'emploi</li>
+								</ul>
+							</div>
+							{/if}
+								<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer l'aide</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				</p>
 			{/if}
 			</div>
