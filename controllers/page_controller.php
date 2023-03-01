@@ -1,43 +1,58 @@
 <?php
 	/**
 	* Controller des pages
-	* @autor Ahmed AL AMRI
+	* @autor Jonathan Legrand
 	*/
 	class Page_controller extends Base_controller{
 		
+		/**
+		* Page Accueil
+		*/
 		public function accueil(){
-			$this->_arrData['strTitle']	= "Accueil";
-			$this->_arrData['strPage']	= "accueil";
+			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web";
+			$this->_arrData['strPage']	= "index";
+			
 			$this->display("index");
 		}
-
-		// public function ajouteroffre(){
-		// 	$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
-		// 	$this->_arrData['strPage']	= "ajouteroffre";
-		// 	$this->display("ajouteroffre");
-		// }
 		
-		public function emploi(){
-			$this->_arrData['strTitle']	= "pages des emplois";
-			$this->_arrData['strPage']	= "emploi";
-			$this->display("emploi");
-		}
-	
+		/**
+		* Page Galerie
+		*/
 		public function galerie(){
-			$this->_arrData['strTitle']	= "pages des photos";
+			$this->_arrData['strTitle']	= "AmdWeb offres d'emplois, galerie photos";
 			$this->_arrData['strPage']	= "galerie";
+
 			$this->display("galerie");
 		}
+		
+		/**
+		* Page Mentions légales
+		*/
+		public function mentions(){
+			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web, mentions légales";
+			$this->_arrData['strPage']	= "mentions";
 
-		public function inscription(){
-			$this->_arrData['strTitle']	= "pages inscription";
-			$this->_arrData['strPage']	= "inscription";
-			$this->display("inscription");
+			$this->display("mentions");
 		}
 
-		public function connexion(){
-			$this->_arrData['strTitle']	= "pages connexion";
-			$this->_arrData['strPage']	= "connexion";
-			$this->display("connexion");
+		/**
+		* Page Emploi
+		*/
+		public function emploi(){
+			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web";
+			$this->_arrData['strPage']	= "emploi";
+
+			$this->display("emploi");
 		}
+
+		/**
+		* Page Plan du site
+		*/
+		public function plan(){
+			$this->_arrData['strTitle']	= "AmdWeb, offres d'emplois spécialisé web, plan du site";
+			$this->_arrData['strPage']	= "plan";
+
+			$this->display("plan");
+		}
+
 	}
