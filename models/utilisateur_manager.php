@@ -107,7 +107,6 @@
 			}
 			
 			$strRqUpdate	.= " WHERE utilisateur_id = ".$objUser->getId();		//$_SESSION['user']['id'];
-			var_dump($objUser->getId());
 			$prep			= $this->_db->prepare($strRqUpdate);
 			$prep->bindValue(':nom', $objUser->getNom(), PDO::PARAM_STR);
 			$prep->bindValue(':prenom', $objUser->getPrenom(), PDO::PARAM_STR);

@@ -5,7 +5,7 @@
         {if $strPage == "galerie"}
             <h1 class="style-h">Galerie photos</h1>
             <p class="text-presentation">
-            Voici quelques très jolie photographies pour vous mettre dans
+            Voici quelques photographies pour vous mettre dans
             l'ambiance.
             </p>
         {else}

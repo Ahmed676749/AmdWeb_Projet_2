@@ -51,7 +51,7 @@
 		}
 		
 
-		public function getSalaire() {
+		public function getSalaire():int|null {
 			return $this->_offreSalaire;
 		}
 		public function setSalaire($intSalaire) {

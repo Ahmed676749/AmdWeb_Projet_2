@@ -17,15 +17,12 @@
 			$objOffreManager = new OffreManager(); 
 			// Création de l'objet Offre
 			$objOffre = new Offre;
-			 var_dump($_SESSION);
+
 			$arrErrors 	= array(); // Initialisation du tableau des erreurs
 			if(count($_POST) > 0){ // Si le formulaire est envoyé
-				// $utSession = $_SESSION['user']['utilisateur_id'];
 				$objOffre->hydrate($_POST); // On hydrate l'objet
+				var_dump($_SESSION);
 				$objOffre->setIdutilisateur($_SESSION['user']['utilisateur_id']);
-				// $objOffre->setVille_cp($_SESSION['user']['utilisateur_id']);
-
-				var_dump($objOffre);
 				// On teste les informations
 				if ($objOffre->getTitre() == ''){
 					$arrErrors['titre'] = "Merci de renseigner un titre";
@@ -148,6 +145,7 @@
 				if (count($arrErrors)==0){ 
 					$managerModif->modifierOffres($objModif);
 				}
+				header("Location: index.php?ctrl=offre&action=afficherOffres");
 			
 			
 			

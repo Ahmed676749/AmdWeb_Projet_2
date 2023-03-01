@@ -14,11 +14,10 @@
         public function ajouterPhotos(Photo $unePhoto) {
             $strNomPhoto = $unePhoto->getNom();
             $intUt = $unePhoto->getUtilisateurid();
-            // var_dump($intUt);die;
 
             $rqAjouterPhoto = "INSERT INTO photo (photo_nom, photo_utilisateur_id)
                             VALUES ('".$strNomPhoto."', '".$intUt."')";
-                            // var_dump($rqAjouterPhoto);
+                            var_dump($rqAjouterPhoto);
             return $this->_db->exec($rqAjouterPhoto); 
         }
 
@@ -29,6 +28,15 @@
         public function supprimerPhotos($idPhotoSup){
 			$rqSuppPhoto = "DELETE FROM photo WHERE photo_id = $idPhotoSup";
 			$this->_db->exec($rqSuppPhoto);
+
+		}
+
+        public function trouverPhoto() {
+			$strRqAfficher = "SELECT *
+							  FROM photo";
+
+			return $this->_db->query($strRqAfficher)->fetchAll();
+
 		}
 
     }
