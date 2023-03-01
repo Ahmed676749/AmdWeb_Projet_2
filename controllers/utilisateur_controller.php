@@ -58,7 +58,7 @@
                 // Si aucune erreur, on créer l'objet User et on l'insert en BDD
                 if (count($arrError) == 0){ 
                     $objManager = new UtilisateurManager();           // instancier la classe
-                    var_dump($objManager);
+                    // var_dump($objManager);
 
                     if($objManager->creerUtilisateur($objUser)){    // Envoyer les informations à la BDD
                         header("Location:index.php");               // Puis redirection vers la page d'accueil
@@ -99,6 +99,7 @@
                 $_SESSION['user']	= $arrUser;
                 $objUserManager = new UtilisateurManager;
                 $objUserManager->dateCoUtilisateur();
+                header("Location:index.php");
             }
         }
 

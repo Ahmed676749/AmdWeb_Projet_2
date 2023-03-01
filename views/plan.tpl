@@ -13,9 +13,6 @@
 					<a href="index.php?ctrl=page&action=emploi">Emploi</a>
 				</li>
 				<li>
-					<a href="../job/details-emploi.php" class="details">Détails de l'offre d'emploi</a>
-				</li>
-				<li>
 					<a href="index.php?ctrl=utilisateur&action=inscription">Inscription</a>
 				</li>
 				<li>
