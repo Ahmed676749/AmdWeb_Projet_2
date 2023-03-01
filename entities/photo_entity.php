@@ -15,11 +15,11 @@
 			return $this->_id = $intId;
 		}
 
-		public function getNom():string|null {
+		public function getNom() {
 			return $this->_nom;
 		}
 		public function setNom($strNom) {
-			return $this->_nom = filter_var(trim($strNom),FILTER_SANITIZE_SPECIAL_CHARS);
+			return $this->_nom = $strNom;
 		}
 
 		public function getUtilisateurid() {

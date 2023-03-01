@@ -50,7 +50,6 @@
 				}
 				
 				
-				
 			}
 				//Affichage 
 				$this->_arrData['objOffre'] = $objOffre;
@@ -58,8 +57,6 @@
 				$this->_arrData['strTitle']	= "Ajouter une offre d'emploi";
 				$this->_arrData['strPage']	= "ajouteroffre";
 				$this->display("ajouteroffre");
-
-
     }
 
 		/**
@@ -148,7 +145,6 @@
 					$managerModif->modifierOffres($objModif);
 				}
 			
-				header("Location: index.php?ctrl=offre&action=afficherOffres");
 			
 			
 			

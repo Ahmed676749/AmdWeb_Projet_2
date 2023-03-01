@@ -76,18 +76,13 @@
               <label for="ut">utilisateur</label>
               <input type="text" name="photo_utilisateur_id" id="ut">
               <button class="btn-addPhoto style-button" type="submit">Ajouter</button>
-              {* {if isset($objPhoto)}
-              <a href="index.php?ctrl=photo&action=supprimerPhoto&idSupPhoto={$objPhoto->getId()}&delete=1" class="btn-addJob style-button" >Supprimer</a>
-              
-
-            {/if} *}
-            <a href="index.php?ctrl=photo&action=afficherPhotos" class="btn-addJob style-button" >Afficher</a>
+              <a href="index.php?ctrl=photo&action=supprimerPhoto&idSupPhoto=62&delete=1" class="btn-addJob style-button" >
+                  Supprimer
+              </a>
           </form>
-          {* <div>
-          {if isset($objPhoto)}
+          <div>
             <img alt="image" src="assets/images/img_first_page/{$objPhoto->getNom()}">
-          {/if}
-          </div> *}
+          </div>
         </div>
       </main>
     {/block}
