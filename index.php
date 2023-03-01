@@ -1,10 +1,9 @@
-<?php
-<<<<<<< HEAD
 
+<?php
   $strTitle = "AmdWeb, offres d'emplois spécialisé web";
   $strPage = "index";
 
-  include("header.php");
+  include("pages/header.php");
 ?>
         <!--Section barre de recherche-->
         <div class="search-box">
@@ -68,39 +67,6 @@
         </div>
       </div>
       <!--Footer-->
-<?php include("footer.php") ?>
-=======
-session_start();		// Session sur toutes les pages
+<?php include("pages/footer.php") ?>
 
-	$boolError404 = false;
->>>>>>> 4e26f6ca462bb370a4c99b200b17e9362601e317
 
-	require('controllers/base_controller.php');
-
-	$strCtrl 	= $_GET['ctrl']??"page";
-	$strAction 	= $_GET['action']??"accueil";
-	
-	// inclure le fichier qui contient la classe
-	$strFile = "controllers/".$strCtrl."_controller.php";
-	if (file_exists($strFile)){ 						// Si le fichier du controller existe
-		require($strFile);
-		// instancie un objet
-		$strClassName 	= ucfirst($strCtrl)."_controller";
-		$objCtrl 		= new $strClassName;
-		// appel à la méthode
-		$strMethodName	= $strAction;
-		if (method_exists($objCtrl, $strMethodName)){ 	// Si la méthode existe dans le controller 
-			$objCtrl->$strMethodName();
-		}else{
-			$boolError404 = true;
-		}
-	}else{
-		$boolError404 = true;
-	}
-	
-	if ($boolError404){
-		require("controllers/error_controller.php");
-		$objCtrl = new Error_controller;
-		$objCtrl->error_404();
-	}
-	

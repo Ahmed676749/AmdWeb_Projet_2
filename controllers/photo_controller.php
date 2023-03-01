@@ -17,7 +17,7 @@
                 $objDate 		= new DateTime();
                 $arrImage 		= explode(".", $arrPhotos['name']);
                 $strNewName 	= $objDate->format('YmdHis').".".$arrImage[count($arrImage)-1]; // Nom de l'image => A renommer par sécurité
-                $strFileDest 	= $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/AmdWeb_projet_2/assets/images/img_first_page/'.$strNewName;
+                $strFileDest 	= $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/amdweb/assets/images/img_first_page/'.$strNewName;
     
                 if (move_uploaded_file($strFileName, $strFileDest)){
                     $objManager = new PhotoManager;
@@ -28,13 +28,15 @@
                         "photo_utilisateurid" => $_SESSION['user']['utilisateur_id']
                     ];
                     $objPhoto->hydrate($tab);
+                    echo "<pre>";
+                    print_r($objPhoto);
                     
                     $objManager->ajouterPhotos($objPhoto);
-                    $this->_arrData['arrPhotos'] = $objPhoto;
+                    $this->_arrData['objPhoto'] = $objPhoto;
                 }
             }
 			$this->_arrData['strTitle']	= "page photo";
-			$this->_arrData['strPage']	= "ajouterPhoto";
+			$this->_arrData['strPage']	= "galerie";
 			$this->display("galerie");
         }
 

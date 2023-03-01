@@ -19,12 +19,12 @@
 
                 
 				
-                // echo "<pre>";
-                // print_r($_POST);
+                echo "<pre>";
+                print_r($_POST);
 				$objCat->hydrate($_POST);
 
-                // echo "<pre>";
-                // print_r($objCat);
+                echo "<pre>";
+                print_r($objCat);
 				$objCatManager->ajouterCategories($objCat);
                 
 			} 

@@ -96,7 +96,7 @@
 		* Setter de utilisateur_adresse
 		* @param $strUtilisateur_adresse Adresse
 		*/
-		public function setAdresse(string|null $strUtilisateur_adresse) {
+		public function setAdresse(string $strUtilisateur_adresse) {
 			$this->_utilisateur_adresse = filter_var(trim($strUtilisateur_adresse),FILTER_SANITIZE_SPECIAL_CHARS);
 		}
 
