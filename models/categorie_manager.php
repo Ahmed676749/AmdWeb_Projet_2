@@ -9,10 +9,10 @@
 
         public function ajouterCategories(Categorie $cat) {
 			$strNom = $cat->getNom();
-			$intSousCat= 1;
+			
 		
-    		$strRqAjoutCat = "INSERT INTO categorie (categorie_nom, categorie_sous_categorie_id)
-                      VALUES ('".$strNom."', '".$intSousCat."')"; 
+    		$strRqAjoutCat = "INSERT INTO categorie (categorie_nom)
+                      VALUES ('".$strNom."')"; 
 
 
         	return $this->_db->exec($strRqAjoutCat);

@@ -70,7 +70,7 @@
           </button>
         </div> *}
         <div class="formImage">
-          <form action="#" method="post" enctype="multipart/form-data">
+          <form action="index.php?ctrl=photo&action=ajouterPhoto" method="post" enctype="multipart/form-data">
               <label for="photo">Selectionnez une image</label>
               <input type="file" name="photo_nom" id="photo">
               {* <label for="ut">utilisateur</label>

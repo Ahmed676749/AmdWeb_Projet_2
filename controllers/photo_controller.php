@@ -9,16 +9,21 @@
             require("models/photo_manager.php");
             require_once("entities/photo_entity.php");
 
-            
-
+            //   var_dump($_SESSION);
+var_dump("moi");
             $arrPhotos = $_FILES["photo_nom"]??array();
-            if(count($_POST) > 0) {
+            // var_dump($_FILES);
+            if(count($_FILES) > 0) {
+                var_dump("dans if");
+            //   var_dump($_POST);
                 $strFileName 	= $arrPhotos['tmp_name'];
                 $objDate 		= new DateTime();
                 $arrImage 		= explode(".", $arrPhotos['name']);
                 $strNewName 	= $objDate->format('YmdHis').".".$arrImage[count($arrImage)-1]; // Nom de l'image => A renommer par sécurité
                 $strFileDest 	= $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/amdweb/assets/images/img_first_page/'.$strNewName;
     
+                
+
                 if (move_uploaded_file($strFileName, $strFileDest)){
                     $objManager = new PhotoManager;
                     $objPhoto = new Photo;
@@ -27,14 +32,22 @@
                         "photo_nom" => $strNewName,
                         "photo_utilisateurid" => $_SESSION['user']['utilisateur_id']
                     ];
+                  
                     $objPhoto->hydrate($tab);
+                    // $objPhoto->setUtilisateurid($_SESSION['user']['utilisateur_id']);
+
                     echo "<pre>";
                     print_r($objPhoto);
                     
-                    $objManager->ajouterPhotos($objPhoto);
+                      $objManager->ajouterPhotos($objPhoto);
+                    
+
+
+                    
                     $this->_arrData['objPhoto'] = $objPhoto;
                 }
             }
+            
 			$this->_arrData['strTitle']	= "page photo";
 			$this->_arrData['strPage']	= "galerie";
 			$this->display("galerie");
@@ -70,15 +83,16 @@
 				// Création de l'objet 
 				$objPhoto= new Photo;
 				$objPhoto->hydrate($arrDetPhoto); // On hydrate l'objet
-                var_dump($objPhoto);
+                // var_dump($objPhoto);
 
-                echo "<pre>";
-                print_r($objPhoto); 
+                // echo "<pre>";
+                // print_r($objPhoto); 
 
-                echo "<pre>";
-                print_r($arrDetPhoto); 
-                var_dump($arrDetPhoto);
+                // echo "<pre>";
+                // print_r($arrDetPhoto); 
+                // var_dump($arrDetPhoto);
 				$arrPhotoAffichage[] = $objPhoto;
+                
 		}
 
 			$this->_arrData['arrPhotoAffichage'] = $arrPhotoAffichage;
