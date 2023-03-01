@@ -21,12 +21,24 @@
             return $this->_db->exec($rqAjouterPhoto); 
         }
 
+        public function trouverPhoto() {
+			$strRqAfficher = "SELECT *
+							  FROM photo";
+			
+			return $this->_db->query($strRqAfficher)->fetchAll();
+			
+		}
+
+
         /**
 		* Méthode qui supprime une photo
 		* @ param identifiant de l'objet photo
 		*/
         public function supprimerPhotos($idPhotoSup){
 			$rqSuppPhoto = "DELETE FROM photo WHERE photo_id = $idPhotoSup";
+
+            var_dump($rqSuppPhoto);
+            var_dump($idPhotoSup);
 			$this->_db->exec($rqSuppPhoto);
 
 		}
