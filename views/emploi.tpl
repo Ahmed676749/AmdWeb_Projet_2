@@ -10,9 +10,9 @@
 	{foreach from=$arrOffreAffichage item=$objOffreDet}
 		<div class="wrapper-layer">  
 		<a href="index.php?ctrl=offre&action=afficherOffre&id={$objOffreDet->getId()}" class="card-job">
-		<h3 {}>{$objOffreDet->getTitre()}</h3>
-		<address>{$objOffreDet->getAdresse()}</address>
-		<p>Salaire: {$objOffreDet->getSalaire()} &euro; / mois</p>
+			<h3> {if $objOffreDet->getTitre() != ''}{$objOffreDet->getTitre()|unescape}{/if}</h3>
+			<address>{if $objOffreDet->getAdresse() != ''}{$objOffreDet->getAdresse()|unescape}{/if}</address>
+			<p>Salaire: {if $objOffreDet->getSalaire() != ''}{$objOffreDet->getSalaire()|unescape}{/if} &euro; / mois</p>
 		
 		{if (isset($smarty.session.user.utilisateur_droit_id) && (($smarty.session.user.utilisateur_droit_id == 3) || ($smarty.session.user.utilisateur_droit_id == 4)))}
 		<a href="index.php?ctrl=offre&action=modifierOffre&idMod={$objOffreDet->getId()}" class="btn-addJob style-button" >Modifier</a>

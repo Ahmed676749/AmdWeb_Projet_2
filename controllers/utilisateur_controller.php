@@ -33,7 +33,7 @@
                 // On hydrate l'objet
                 $objUser->hydrate($_POST);
                 // var_dump($_POST['nom']);
-                var_dump($objUser);
+                // var_dump($objUser);
                 
                 // On teste les informations
                 if ($objUser->getNom() == ''){              // Tests sur le nom
