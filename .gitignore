@@ -1,2 +1,4 @@
 .vscode/settings.json
 /templates_c
+controllers/categorie_controller.php.bak
+*.bak
