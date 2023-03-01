@@ -21,7 +21,8 @@
 			$arrErrors 	= array(); // Initialisation du tableau des erreurs
 			if(count($_POST) > 0){ // Si le formulaire est envoyé
 				$objOffre->hydrate($_POST); // On hydrate l'objet
-
+				var_dump($_SESSION);
+				$objOffre->setIdutilisateur($_SESSION['user']['utilisateur_id']);
 				// On teste les informations
 				if ($objOffre->getTitre() == ''){
 					$arrErrors['titre'] = "Merci de renseigner un titre";
@@ -144,6 +145,7 @@
 				if (count($arrErrors)==0){ 
 					$managerModif->modifierOffres($objModif);
 				}
+				header("Location: index.php?ctrl=offre&action=afficherOffres");
 			
 			
 			

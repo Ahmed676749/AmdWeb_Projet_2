@@ -10,9 +10,9 @@
         <div class="wrapper-layer">  
           {foreach from=$arrOffreAffichage item=$objOffreDet}
             <a href="index.php?ctrl=offre&action=afficherOffre&id={$objOffreDet->getId()}" class="card-job">
-              <h3 {}>{$objOffreDet->getTitre()}</h3>
-              <address>{$objOffreDet->getAdresse()}</address>
-              <p>Salaire: {$objOffreDet->getSalaire()} &euro; / mois</p>
+          <h3> {if $objOffreDet->getTitre() != ''}{$objOffreDet->getTitre()|unescape}{/if}</h3>
+          <address>{if $objOffreDet->getAdresse() != ''}{$objOffreDet->getAdresse()|unescape}{/if}</address>
+          <p>Salaire: {if $objOffreDet->getSalaire() != ''}{$objOffreDet->getSalaire()|unescape}{/if} &euro; / mois</p>
             </a>
             <div>
               <a href="index.php?ctrl=offre&action=modifierOffre&idMod={$objOffreDet->getId()}" class="btn-addJob style-button" >

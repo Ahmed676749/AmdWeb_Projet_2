@@ -31,7 +31,13 @@
 
 		}
 
-       
+        public function trouverPhoto() {
+			$strRqAfficher = "SELECT *
+							  FROM photo";
+
+			return $this->_db->query($strRqAfficher)->fetchAll();
+
+		}
 
 
     }

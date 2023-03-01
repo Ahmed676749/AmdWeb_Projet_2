@@ -25,14 +25,14 @@
 
                     $tab = [
                         "photo_nom" => $strNewName,
-                        "photo_utilisateurid" => 1
+                        "photo_utilisateurid" => $_SESSION['user']['utilisateur_id']
                     ];
                     $objPhoto->hydrate($tab);
                     echo "<pre>";
                     print_r($objPhoto);
                     
                     $objManager->ajouterPhotos($objPhoto);
-                    $this->_arrData['arrPhotos'] = $objPhoto;
+                    $this->_arrData['objPhoto'] = $objPhoto;
                 }
             }
 			$this->_arrData['strTitle']	= "page photo";
@@ -54,8 +54,37 @@
                 
                 
 				$managerSupPhoto->supprimerPhotos($photoSupprim);
-                
+                header("Location: index.php?ctrl=photo&action=afficherPhotos"); 
 			}
 		}
+
+        
+        public function afficherPhotos() {
+			require("entities/photo_entity.php"); 
+			require("models/photo_manager.php"); 
+			$objManager = new PhotoManager(); 
+			$arrPhotos = $objManager->trouverPhoto();
+
+			$arrPhotoAffichage = array();
+			foreach($arrPhotos as $arrDetPhoto){
+				// Création de l'objet 
+				$objPhoto= new Photo;
+				$objPhoto->hydrate($arrDetPhoto); // On hydrate l'objet
+                var_dump($objPhoto);
+
+                echo "<pre>";
+                print_r($objPhoto); 
+
+                echo "<pre>";
+                print_r($arrDetPhoto); 
+                var_dump($arrDetPhoto);
+				$arrPhotoAffichage[] = $objPhoto;
+		}
+
+			$this->_arrData['arrPhotoAffichage'] = $arrPhotoAffichage;
+			$this->_arrData['strTitle']	= "page photo";
+			$this->_arrData['strPage']	= "photo";
+			$this->display("photos");
+    }
     }
 ?>

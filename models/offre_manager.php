@@ -23,9 +23,10 @@
 			$strSalaire = $offre->getSalaire();
 			$strSiret = $offre->getSiret();
 			$strAdresse = $offre->getAdresse();
+			$strUt = $offre->getIdutilisateur();
 			
-    		$strRq = "INSERT INTO offre (offre_titre, offre_description, offre_salaire, offre_siret, offre_adresse)
-                      VALUES ('".$strTitre."', '".$strDescription."', '".$strSalaire."', '".$strSiret."', '".$strAdresse."')"; 
+    		$strRq = "INSERT INTO offre (offre_titre, offre_description, offre_salaire, offre_siret, offre_adresse, offre_utilisateur_id)
+                      VALUES ('".$strTitre."', '".$strDescription."', '".$strSalaire."', '".$strSiret."', '".$strAdresse."', '".$strUt."')"; 
 
         	return $this->_db->exec($strRq);
 		}

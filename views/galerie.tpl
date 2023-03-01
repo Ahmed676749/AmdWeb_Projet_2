@@ -73,16 +73,14 @@
           <form action="#" method="post" enctype="multipart/form-data">
               <label for="photo">Selectionnez une image</label>
               <input type="file" name="photo_nom" id="photo">
-              <label for="ut">utilisateur</label>
-              <input type="text" name="photo_utilisateur_id" id="ut">
+              {* <label for="ut">utilisateur</label>
+              <input type="text" name="photo_utilisateur_id" id="ut"> *}
               <button class="btn-addPhoto style-button" type="submit">Ajouter</button>
-              <a href="index.php?ctrl=photo&action=supprimerPhoto&idSupPhoto=62&delete=1" class="btn-addJob style-button" >
-                  Supprimer
-              </a>
+              <a href="index.php?ctrl=photo&action=afficherPhotos" class="btn-addJob style-button" >Afficher</a>
           </form>
-          <div>
+          {* <div>
             <img alt="image" src="assets/images/img_first_page/{$objPhoto->getNom()}">
-          </div>
+          </div> *}
         </div>
       </main>
     {/block}
