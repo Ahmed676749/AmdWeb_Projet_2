@@ -24,6 +24,9 @@
               <a href="index.php?ctrl=categorie&action=ajouterCategorie" class="btn-addJob style-button" >
                     Ajouter Catégorie
               </a>
+              <a href="index.php?ctrl=categorie&action=afficherCategorie" class="btn-addJob style-button" >
+                    Afficher Catégorie
+              </a>
             </div>
           {/foreach}
         

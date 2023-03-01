@@ -8,9 +8,7 @@
         }
 
         public function ajouterCategories(Categorie $cat) {
-			$strNom = $cat->getCategorienom();
-            // $strNom = $_POST["categorie_nom"]??"";
-			
+			$strNom = $cat->getNom();
 			$intSousCat= 1;
 		
     		$strRqAjoutCat = "INSERT INTO categorie (categorie_nom, categorie_sous_categorie_id)
@@ -19,6 +17,11 @@
 
         	return $this->_db->exec($strRqAjoutCat);
             
+		}
+
+        public function affichCat() {
+			$rq = "SELECT * FROM categorie";
+			return $this->_db->query($rq)->fetchAll();
 		}
     }
 ?>
