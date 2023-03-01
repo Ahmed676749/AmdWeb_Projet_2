@@ -50,6 +50,8 @@
 			$this->_arrData['strPage']	= "emploi";
 			$this->display("emploi");
 
+			// pour récupérer les informations des objets dans le formulaire
+
 			$this->_arrData['strKeywords'] 	= $_POST['keywords']??'';
 
 		
@@ -61,6 +63,8 @@
 			require("entities/offre_entity.php"); 
 			require("models/offre_manager.php"); 
 			$objOffreManager = new OffreManager();
+
+			
 
 			$objUneOffre = $objOffreManager->afficherUneOffre($_GET["id"]);
 
