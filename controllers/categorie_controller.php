@@ -34,5 +34,25 @@
 				$this->_arrData['strPage']	= "ajoutercategorie";
 				$this->display("ajoutercategorie");
     }
+
+		public function afficherCategorie() {
+			require("entities/categorie_entity.php"); 
+			require("models/categorie_manager.php"); 
+			$objManager = new CategorieManager(); 
+			$arrCat = $objManager->affichCat();
+
+			$arrAffichage = array();
+			foreach($arrCat as $arrDetCat){
+				// Création de l'objet Offre
+				$objCat = new Categorie;
+				$objCat->hydrate($arrDetCat); // On hydrate l'objet
+				$arrAffichage[] = $objCat;
+		}
+
+			$this->_arrData['arrAffichage'] = $arrAffichage;
+			$this->_arrData['strTitle']	= "page des catégories";
+			$this->_arrData['strPage']	= "categorie";
+			$this->display("categorie");
+	}
 }
 ?>
